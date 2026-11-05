@@ -57,6 +57,7 @@ header.top .grid{align-items:start}
 .h-loc{grid-column:7/10}
 nav.main{grid-column:10/13;display:flex;gap:18px;justify-content:flex-end;align-items:center}
 nav.main a{position:relative}
+.wip{display:inline-block;margin-left:10px;padding:3px 6px 2px;border:1px solid var(--rule);color:var(--mute);font-size:10px;line-height:1;letter-spacing:.06em;vertical-align:middle;position:relative;top:-1px}
 nav.main a[aria-current="page"]::before{content:"";position:absolute;left:-10px;top:50%;width:5px;height:5px;background:var(--red);transform:translateY(-50%)}
 nav.main a:hover{color:var(--hover)}
 .links{display:flex;gap:18px}
@@ -258,7 +259,7 @@ header.top{transition:transform .7s cubic-bezier(.2,.7,.2,1),background-color .3
 
 <header class="top">
   <div class="grid mono">
-    <a class="brand" href="#home" style="font-family:var(--sans);text-transform:none">Corey Dixon<span class="c">©</span></a>
+    <a class="brand" href="#home" style="font-family:var(--sans);text-transform:none">Corey Dixon<span class="c">©</span><span class="wip mono" title="This site is a work in progress">WIP</span></a>
     <span class="h-role">Senior Product &amp;<br>Experience Designer</span>
     <span class="h-loc mute">Richmond, VA — USA<br>12+ Years · Est. 2013</span>
     <nav class="main">
@@ -284,6 +285,8 @@ header.top{transition:transform .7s cubic-bezier(.2,.7,.2,1),background-color .3
     <div><span class="mute">Elsewhere</span><a href="https://linkedin.com/in/corey-dixon">LinkedIn ↗</a></div>
     <div><span class="mute">Based</span><span>Richmond, VA</span></div>
     <div><span class="mute">Status</span><span>● Open to select work</span></div>
+    <div><span class="mute">Site</span><span>v0.1 · Work in progress</span></div>
+    <div></div>
   </div>
 </div>
 
@@ -367,6 +370,7 @@ function home(){
           <dt>Focus</dt><dd>Design Systems, E-Com, Platforms</dd>
           <dt>Tenure</dt><dd>12+ Years, Agency &amp; In-House</dd>
           <dt>Status</dt><dd><span class="c">●</span> Open to select work</dd>
+          <dt>Site</dt><dd class="mute">v0.1 — Work in progress, case studies landing soon</dd>
         </dl>
       </div>
     </section>
