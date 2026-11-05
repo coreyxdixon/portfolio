@@ -4,20 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Corey Dixon, Senior Product &amp; Experience Designer in Richmond, VA. 14 years designing web and app experiences for Google, PGA Tour, Morgan Stanley, Dickies and more.">
-<link rel="canonical" href="https://coreydixon.pages.dev/">
+<link rel="canonical" href="https://coreydixon.design/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Corey Dixon©">
-<meta property="og:url" content="https://coreydixon.pages.dev/">
+<meta property="og:url" content="https://coreydixon.design/">
 <meta property="og:title" content="Corey Dixon©">
 <meta property="og:description" content="Senior Product &amp; Experience Designer. Design systems, e-commerce and platforms for global brands.">
-<meta property="og:image" content="https://coreydixon.pages.dev/og.png">
+<meta property="og:image" content="https://coreydixon.design/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Corey Dixon© — Shaping scalable digital systems across enterprise, culture, and global brands.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Corey Dixon©">
 <meta name="twitter:description" content="Senior Product &amp; Experience Designer. Design systems, e-commerce and platforms for global brands.">
-<meta name="twitter:image" content="https://coreydixon.pages.dev/og.png">
+<meta name="twitter:image" content="https://coreydixon.design/og.png">
 <meta name="theme-color" content="#0C0C0B">
 <meta name="author" content="Corey Dixon">
 <link rel="manifest" href="/site.webmanifest">
@@ -261,6 +261,8 @@ header.top{transition:transform .7s cubic-bezier(.2,.7,.2,1),background-color .3
 .m-half{grid-column:span 6}
 @media (max-width:760px){.m-half{grid-column:1/-1}.p-block .team{grid-column:1/-1}}
 .slot{display:block}
+.dl{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.dl:hover{color:var(--hover)}
 /* Entrance */
 @media (prefers-reduced-motion:no-preference){
   .view>*{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
@@ -305,7 +307,7 @@ header.top{transition:transform .7s cubic-bezier(.2,.7,.2,1),background-color .3
   </nav>
   <div class="menu-foot mono">
     <div><span class="mute">Email</span><span>hi@coreydixon.design</span></div>
-    <div><span class="mute">Elsewhere</span><a href="https://linkedin.com/in/corey-dixon">LinkedIn ↗</a></div>
+    <div><span class="mute">Elsewhere</span><a href="https://linkedin.com/in/corey-dixon">LinkedIn ↗</a><a href="/Corey-Dixon-CV.pdf" download>CV (PDF) ↓</a></div>
     <div><span class="mute">Based</span><span>Richmond, VA</span></div>
     <div><span class="mute">Status</span><span>● Open to select work</span></div>
     <div><span class="mute">Site</span><span>v0.1 · Work in progress</span></div>
@@ -322,7 +324,7 @@ header.top{transition:transform .7s cubic-bezier(.2,.7,.2,1),background-color .3
     <div class="big"><a href="mailto:hi@coreydixon.design">Get in touch<span class="c">.</span></a></div>
     <div class="open mono"><span class="mute">Open to work in —</span><span>Product Design</span><span>Design Systems</span><span>E-Commerce</span><span>Experience Design</span></div>
     <div class="col mono"><span class="mute">Email</span><span id="email">hi@coreydixon.design</span><button type="button" class="copy mono" id="copy">Copy email</button></div>
-    <div class="col mono"><span class="mute">Elsewhere</span><a href="https://linkedin.com/in/corey-dixon">LinkedIn ↗</a></div>
+    <div class="col mono"><span class="mute">Elsewhere</span><a href="https://linkedin.com/in/corey-dixon">LinkedIn ↗</a><a class="dl" href="/Corey-Dixon-CV.pdf" download>CV (PDF) ↓</a></div>
     <div class="col mono"><span class="mute">Based</span><span>Richmond, Virginia</span></div>
     <div class="col mono"><span class="mute">Note</span><span>All work shown is property of its clients, featured with permission. © 2026</span></div>
   </div>
@@ -475,19 +477,20 @@ const P = [
   {id:"paypal", n:"008", client:"PayPal", short:"PayPal", disc:"Product Design", tint:"#003087", draft:true},
 ];
 const ROWS = [
-  ["Jun 2026 — Present","GetWyz","Senior Designer","Full-time · Richmond, VA · Hybrid"],
-  ["Feb 2026 — Jun 2026","PayPal","Senior UX Designer","Contract · Remote · Motion and visual design"],
-  ["Nov 2025 — Mar 2026","Left Field Labs","Senior Designer","Freelance · Los Angeles, remote · Motion and visual design"],
-  ["Dec 2024 — Nov 2025","Grow","Senior Designer","Contract · UX and interface design"],
-  ["Oct 2023 — Dec 2024","Shockoe","Design Lead","Full-time · Remote · Mobile app design and UX"],
-  ["Jun 2022 — Oct 2023","VF Corporation","Senior Designer","Contract · Remote · Brand and motion design for The North Face, Dickies and Smartwool"],
-  ["Oct 2021 — Jun 2022","Shockoe","Senior Product Designer","Contract · Remote · UX and visual design"],
-  ["Mar 2020 — Oct 2021","Pow","Senior Designer","Portland, remote · Visual design and design systems"],
-  ["Jan 2019 — Mar 2020","Money Magazine","Visual Designer","San Juan, PR · UX and visual design"],
-  ["Jan 2018 — Dec 2018","CarMax","Visual Designer","Contract · Brand design and e-commerce"],
-  ["Nov 2016 — Jan 2018","Capital One","Associate Visual Designer","Branding, identity and visual design"],
-  ["Jun 2012 — Nov 2016","Dominion Enterprises","Product Designer","Norfolk, VA · UX and visual design"],
+  ["Jun 2026 — Present","GetWyz","Senior Designer","Full-time · Richmond, VA · Product and visual design across the platform"],
+  ["Feb 2026 — Jun 2026","PayPal","Senior UX Designer","Contract · Remote · PayPal and Venmo consumer and merchant experiences, motion and prototyping"],
+  ["Nov 2025 — Mar 2026","Left Field Labs","Senior Designer","Freelance · Remote · Motion and art direction for Google I/O 2026"],
+  ["Dec 2024 — Nov 2025","Grow","Senior Designer","Contract · Product design and design systems for Capital One enterprise tools"],
+  ["Oct 2023 — Dec 2024","Shockoe","Design Team Lead","Full-time · Remote · Responsive web and native mobile apps"],
+  ["Jun 2022 — Oct 2023","VF Corporation","Senior Designer","Contract · Remote · Design systems and redesigns for Dickies, The North Face, Vans and Timberland"],
+  ["Oct 2021 — Jun 2022","Shockoe","Senior Product Designer","Contract · Remote · Responsive web and native mobile clients"],
+  ["Mar 2020 — Oct 2021","Pow","Senior Designer","Remote · Features and design system work for Morgan Stanley’s Beacon"],
+  ["Jan 2019 — Mar 2020","Money.com","Visual Designer","San Juan, PR · UX and product design for consumer financial tools"],
+  ["Jan 2018 — Dec 2018","CarMax","Visual Designer","Contract · Responsive product and lifecycle design"],
+  ["Nov 2016 — Jan 2018","Capital One","Associate Visual Designer","Patterns and components for the Gravity design system"],
+  ["Jun 2012 — Nov 2016","Dominion Enterprises","Product Designer","Norfolk, VA · Web and native apps for Homes.com"],
 ];
+const EDU = [["2006 — 2010","Old Dominion University","Bachelor of Fine Arts"],["2016","University of Richmond","Full Stack Bootcamp"],["2019","Future London Academy","UX Design Week"]];
 const rowHTML = r=>`<div class="grid r-row"><span class="when mono mute">${r[0]}</span><span class="co">${r[1]}</span><span class="role">${r[2]}</span><span class="desc">${r[3]}</span></div>`;
 const layout = [""];
 
@@ -639,12 +642,17 @@ function resume(){
           <dt>Email</dt><dd>hi@coreydixon.design</dd>
           <dt>Profile</dt><dd><a href="https://linkedin.com/in/corey-dixon">LinkedIn ↗</a></dd>
           <dt>Since</dt><dd>2012 · 12 roles</dd>
+          <dt>CV</dt><dd><a class="dl" href="/Corey-Dixon-CV.pdf" download>Download PDF ↓</a></dd>
         </dl>
       </div>
     </section>
     <section>
       <div class="sec-head"><div class="grid mono"><span class="l">(Experience)</span><span class="m mute">Years / Company / Role / Scope</span><span class="r mute">${rows.length} roles · 2012 — Present</span></div></div>
       ${rows.map(rowHTML).join("")}
+    </section>
+    <section>
+      <div class="sec-head"><div class="grid mono"><span class="l">(Education)</span><span class="m mute">Years / School / Program</span><span class="r"><a class="dl" href="/Corey-Dixon-CV.pdf" download>CV (PDF) ↓</a></span></div></div>
+      ${EDU.map(e=>`<div class="grid r-row"><span class="when mono mute">${e[0]}</span><span class="co">${e[1]}</span><span class="role">${e[2]}</span></div>`).join("")}
     </section>
     <section>
       <div class="sec-head"><div class="grid mono"><span class="l">(Capabilities)</span></div></div>
