@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Corey Dixon, Senior Product & Experience Designer in Richmond, VA. 12+ years building scalable web and app experiences for enterprise and global brands.">
+<meta name="description" content="Corey Dixon, Senior Product & Experience Designer in Richmond, VA. 14 years designing web and app experiences for Google, PGA Tour, Morgan Stanley, Dickies and more.">
 <meta property="og:title" content="Corey Dixon©">
 <meta property="og:description" content="Senior Product & Experience Designer. Design systems, e-commerce and platforms for global brands.">
-<meta property="og:image" content="https://coreydixon.design/brand/icon-512.png">
+<meta property="og:image" content="https://coreydixon.design/work/google-io-cover.webp">
 <meta name="theme-color" content="#0C0C0B">
 <link rel="preload" href="/fonts/OverusedGrotesk-VF.woff2" as="font" type="font/woff2" crossorigin>
 <title>Corey Dixon©</title>
@@ -238,6 +238,11 @@ header.top{transition:transform .7s cubic-bezier(.2,.7,.2,1),background-color .3
 }
 @media (prefers-reduced-motion:reduce){.cur,.cur-ring,.peek{display:none!important}}
 
+.ph-img{background:var(--tile)}
+.ph-img::before{display:none}
+.ph-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.shot{display:block;width:100%;height:auto;background:var(--tile)}
+.m-off .shot{}
 /* Entrance */
 @media (prefers-reduced-motion:no-preference){
   .view>*{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
@@ -261,7 +266,7 @@ header.top{transition:transform .7s cubic-bezier(.2,.7,.2,1),background-color .3
   <div class="grid mono">
     <a class="brand" href="#home" style="font-family:var(--sans);text-transform:none">Corey Dixon<span class="c">©</span><span class="wip mono" title="This site is a work in progress">WIP</span></a>
     <span class="h-role">Senior Product &amp;<br>Experience Designer</span>
-    <span class="h-loc mute">Richmond, VA — USA<br>12+ Years · Est. 2013</span>
+    <span class="h-loc mute">Richmond, VA — USA<br>14 Years · Est. 2012</span>
     <nav class="main">
       <span class="links">
         <a href="#home" data-nav="home">Work</a>
@@ -312,36 +317,71 @@ function setMode(m){ if(m==="light") root.setAttribute("data-mode","light"); els
 let saved="dark"; try{saved=localStorage.getItem("cd-theme")||"dark"}catch(e){}
 setMode(saved);
 document.querySelector(".modes").addEventListener("click",e=>{const b=e.target.closest("[data-set]"); if(b) setMode(b.dataset.set)});
+const IMG = {
+  "dickies-slide":[1568,739],"dickies-cover":[1568,1045],"dickies-community":[1337,784],
+  "rock-hall-slide":[1568,739],"rock-hall-cover":[1568,1045],
+  "pga-tour-slide":[1568,739],"pga-tour-cover":[1568,1045],"pga-tour-system":[1568,739],
+  "google-io-slide":[1568,739],"google-io-cover":[1568,1045],
+  "beacon-slide":[1568,739],"beacon-cover":[1568,1045],"beacon-components":[1103,773],
+  "smartwool-home":[999,784],"smartwool-cover":[999,666],"smartwool-activities":[1503,784],"smartwool-products":[1453,784],
+};
 const P = [
-  {id:"rock-hall", n:"001", client:"Rock & Roll Hall of Fame", short:"Rock Hall", disc:"Digital Experience", tint:"#B5121B", ar:"16/10", draft:true},
-  {id:"pga-tour", n:"002", client:"PGA Tour", short:"PGA Tour", disc:"Product / Platform", tint:"#0A2240", ar:"4/5", draft:true},
-  {id:"google-io", n:"003", client:"Google I/O 2026", short:"Google I/O", disc:"Event Experience", tint:"#1A73E8", ar:"4/3", draft:true},
-  {id:"the-north-face", n:"004", client:"The North Face", short:"The North Face", disc:"E-Commerce / Content", tint:"#C8102E", ar:"3/2", draft:true},
-  {id:"dickies", n:"005", client:"Dickies", short:"Dickies", disc:"E-Commerce Redesign",  tint:"#8A6A3B", ar:"16/9",
+  {id:"google-io", n:"001", client:"Google I/O 2026", short:"Google I/O", disc:"Experiential / Motion", tint:"#1A73E8",
+    role:"Motion design &amp; art direction", platform:"Web · with Left Field Labs", cover:"google-io-cover",
+    tagline:"An interactive pre-launch experience that turned the Google I/O date reveal into a game.",
+    body:["I led motion design and art direction for Google I/O alongside Left Field Labs. We built an interactive pre-launch experience around a series of experimental games that gradually unlocked the official conference date.",
+          "I drove the visual direction, motion language, and interaction design system, translating Google’s brand energy into a playful, high-craft digital experience designed to build anticipation at scale."],
+    gallery:[["google-io-slide","Bundles — desktop and mobile","full"]]},
+  {id:"pga-tour", n:"002", client:"PGA Tour", short:"PGA Tour", disc:"Mobile App / Design System", tint:"#0A2240",
+    role:"UI lead", platform:"Mobile app · Figma library", cover:"pga-tour-cover",
+    tagline:"A more personal PGA Tour app, built on a flexible mobile system.",
+    body:["Mobile design for the PGA Tour app, focused on onboarding, personalization, and simplifying the core experience. We partnered with their internal brand team, but the responsibility of bringing that tone and energy into the product fell on us.",
+          "I led the UI work: shaping hierarchy, designing interactions, and applying the visual language to a flexible mobile system."],
+    process:"Alongside the app, I built a design system and Figma component library to support the Tour’s evolving mobile platform. It kept work consistent and scalable across teams and streamlined how new features shipped.",
+    gallery:[["pga-tour-slide","Player profile, hole view, YourTour feed","full"],["pga-tour-system","Design system — typography and iconography","full"]]},
+  {id:"rock-hall", n:"003", client:"Rock &amp; Roll Hall of Fame", short:"Rock Hall", disc:"Digital Experience", tint:"#B5121B",
+    role:"Art direction, UX &amp; UI", platform:"Responsive web", cover:"rock-hall-cover",
+    tagline:"A digital experience rooted in rock’s raw spirit. Loud, fast, and ready for what’s next.",
+    body:["I collaborated on art direction, UX, and UI for the Rock Hall’s digital experience, and led visual direction on artist pages.",
+          "The visual language draws from the layered, torn-paper textures of wheat-pasted posters across NYC, balancing attitude with clarity. It’s supported by a flexible, scalable design system we built as a team to evolve with the brand."],
+    gallery:[["rock-hall-slide","Inductee page — desktop and mobile","full"]]},
+  {id:"dickies", n:"004", client:"Dickies", short:"Dickies", disc:"E-Commerce Redesign", tint:"#8A6A3B",
+    role:"UI &amp; visual design lead", platform:"Shopify · ReCharge", cover:"dickies-cover",
     tagline:"Basically the site equivalent of a rodeo.",
     ask:"Redesign their site to be as forward-thinking as the customers it serves.",
-    body:["I revamped the Dickies website into an immersive online journey that carries the rugged spirit of the brand. Vibrant lifestyle video and photography give the site the feel of a well-run rodeo: bold, effortless, and built to last.",
-          "The result was a full e-commerce site built on Shopify ReCharge, with brand elements and video woven through every template for a rich content experience."],
-    modules:["Home — Hero","Icons Carousel","Collection Module","Content Carousel","Shop by Gender","Footer"], platform:"Shopify · ReCharge"},
-  {id:"smartwool", n:"006", client:"Smartwool", short:"Smartwool", disc:"Site Architecture / UX", tint:"#2E5E4E", ar:"4/3",
+    body:["Modernizing a heritage workwear brand for the digital space. I led the UI and visual design for a refreshed, responsive web experience that balanced grit with utility, built on a modular design system made to scale across campaigns, categories, and regions.",
+          "We partnered closely with Dickies’ internal brand team for alignment and authenticity at every step. The result was a full e-commerce site on Shopify ReCharge, with lifestyle video and photography woven through every template."],
+    gallery:[["dickies-slide","Home — desktop and mobile","full"],["dickies-community","#DickiesWorkwear community carousel","off"]]},
+  {id:"smartwool", n:"005", client:"Smartwool", short:"Smartwool", disc:"Site Architecture / UX", tint:"#2E5E4E",
+    role:"UX &amp; visual design", platform:"Responsive web", cover:"smartwool-cover",
     tagline:"A flexible, future-proof site with a feel-good guarantee.",
     ask:"Design an intuitive site that’s welcoming to the overwhelmed.",
     body:["I reimagined every touchpoint to work harder for Smartwool. Starting from a new site map built on the customer journey, I restructured headlines to make search more intuitive, added social campaign sections to surface collections the old design hid, and built an interactive product carousel for those collections.",
           "The result was a supportive experience where every customer could get down to business."],
-    modules:["Home — Hero","Content Carousel","2-Up Feature","Featured Collection","Product Carousel","Editorial Module"], platform:"Responsive Web"},
-  {id:"beacon", n:"007", client:"Beacon Design System®", short:"Morgan Stanley", disc:"Design System — Morgan Stanley", tint:"#1F3A68", ar:"16/10",
-    tagline:"An open-source design system as supportive as its components.",
+    gallery:[["smartwool-home","Home — hero","full"],["smartwool-activities","Shop by activity","half"],["smartwool-products","What’s new — product carousel","half"]]},
+  {id:"beacon", n:"006", client:"Beacon Design System®", short:"Morgan Stanley", disc:"Design System — Morgan Stanley", tint:"#1F3A68",
+    role:"Design system designer", platform:"Web docs · Figma &amp; Sketch kits", cover:"beacon-cover",
+    tagline:"A customer-facing design system as supportive as the components themselves.",
     ask:"Create snackable wisdom for the busy designer at Morgan Stanley.",
-    body:["I created an adaptable system of guidelines, components, and tools that raise the bar for interface and accessibility design at Morgan Stanley. Working inside the established system, I built tools, assets, and components that make best practices clearer, with guidance and examples for different situations.",
-          "The result gave Morgan Stanley designers a unified experience and clear guidance across use cases."],
-    modules:["Get Started","Components","Components — Overview","Components — Button","Guidelines"], platform:"Web Docs · Figma Library"},
-  {id:"paypal", n:"008", client:"PayPal", short:"PayPal", disc:"Product Design", tint:"#003087", ar:"4/5", draft:true},
+    body:["Beacon supports multiple digital products under one brand, with scalable UI patterns, reusable components, and documentation for seamless handoff and future growth.",
+          "Working inside the established system, I built tools, assets, and components that make best practices clearer, with guidelines and examples for different situations. Designers got a unified experience and clear guidance across use cases."],
+    gallery:[["beacon-slide","Get started and Foundations — color","full"],["beacon-components","Components overview","off"]]},
+  {id:"the-north-face", n:"007", client:"The North Face", short:"The North Face", disc:"E-Commerce / Content", tint:"#C8102E", draft:true},
+  {id:"paypal", n:"008", client:"PayPal", short:"PayPal", disc:"Product Design", tint:"#003087", draft:true},
 ];
 const ROWS = [
-  ["20XX — Now","Company","Senior Product &amp; Experience Designer","One-line scope: team, product, what you owned."],
-  ["20XX — 20XX","Company","Title","Clients and outcomes, e.g. Google I/O, PGA Tour."],
-  ["20XX — 20XX","Company","Title","Clients and outcomes, e.g. The North Face, Dickies, Smartwool."],
-  ["20XX — 20XX","Company","Title","Clients and outcomes, e.g. Morgan Stanley Beacon."],
+  ["Jun 2026 — Now","GetWyz","Senior Designer","Full-time · Richmond, VA · Hybrid"],
+  ["Feb — Jun 2026","PayPal","Senior UX Designer","Contract · Remote · Motion and visual design"],
+  ["Nov 2025 — Mar 2026","Left Field Labs","Senior Designer","Freelance · Los Angeles, remote · Motion and visual design"],
+  ["Dec 2024 — Nov 2025","Grow","Senior Designer","Contract · UX and interface design"],
+  ["Oct 2023 — Dec 2024","Shockoe","Design Lead","Full-time · Remote · Mobile app design and UX"],
+  ["Jun 2022 — Oct 2023","VF Corporation","Senior Designer","Contract · Remote · Brand and motion design for The North Face, Dickies and Smartwool"],
+  ["Oct 2021 — Jun 2022","Shockoe","Senior Product Designer","Contract · Remote · UX and visual design"],
+  ["Mar 2020 — Oct 2021","Pow","Senior Designer","Portland, remote · Visual design and design systems"],
+  ["Jan 2019 — Mar 2020","Money Magazine","Visual Designer","San Juan, PR · UX and visual design"],
+  ["Jan — Dec 2018","CarMax","Visual Designer","Contract · Brand design and e-commerce"],
+  ["Nov 2016 — Jan 2018","Capital One","Associate Visual Designer","Branding, identity and visual design"],
+  ["Jun 2012 — Nov 2016","Dominion Enterprises","Product Designer","Norfolk, VA · UX and visual design"],
 ];
 const rowHTML = r=>`<div class="grid r-row"><span class="when mono mute">${r[0]}</span><span class="co">${r[1]}</span><span class="role">${r[2]}</span><span class="desc">${r[3]}</span></div>`;
 const layout = [""];
@@ -351,26 +391,31 @@ const ph = (p, i, label, ar) => `<div class="ph" style="--tint:${p.tint};--ar:${
   ${i===0?`<span class="ph-mark">${p.short}</span>`:""}
   <span class="ph-l mono">${label}</span></div>`;
 
+const img = (k, alt, eager) => { const d=IMG[k]||[1600,900]; return `<img class="shot" src="/work/${k}.webp" alt="${alt}" width="${d[0]}" height="${d[1]}" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async">`; };
+const cover = (p, label) => p.cover
+  ? `<div class="ph ph-img" style="--ar:3/2">${img(p.cover, p.short.replace(/&amp;/g,"&")+" project cover")}</div>`
+  : ph(p,0,label,"3/2");
+
 let mode = "grid";
 try{ mode = localStorage.getItem("cd-mode") || "grid" }catch(e){}
 
 function home(){
   const cards = P.map((p,i)=>`<a class="card ${layout[i%layout.length]}" href="#${p.id}">
-      ${ph(p,0,"Cover · 3:2","3/2")}
+      ${cover(p,"Case study in progress")}
       <div class="cap"><span class="mono mute">N°${p.n}</span><span class="cap-t">${p.client}</span><span class="mono mute r">${p.disc}</span></div>
     </a>`).join("");
-  const list = P.map(p=>`<li><a href="#${p.id}"><span class="n mono mute">N°${p.n}</span><span class="t">${p.client}</span><span class="d mono">${p.disc}</span><span class="y mono mute">${p.draft?"In progress":"Case study"} →</span></a></li>`).join("");
+  const list = P.map(p=>`<li><a href="#${p.id}"><span class="n mono mute">N°${p.n}</span><span class="t">${p.client}</span><span class="d mono">${p.disc}</span><span class="y mono mute">${p.draft?"Coming soon":"Case study"} →</span></a></li>`).join("");
   return `<div class="view">
     <section class="hero">
       <h1 class="statement">Shaping scalable digital systems across enterprise, culture, and global brands. <span class="mute">Building experiences that blend craft and utility.</span></h1>
       <div class="grid">
-        <p class="lede lede-sm mono mute">(Index) — Selected work, 2013–2026</p>
+        <p class="lede lede-sm mono mute">(Index) — Selected work, 2012–2026</p>
         <dl class="facts mono">
           <dt>Practice</dt><dd>Product &amp; Experience Design</dd>
           <dt>Focus</dt><dd>Design Systems, E-Com, Platforms</dd>
-          <dt>Tenure</dt><dd>12+ Years, Agency &amp; In-House</dd>
+          <dt>Tenure</dt><dd>14 Years, Agency &amp; In-House</dd>
           <dt>Status</dt><dd><span class="c">●</span> Open to select work</dd>
-          <dt>Site</dt><dd class="mute">v0.1 — Work in progress, case studies landing soon</dd>
+          <dt>Site</dt><dd class="mute">v0.2 — Work in progress, more case studies soon</dd>
         </dl>
       </div>
     </section>
@@ -384,17 +429,18 @@ function home(){
     </section>
     <section class="about"><div class="grid">
       <span class="k mono mute">(Intro)</span>
-      <p class="v">Senior Product &amp; Experience Designer with 12+ years building scalable web and app experiences for enterprise and global brands, across agency and in-house teams.</p>
+      <p class="v">Senior Product &amp; Experience Designer with 14 years building scalable web and app experiences for enterprise and global brands, across agency and in-house teams.</p>
       <div class="clients mono"><span class="mute">Clients —</span>${["Capital One","Google","Morgan Stanley","PGA Tour","PayPal","The North Face","Dickies","Smartwool","Rock Hall"].map(c=>`<span>${c}</span>`).join("")}</div>
     </div></section>
     <section>
       <div class="sec-head"><div class="grid mono"><span class="l">(Experience)</span><span class="m mute">Years / Company / Role / Scope</span><span class="r"><a href="#resume">Full resume →</a></span></div></div>
-      ${ROWS.map(rowHTML).join("")}
+      ${ROWS.slice(0,5).map(rowHTML).join("")}
     </section>
   </div>`;
 }
 
 function project(p){
+  if(!p.draft) return projectReal(p);
   const idx = P.indexOf(p), nx = P[(idx+1)%P.length];
   const ask = p.ask || "The brief, in one line. Pulled from the Figma file and your notes.";
   const body = p.body || ["Context paragraph: who the client is, what was broken or missing, and where you came in.","Process paragraph: the decisions that shaped the work. Each image block below pairs with a beat of this story."];
@@ -442,23 +488,56 @@ function project(p){
   </div>`;
 }
 
+function projectReal(p){
+  const idx = P.indexOf(p), nx = P[(idx+1)%P.length];
+  const g = p.gallery||[];
+  const fig = (it,n) => `<figure class="${it[2]==="half"?(n%2?"m-l":"m-r"):it[2]==="off"?"m-off":"m-full"}">${img(it[0], p.short.replace(/&amp;/g,"&")+" — "+it[1], n===0)}<figcaption class="mono mute"><span>${it[1]}</span><span>${String(n+1).padStart(2,"0")}</span></figcaption></figure>`;
+  const rest = g.slice(1);
+  return `<div class="view">
+    <section class="p-hero">
+      <a class="p-back mono" href="#home">← Index</a>
+      <div class="mono mute" style="margin-bottom:var(--s3)">N°${p.n}</div>
+      <h1 class="p-title">${p.client}<span class="c">.</span></h1>
+      <div class="grid p-meta mono">
+        <div><span class="mute">Client</span><span>${p.client}</span></div>
+        <div><span class="mute">Discipline</span><span>${p.disc}</span></div>
+        <div><span class="mute">Role</span><span>${p.role}</span></div>
+        <div><span class="mute">Platform</span><span>${p.platform}</span></div>
+      </div>
+    </section>
+    ${g[0]?`<div class="grid p-media">${fig(g[0],0)}</div>`:""}
+    <section class="grid p-block">
+      <span class="k mono mute">(Overview)</span>
+      <h2 class="h">${p.tagline}</h2>
+    </section>
+    <section class="grid p-block">
+      <span class="k mono mute">${p.ask?"(The Ask)":"(The Work)"}</span>
+      ${p.ask?`<h3 class="h" style="grid-column:4/9;font-size:clamp(20px,2vw,30px);letter-spacing:-.025em">${p.ask}</h3>`:""}
+      <div class="b">${p.body.map(t=>`<p>${t}</p>`).join("")}</div>
+    </section>
+    ${p.process?`<section class="grid p-block"><span class="k mono mute">(System)</span><div class="b" style="grid-column:4/10"><p>${p.process}</p></div></section>`:""}
+    ${rest.length?`<div class="grid p-media">${rest.map((it,i)=>fig(it,i+1)).join("")}</div>`:""}
+    <a class="next" href="#${nx.id}"><span class="mono mute">Next — N°${nx.n}</span><span class="t">${nx.client} →</span></a>
+  </div>`;
+}
+
 function resume(){
   const rows = ROWS;
   return `<div class="view">
     <section class="hero">
-      <h1 class="statement">Senior Product &amp; Experience Designer. <span class="mute">12+ years building scalable web and app experiences for enterprise and global brands.</span></h1>
+      <h1 class="statement">Senior Product &amp; Experience Designer. <span class="mute">14 years building scalable web and app experiences for enterprise and global brands.</span></h1>
       <div class="grid">
         <p class="lede lede-sm mono mute">(Resume) — Experience &amp; capabilities</p>
         <dl class="facts mono">
           <dt>Based</dt><dd>Richmond, VA</dd>
           <dt>Email</dt><dd>hi@coreydixon.design</dd>
           <dt>Profile</dt><dd><a href="https://linkedin.com/in/corey-dixon">LinkedIn ↗</a></dd>
-          <dt>Note</dt><dd><span class="draft">Rows pending LinkedIn</span></dd>
+          <dt>Since</dt><dd>2012 · 12 roles</dd>
         </dl>
       </div>
     </section>
     <section>
-      <div class="sec-head"><div class="grid mono"><span class="l">(Experience)</span><span class="m mute">Years / Company / Role / Scope</span><span class="r mute">${rows.length} roles</span></div></div>
+      <div class="sec-head"><div class="grid mono"><span class="l">(Experience)</span><span class="m mute">Years / Company / Role / Scope</span><span class="r mute">${rows.length} roles · 2012 — Now</span></div></div>
       ${rows.map(rowHTML).join("")}
     </section>
     <section>
@@ -536,7 +615,7 @@ document.getElementById("copy").addEventListener("click", e=>{
     const row=e.target.closest(".index a");
     const id=row?row.getAttribute("href").slice(1):null;
     if(id!==peekId){ peekId=id; const p=id&&P.find(x=>x.id===id);
-      if(p){ peek.innerHTML=ph(p,0,"N°"+p.n,"3/2"); peek.classList.add("on") } else peek.classList.remove("on"); }
+      if(p){ peek.innerHTML=cover(p,"N°"+p.n); peek.classList.add("on") } else peek.classList.remove("on"); }
   });
   (function tick(){ cx+=(mx-cx)*.2; cy+=(my-cy)*.2; px+=(mx-px)*.12; py+=(my-py)*.12;
     sc+=(st-sc)*.18; const tf=`translate3d(${cx}px,${cy}px,0) scale(${sc})`; cur.style.transform=tf; ring.style.transform=tf;
