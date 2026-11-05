@@ -256,6 +256,11 @@ header.top{transition:transform .7s cubic-bezier(.2,.7,.2,1),background-color .3
 .ph-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .shot{display:block;width:100%;height:auto;background:var(--tile)}
 .m-off .shot{}
+.h-sub{grid-column:4/9!important;font-size:clamp(20px,2vw,30px)!important;letter-spacing:-.025em!important}
+.p-block .team{grid-column:4/12;margin:0}
+.m-half{grid-column:span 6}
+@media (max-width:760px){.m-half{grid-column:1/-1}.p-block .team{grid-column:1/-1}}
+.slot{display:block}
 /* Entrance */
 @media (prefers-reduced-motion:no-preference){
   .view>*{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
@@ -340,45 +345,132 @@ const IMG = {
 };
 const P = [
   {id:"google-io", n:"001", client:"Google I/O 2026", short:"Google I/O", disc:"Experiential / Motion", tint:"#1A73E8",
-    role:"Motion design &amp; art direction", platform:"Web · with Left Field Labs", cover:"google-io-cover",
-    tagline:"An interactive pre-launch experience that turned the Google I/O date reveal into a game.",
-    body:["I led motion design and art direction for Google I/O alongside Left Field Labs. We built an interactive pre-launch experience around a series of experimental games that gradually unlocked the official conference date.",
-          "I drove the visual direction, motion language, and interaction design system, translating Google’s brand energy into a playful, high-craft digital experience designed to build anticipation at scale."],
-    gallery:[["google-io-slide","Bundles — desktop and mobile","full"]]},
+    role:"Motion design &amp; art direction", platform:"Web · desktop &amp; mobile", cover:"google-io-cover",
+    team:"With Left Field Labs and the Google I/O team",
+    tagline:"Google could have just announced the date. Instead, we built a game the whole community had to play to unlock it.",
+    hero:["google-io-slide","Let’s play — bundle selection, desktop and mobile"],
+    story:[
+      {k:"(The Brief)", h:"Make the date reveal something people earn together.",
+       p:["Every year, the Google I/O date drop is a moment developers watch for. For 2026, Left Field Labs and Google wanted the reveal to feel less like a press release and more like an event of its own.",
+          "The idea we landed on was simple to say and hard to build: a set of experimental games, grouped into bundles, where every round played by anyone in the world pushed a shared counter toward unlocking the official date."]},
+      {media:[[null,"Game bundle — puzzle in progress","half"],[null,"Community progress toward the reveal","half"]]},
+      {k:"(Direction)", h:"Google’s brand, treated like a physical material.",
+       p:["I led art direction and motion. Instead of flat brand color, we treated Google’s palette as folded, bent and layered cards with light moving across them. That gave each bundle its own personality while still reading instantly as Google.",
+          "The typography stayed calm and huge so the play could be loud. “Let’s play” did most of the talking, and the cards did the rest."]},
+      {media:[[null,"Card material and lighting studies","full"]]},
+      {k:"(Motion System)", h:"One motion vocabulary for designers, animators and engineers.",
+       p:["With many games in flight at once, motion could easily drift. I wrote the motion language as a system: shared easing curves, timing tiers for micro, transition and hero moments, and rules for how cards enter, stack and celebrate a win.",
+          "We prototyped in the browser early and often with the engineering team, so what got approved in review was what actually shipped, not a video that would have to be rebuilt by hand."]},
+      {media:[[null,"Motion tokens — easing and timing","off"],[null,"Mobile game flow","half"],[null,"Win state and unlock animation","half"]]},
+      {k:"(Together)", h:"Daily with Left Field Labs, weekly with Google.",
+       p:["This was a tight loop between creative, engineering and the Google I/O team. Daily reviews kept the games and the visual system moving in step, and weekly check-ins with Google kept every bundle on brand and on schedule.",
+          "The result was a high-craft, playful pre-launch experience that built anticipation at scale, and gave the community a reason to come back every day until the date dropped."]},
+    ]},
+
   {id:"pga-tour", n:"002", client:"PGA Tour", short:"PGA Tour", disc:"Mobile App / Design System", tint:"#0A2240",
-    role:"UI lead", platform:"Mobile app · Figma library", cover:"pga-tour-cover",
-    tagline:"A more personal PGA Tour app, built on a flexible mobile system.",
-    body:["Mobile design for the PGA Tour app, focused on onboarding, personalization, and simplifying the core experience. We partnered with their internal brand team, but the responsibility of bringing that tone and energy into the product fell on us.",
-          "I led the UI work: shaping hierarchy, designing interactions, and applying the visual language to a flexible mobile system."],
-    process:"Alongside the app, I built a design system and Figma component library to support the Tour’s evolving mobile platform. It kept work consistent and scalable across teams and streamlined how new features shipped.",
-    gallery:[["pga-tour-slide","Player profile, hole view, YourTour feed","full"],["pga-tour-system","Design system — typography and iconography","full"]]},
+    role:"UI lead", platform:"iOS &amp; Android · Figma library", cover:"pga-tour-cover",
+    team:"With the PGA Tour brand and product teams",
+    tagline:"Fans follow players, not tournaments. We rebuilt the PGA Tour app around that.",
+    hero:["pga-tour-slide","Player profile, hole view and YourTour feed"],
+    story:[
+      {k:"(The Problem)", h:"A powerful app that asked fans to do all the work.",
+       p:["The PGA Tour app had everything: scores, stats, video, news. But it was organized the way the Tour thinks about golf, by event and by round. Fans think about it by player. Finding out how your favorite golfer was doing meant several taps and a lot of scrolling.",
+          "Our brief was to focus on onboarding, personalization and simplifying the core experience, while bringing the Tour’s brand energy into the product."]},
+      {k:"(Onboarding)", h:"Pick your players first. Everything else follows.",
+       p:["We moved favorites to the very start. New users choose the players they care about, and that choice shapes the home feed, alerts and what surfaces during a live round. That became YourTour, a feed that leads with the story of the day for your players."]},
+      {media:[[null,"Onboarding — choose your players","half"],[null,"YourTour personalized feed","half"]]},
+      {k:"(Live Golf)", h:"Shot-level data, readable at a glance.",
+       p:["Golf produces a huge amount of data. On the hole view, we stripped it down to what a fan actually checks: par, yardage, scoring average and difficulty rank, laid over the hole itself. Groups on the hole sit right below, so you can jump straight to who is putting.",
+          "Player profiles got the same treatment: a bold hero, a clear favorite action, and tabs that put the latest news and results one tap away."]},
+      {media:[[null,"Hole view and groups on the hole","full"]]},
+      {k:"(System)", h:"A Figma library the whole product team could build on.",
+       p:["The Tour’s internal brand team owned the identity. Our job was translating it into product. I built the design system and Figma component library to support the evolving mobile platform: a sans and serif type pairing for headlines and numbers, a primary icon set, and components shared across teams.",
+          "It gave design and engineering one source of truth, kept new features consistent, and sped up how new experiences shipped."]},
+      {media:[["pga-tour-system","Design system — typography and iconography","full"]]},
+    ]},
+
   {id:"rock-hall", n:"003", client:"Rock &amp; Roll Hall of Fame", short:"Rock Hall", disc:"Digital Experience", tint:"#B5121B",
     role:"Art direction, UX &amp; UI", platform:"Responsive web", cover:"rock-hall-cover",
-    tagline:"A digital experience rooted in rock’s raw spirit. Loud, fast, and ready for what’s next.",
-    body:["I collaborated on art direction, UX, and UI for the Rock Hall’s digital experience, and led visual direction on artist pages.",
-          "The visual language draws from the layered, torn-paper textures of wheat-pasted posters across NYC, balancing attitude with clarity. It’s supported by a flexible, scalable design system we built as a team to evolve with the brand."],
-    gallery:[["rock-hall-slide","Inductee page — desktop and mobile","full"]]},
+    team:"With the Rock Hall team and a cross-functional studio crew",
+    tagline:"The museum of the loudest art form on earth deserved a website that didn’t whisper.",
+    hero:["rock-hall-slide","Inductee page — The Rolling Stones, desktop and mobile"],
+    story:[
+      {k:"(The Brief)", h:"Bring rock’s raw spirit online, without losing the museum.",
+       p:["The Rock & Roll Hall of Fame is part museum, part pilgrimage. Online, it needed to sell tickets and memberships and tell the story of hundreds of inductees, while feeling like rock and roll instead of a brochure.",
+          "I collaborated on art direction, UX and UI across the experience, and led visual direction on the artist pages, the heart of the site."]},
+      {k:"(Inspiration)", h:"Wheat-pasted posters on a New York wall.",
+       p:["We took our cues from the layered, torn-paper posters you see pasted across NYC: big condensed type, high-contrast photography, rips and overlaps. That language gave the pages attitude.",
+          "The hard part was keeping it legible. We set rules for when texture shows up and when it backs off, so a page about The Rolling Stones could feel loud and still be easy to read, scan and navigate."]},
+      {media:[[null,"Poster texture and type studies","half"],[null,"Artist page — story and timeline","half"]]},
+      {k:"(Artist Pages)", h:"A name you can feel from across the room.",
+       p:["Each inductee page opens with the artist name set huge over archival photography, followed by the essentials: year inducted, category and who inducted them. Below that, the story, the music and the museum objects tie the person back to a visit."]},
+      {media:[[null,"Inductee index and filtering","full"]]},
+      {k:"(System)", h:"Built as a team to evolve with the brand.",
+       p:["Behind the attitude is a flexible, scalable design system we built together. The same components carry an inductee page, an exhibit, or a ticket flow, so the Rock Hall team can keep publishing without a designer in the loop for every page.",
+          "Loud, fast, and ready for what’s next."]},
+      {media:[[null,"Components and type scale","off"]]},
+    ]},
+
   {id:"dickies", n:"004", client:"Dickies", short:"Dickies", disc:"E-Commerce Redesign", tint:"#8A6A3B",
     role:"UI &amp; visual design lead", platform:"Shopify · ReCharge", cover:"dickies-cover",
-    tagline:"Basically the site equivalent of a rodeo.",
-    ask:"Redesign their site to be as forward-thinking as the customers it serves.",
-    body:["Modernizing a heritage workwear brand for the digital space. I led the UI and visual design for a refreshed, responsive web experience that balanced grit with utility, built on a modular design system made to scale across campaigns, categories, and regions.",
-          "We partnered closely with Dickies’ internal brand team for alignment and authenticity at every step. The result was a full e-commerce site on Shopify ReCharge, with lifestyle video and photography woven through every template."],
-    gallery:[["dickies-slide","Home — desktop and mobile","full"],["dickies-community","#DickiesWorkwear community carousel","off"]]},
+    team:"With the Dickies brand team",
+    tagline:"Basically the site equivalent of a rodeo. Built for people who actually wear the clothes to work.",
+    hero:["dickies-slide","Home — desktop and mobile"],
+    story:[
+      {k:"(The Ask)", h:"Redesign the site to be as forward-thinking as the customers it serves.",
+       p:["Dickies has been making workwear since 1922. Its customers are welders, ranchers, skaters and chefs, people who are hard on their clothes and have no patience for a fussy website.",
+          "I led the UI and visual design for a refreshed, responsive experience that balanced grit with utility."]},
+      {k:"(Look &amp; Feel)", h:"Real people, real work, real film.",
+       p:["We let the photography carry the brand: film borders, warm grain and real customers in their element. The interface stays out of the way with a straightforward nav, strong product grids and clear calls to action, so the brand can be bold while shopping stays effortless.",
+          "Video is woven through the templates so the site moves the way the campaigns do."]},
+      {media:[[null,"Product listing and filters","half"],[null,"Product detail — fit and fabric","half"]]},
+      {k:"(System)", h:"Modular by design, from campaign to category to region.",
+       p:["Dickies runs a lot of campaigns across a lot of categories and markets. We built the site on a modular design system so the team could assemble new landing pages from proven pieces: icon carousels, collection modules, content carousels and shop-by-gender entries.",
+          "It all ships on Shopify with ReCharge, which meant designing within real platform constraints from day one."]},
+      {media:[["dickies-community","#DickiesWorkwear community carousel","off"]]},
+      {k:"(Together)", h:"Close with the brand team, every step.",
+       p:["We partnered closely with Dickies’ internal brand team throughout, reviewing work in the context of their campaigns so every template felt authentic. The result is a bold, effortless storefront built to take a beating, just like the clothes."]},
+    ]},
+
   {id:"smartwool", n:"005", client:"Smartwool", short:"Smartwool", disc:"Site Architecture / UX", tint:"#2E5E4E",
     role:"UX &amp; visual design", platform:"Responsive web", cover:"smartwool-cover",
+    team:"With the Smartwool digital and brand teams",
     tagline:"A flexible, future-proof site with a feel-good guarantee.",
-    ask:"Design an intuitive site that’s welcoming to the overwhelmed.",
-    body:["I reimagined every touchpoint to work harder for Smartwool. Starting from a new site map built on the customer journey, I restructured headlines to make search more intuitive, added social campaign sections to surface collections the old design hid, and built an interactive product carousel for those collections.",
-          "The result was a supportive experience where every customer could get down to business."],
-    gallery:[["smartwool-home","Home — hero","full"],["smartwool-activities","Shop by activity","half"],["smartwool-products","What’s new — product carousel","half"]]},
+    hero:["smartwool-home","Home — hero and brand promise"],
+    story:[
+      {k:"(The Ask)", h:"Design an intuitive site that’s welcoming to the overwhelmed.",
+       p:["Smartwool makes great merino gear, and a lot of it. Socks alone come in dozens of cushion levels, heights and activities. Shoppers were landing on the site and not knowing where to start.",
+          "So we started over, from the structure up."]},
+      {k:"(Architecture)", h:"A site map built on how people actually shop.",
+       p:["I rebuilt the site map around the customer journey instead of the product catalog. People shop by what they are about to do, so activities became a front door: run, hike, bike, each with a clear path to men’s and women’s gear.",
+          "Headlines and category names were rewritten in plain language to make search and browsing more intuitive."]},
+      {media:[["smartwool-activities","Shop by activity","half"],["smartwool-products","What’s new — product carousel","half"]]},
+      {k:"(Discovery)", h:"Surfacing the collections the old site hid.",
+       p:["Some of Smartwool’s best stories lived in social campaigns that never made it onto the site. We added campaign sections and an interactive product carousel so those collections finally had a home, and a reason to explore."]},
+      {media:[[null,"Editorial module — campaign story","full"]]},
+      {k:"(Outcome)", h:"Everyone can get down to business.",
+       p:["The result was a supportive experience where every customer, from first-time sock buyer to thru-hiker, could find their way quickly, with the brand’s Go Far. Feel Good. promise front and center."]},
+    ]},
+
   {id:"beacon", n:"006", client:"Beacon Design System®", short:"Morgan Stanley", disc:"Design System — Morgan Stanley", tint:"#1F3A68",
     role:"Design system designer", platform:"Web docs · Figma &amp; Sketch kits", cover:"beacon-cover",
-    tagline:"A customer-facing design system as supportive as the components themselves.",
-    ask:"Create snackable wisdom for the busy designer at Morgan Stanley.",
-    body:["Beacon supports multiple digital products under one brand, with scalable UI patterns, reusable components, and documentation for seamless handoff and future growth.",
-          "Working inside the established system, I built tools, assets, and components that make best practices clearer, with guidelines and examples for different situations. Designers got a unified experience and clear guidance across use cases."],
-    gallery:[["beacon-slide","Get started and Foundations — color","full"],["beacon-components","Components overview","off"]]},
+    team:"With Morgan Stanley’s design system team",
+    tagline:"A design system as supportive as the components themselves.",
+    hero:["beacon-slide","Get started and Foundations — color"],
+    story:[
+      {k:"(The Ask)", h:"Create snackable wisdom for the busy designer at Morgan Stanley.",
+       p:["Beacon is Morgan Stanley’s customer-facing design system, supporting multiple digital products under one brand. The system was already up and running. The problem was adoption: designers were busy, the guidance was dense, and best practices were easy to skip.",
+          "My job was making the right thing the easy thing."]},
+      {k:"(Guidance)", h:"Answers in seconds, not chapters.",
+       p:["We reorganized the docs into clear Foundations and Components sections, each with design, development and accessibility tabs. Every component page leads with an overview, then variations, guidelines, and do’s and don’ts with real examples."]},
+      {media:[["beacon-components","Components overview","off"]]},
+      {k:"(Tools)", h:"Kits for Figma and Sketch, ready on day one.",
+       p:["Designers could start from synced Figma and Sketch kits, so the components in their files matched what engineering had built. Scalable UI patterns, reusable components and documentation made handoff smoother and left room for the system to grow."]},
+      {media:[[null,"Component detail — button guidelines","half"],[null,"Accessibility guidance","half"]]},
+      {k:"(Outcome)", h:"One experience, many products.",
+       p:["Morgan Stanley designers got a unified place to start and clear guidance for different situations, and a system built for seamless handoff and future growth."]},
+    ]},
+
   {id:"the-north-face", n:"007", client:"The North Face", short:"The North Face", disc:"E-Commerce / Content", tint:"#C8102E", draft:true},
   {id:"paypal", n:"008", client:"PayPal", short:"PayPal", disc:"Product Design", tint:"#003087", draft:true},
 ];
@@ -415,10 +507,10 @@ try{ mode = localStorage.getItem("cd-mode") || "grid" }catch(e){}
 
 function home(){
   const cards = P.map((p,i)=>`<a class="card ${layout[i%layout.length]}" href="#${p.id}">
-      ${cover(p, p.draft?"Case study in progress":"Case study")}
+      ${cover(p,"Cover · 3:2")}
       <div class="cap"><span class="mono mute">N°${p.n}</span><span class="cap-t">${p.client}</span><span class="mono mute r">${p.disc}</span></div>
     </a>`).join("");
-  const list = P.map(p=>`<li><a href="#${p.id}"><span class="n mono mute">N°${p.n}</span><span class="t">${p.client}</span><span class="d mono">${p.disc}</span><span class="y mono mute">${p.draft?"Coming soon":"Case study"} →</span></a></li>`).join("");
+  const list = P.map(p=>`<li><a href="#${p.id}"><span class="n mono mute">N°${p.n}</span><span class="t">${p.client}</span><span class="d mono">${p.disc}</span><span class="y mono mute">${p.draft?"In progress":"Case study"} →</span></a></li>`).join("");
   return `<div class="view">
     <section class="hero">
       <h1 class="statement">Shaping scalable digital systems across enterprise, culture, and global brands. <span class="mute">Building experiences that blend craft and utility.</span></h1>
@@ -504,9 +596,14 @@ function project(p){
 
 function projectReal(p){
   const idx = P.indexOf(p), nx = P[(idx+1)%P.length];
-  const g = p.gallery||[];
-  const fig = (it,n) => `<figure class="${it[2]==="half"?(n%2?"m-l":"m-r"):it[2]==="off"?"m-off":"m-full"}">${img(it[0], p.short.replace(/&amp;/g,"&")+" — "+it[1], n===0)}<figcaption class="mono mute"><span>${it[1]}</span><span>${String(n+1).padStart(2,"0")}</span></figcaption></figure>`;
-  const rest = g.slice(1);
+  const alt = t => p.short.replace(/&amp;/g,"&")+" — "+t;
+  let n = 0;
+  const fig = (it) => { n++; const cls = it[2]==="half"?"m-half":it[2]==="off"?"m-off":"m-full";
+    const media = it[0] ? img(it[0], alt(it[1]), n===1) : `<div class="ph slot" style="--tint:${p.tint};--ar:${it[2]==="full"?"16/9":it[2]==="half"?"4/3":"3/2"}"><span class="ph-l mono">Image · ${it[1]}</span></div>`;
+    return `<figure class="${cls}">${media}<figcaption class="mono mute"><span>${it[1]}</span><span>${String(n).padStart(2,"0")}</span></figcaption></figure>`; };
+  const blocks = p.story.map(b => b.media
+    ? `<div class="grid p-media">${b.media.map(fig).join("")}</div>`
+    : `<section class="grid p-block"><span class="k mono mute">${b.k}</span><h3 class="h h-sub">${b.h}</h3><div class="b">${b.p.map(t=>`<p>${t}</p>`).join("")}</div></section>`).join("");
   return `<div class="view">
     <section class="p-hero">
       <a class="p-back mono" href="#home">← Index</a>
@@ -519,18 +616,13 @@ function projectReal(p){
         <div><span class="mute">Platform</span><span>${p.platform}</span></div>
       </div>
     </section>
-    ${g[0]?`<div class="grid p-media">${fig(g[0],0)}</div>`:""}
+    <div class="grid p-media">${fig([p.hero[0],p.hero[1],"full"])}</div>
     <section class="grid p-block">
       <span class="k mono mute">(Overview)</span>
       <h2 class="h">${p.tagline}</h2>
+      <p class="team mono mute">${p.team}</p>
     </section>
-    <section class="grid p-block">
-      <span class="k mono mute">${p.ask?"(The Ask)":"(The Work)"}</span>
-      ${p.ask?`<h3 class="h" style="grid-column:4/9;font-size:clamp(20px,2vw,30px);letter-spacing:-.025em">${p.ask}</h3>`:""}
-      <div class="b">${p.body.map(t=>`<p>${t}</p>`).join("")}</div>
-    </section>
-    ${p.process?`<section class="grid p-block"><span class="k mono mute">(System)</span><div class="b" style="grid-column:4/10"><p>${p.process}</p></div></section>`:""}
-    ${rest.length?`<div class="grid p-media">${rest.map((it,i)=>fig(it,i+1)).join("")}</div>`:""}
+    ${blocks}
     <a class="next" href="#${nx.id}"><span class="mono mute">Next — N°${nx.n}</span><span class="t">${nx.client} →</span></a>
   </div>`;
 }
