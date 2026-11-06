@@ -59,9 +59,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset
 .mono{font-family:var(--mono);font-size:11.5px;letter-spacing:.02em;text-transform:uppercase}
 .mute{color:var(--mute)}
 .c{color:var(--red)}
-.live{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--live);margin-left:10px;vertical-align:1px;position:relative;box-shadow:0 0 0 3px color-mix(in srgb,var(--live) 22%,transparent)}
-:root{--live:#86B86A}:root[data-mode="light"]{--live:#3F7A2C}
-@media (prefers-reduced-motion:no-preference){.live::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:1px solid var(--live);animation:livepulse 2.4s ease-out infinite}@keyframes livepulse{from{transform:scale(1);opacity:.7}to{transform:scale(2.4);opacity:0}}}
+.live{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--live);margin-right:8px;vertical-align:1px}
+:root{--live:#86B86A}:root[data-mode="light"]{--live:#4E7F3E}
 
 hr{border:0;border-top:1px solid var(--rule);margin:0}
 
@@ -340,7 +339,7 @@ header.top{transition:transform .7s cubic-bezier(.2,.7,.2,1),background-color .3
     <div><span class="mute">Email</span><span>hi@coreydixon.design</span></div>
     <div><span class="mute">Elsewhere</span><a href="https://linkedin.com/in/corey-dixon">LinkedIn ↗</a><a href="/Corey-Dixon-CV-2026.pdf" download>CV (PDF) ↓</a></div>
     <div><span class="mute">Based</span><span>Richmond, VA</span></div>
-    <div><span class="mute">Status</span><span>Open to select work<i class="live" aria-hidden="true"></i></span></div>
+    <div><span class="mute">Status</span><span><i class="live" aria-hidden="true"></i>Open to select work</span></div>
     <div><span class="mute">Site</span><span>2026 Edition</span></div>
     <div></div>
   </div>
@@ -641,7 +640,7 @@ function home(){
           <dt>Practice</dt><dd>Product &amp; Experience Design</dd>
           <dt>Focus</dt><dd>Design Systems, E-Com, Platforms</dd>
           <dt>Tenure</dt><dd>14 Years, Agency &amp; In-House</dd>
-          <dt>Status</dt><dd>Open to select work<i class="live" aria-hidden="true"></i></dd>
+          <dt>Status</dt><dd><i class="live" aria-hidden="true"></i>Open to select work</dd>
         </dl>
       </div>
     </section>
