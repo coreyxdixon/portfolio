@@ -652,7 +652,7 @@ function home(){
     <section class="about"><div class="grid">
       <span class="k mono mute">(Intro)</span>
       <p class="v">Senior Product &amp; Experience Designer with 14 years building scalable web and app experiences for enterprise and global brands, across agency and in-house teams.</p>
-      <div class="clients mono"><span class="mute">Clients —</span>${["Capital One","Google","Morgan Stanley","PGA Tour","PayPal","The North Face","Dickies","Smartwool","Rock Hall"].map(c=>`<span>${c}</span>`).join("")}</div>
+      <div class="clients mono"><span class="mute">Work —</span>${["Capital One","Google","Morgan Stanley","PGA Tour","PayPal","The North Face","Dickies","Smartwool","Rock Hall"].map(c=>`<span>${c}</span>`).join("")}</div>
     </div></section>
     <section>
       <div class="sec-head"><div class="grid mono"><span class="l">(Experience)</span><span class="m mute">Years / Company / Role / Scope</span><span class="r"><a href="#resume">Full resume →</a></span></div></div>
@@ -673,7 +673,7 @@ function project(p){
       <div class="mono mute" style="margin-bottom:var(--s3)">N°${p.n} ${p.draft?'· <span class="draft">Copy pending</span>':""}</div>
       <h1 class="p-title">${p.client}<span class="c">.</span></h1>
       <div class="grid p-meta mono">
-        <div><span class="mute">Client</span><span>${p.client}</span></div>
+        <div><span class="mute">Work</span><span>${p.client}</span></div>
         <div><span class="mute">Discipline</span><span>${p.disc}</span></div>
         <div><span class="mute">Role</span><span>Senior Product Designer</span></div>
         <div><span class="mute">Platform</span><span>${p.platform||"—"}</span></div>
@@ -736,7 +736,7 @@ function projectReal(p){
       <div class="mono mute" style="margin-bottom:var(--s3)">N°${p.n}</div>
       <h1 class="p-title">${p.client}<span class="c">.</span></h1>
       <div class="grid p-meta mono">
-        <div><span class="mute">Client</span><span>${p.client}</span></div>
+        <div><span class="mute">Work</span><span>${p.client}</span></div>
         <div><span class="mute">Discipline</span><span>${p.disc}</span></div>
         <div><span class="mute">Role</span><span>${p.role}</span></div>
         <div><span class="mute">Platform</span><span>${p.platform}</span></div>
@@ -784,7 +784,7 @@ function resume(){
         <div><span class="mono mute">Systems</span><span>Design systems<br>Component libraries<br>Accessibility guidance</span></div>
         <div><span class="mono mute">Commerce</span><span>Site architecture<br>Shopify builds<br>Content modules</span></div>
         <div><span class="mono mute">AI</span><span>AI-assisted workflows<br>Vibe-coded prototypes<br>Design-to-code builds</span></div>
-        <div><span class="mono mute">Clients</span><span>Capital One, Google, Morgan Stanley, PayPal, PGA Tour, The North Face, Dickies, Smartwool</span></div>
+        <div><span class="mono mute">Work</span><span>Capital One, Google, Morgan Stanley, PayPal, PGA Tour, The North Face, Dickies, Smartwool</span></div>
       </div>
     </section>
   </div>`;
