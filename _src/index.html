@@ -106,7 +106,7 @@ nav.main a:hover{color:var(--hover)}
 
 /* Image placeholders */
 .ph{container-type:inline-size;position:relative;background:var(--tile);aspect-ratio:var(--ar,4/3);max-width:100%;overflow:hidden;width:100%}
-.ph::before{content:"";position:absolute;inset:0;background:var(--tint);opacity:.16}
+.ph::before{content:"";position:absolute;inset:0;background:var(--tint);opacity:.5}
 .ph .ph-l{position:absolute;left:12px;bottom:10px;color:var(--mute)}
 .ph .ph-n{position:absolute;right:12px;top:10px;color:var(--mute)}
 .ph .ph-mark{position:absolute;inset:0;display:grid;place-items:center;padding:0 8%;text-align:center;text-wrap:balance;line-height:.95;font-weight:500;letter-spacing:-.05em;font-size:clamp(14px,9.5cqi,80px);color:var(--ink);opacity:.9}
@@ -328,9 +328,9 @@ function setMode(m){ if(m==="light") root.setAttribute("data-mode","light"); els
 let saved="dark"; try{saved=localStorage.getItem("cd-theme")||"dark"}catch(e){}
 setMode(saved);
 document.querySelector(".modes").addEventListener("click",e=>{const b=e.target.closest("[data-set]"); if(b) setMode(b.dataset.set)});
-const IMG = {"m-bc-color":[3200,2000],"m-bc-comps":[3200,2000],"m-bc-cover":[3200,2000],"m-bc-gallery":[3200,2000],"m-bc-home":[3200,2000],"m-bc-pattern":[3200,2000],"m-bc-start":[3200,2000],"m-bc-type":[3200,2000],"m-dk-cover":[3200,2000],"m-dk-home":[3200,2000],"m-dk-pdp":[3200,2000],"m-dk-plp":[3200,2000],"m-dk-scrubs":[3200,2000],"m-dk-skate":[3200,2000],"m-dk-stories":[3200,2000],"m-dk-team":[3200,2000],"m-io-color":[3200,2000],"m-io-complete":[3200,2000],"m-io-cover":[3200,2000],"m-io-play":[3200,2000],"m-io-progress":[3200,2000],"m-io-reveal":[3200,2000],"m-io-share":[3200,2000],"m-io-sound":[3200,2000],"m-pga-cover":[3200,2000],"m-pga-explore":[3200,2000],"m-pga-hole":[3200,2000],"m-pga-live":[3200,2000],"m-pga-onboard":[3200,2000],"m-pga-stats":[3200,2000],"m-pga-story":[3200,2000],"m-rh-ceremony":[3200,2000],"m-rh-classes":[3200,2000],"m-rh-cover":[3200,2000],"m-rh-inductee":[3200,2000],"m-rh-museum":[3200,2000],"m-rh-tv":[3200,2000],"m-rh-visit":[3200,2000],"m-rh-vote":[3200,2000],"m-sw-act":[3200,2000],"m-sw-coll":[3200,2000],"m-sw-cover":[3200,2000],"m-sw-gear":[3200,2000],"m-sw-home":[3200,2000],"m-sw-plant":[3200,2000],"m-sw-prod":[3200,2000],"m-sw-v2":[3200,2000]};
+const IMG = {"m-bc-color":[3200,2000],"m-bc-comps":[3200,2000],"m-bc-cover":[3200,2000],"m-bc-gallery":[3200,2000],"m-bc-home":[3200,2000],"m-bc-pattern":[3200,2000],"m-bc-start":[3200,2000],"m-bc-type":[3200,2000],"m-dk-cover":[3200,2000],"m-dk-home":[3200,2000],"m-dk-pdp":[3200,2000],"m-dk-plp":[3200,2000],"m-dk-scrubs":[3200,2000],"m-dk-skate":[3200,2000],"m-dk-stories":[3200,2000],"m-dk-team":[3200,2000],"m-io-color":[3200,2000],"m-io-complete":[3200,2000],"m-io-cover":[3200,2000],"m-io-play":[3200,2000],"m-io-progress":[3200,2000],"m-io-reveal":[3200,2000],"m-io-share":[3200,2000],"m-io-sound":[3200,2000],"m-pga-cover":[3200,2000],"m-pga-hole":[3200,2000],"m-pga-live":[3200,2000],"m-pga-onboard":[3200,2000],"m-pga-stats":[3200,2000],"m-pga-story":[3200,2000],"m-rh-ceremony":[3200,2000],"m-rh-classes":[3200,2000],"m-rh-cover":[3200,2000],"m-rh-inductee":[3200,2000],"m-rh-museum":[3200,2000],"m-rh-tv":[3200,2000],"m-rh-visit":[3200,2000],"m-rh-vote":[3200,2000],"m-sw-act":[3200,2000],"m-sw-coll":[3200,2000],"m-sw-cover":[3200,2000],"m-sw-gear":[3200,2000],"m-sw-home":[3200,2000],"m-sw-plant":[3200,2000],"m-sw-prod":[3200,2000],"m-sw-v2":[3200,2000]};
 const P = [
-  {id:"google-io", n:"001", client:"Google I/O 2026", short:"Google I/O", disc:"Experiential / Motion", tint:"#1A73E8",
+  {id:"google-io", n:"001", client:"Google I/O 2026", short:"Google I/O", disc:"Experiential / Motion", tint:"#4F6D96",
     role:"Motion design &amp; art direction", platform:"Web · desktop &amp; mobile", cover:"m-io-cover",
     team:"With Left Field Labs and the Google I/O team",
     tagline:"Google could have just announced the date. Instead, we built a game the whole community had to play to unlock it.",
@@ -356,7 +356,7 @@ const P = [
       {media:[["m-io-share","You did it. Shareable badges for finishing every bundle","full"]]},
     ]},
 
-  {id:"pga-tour", n:"002", client:"PGA Tour", short:"PGA Tour", disc:"Mobile App", tint:"#0A2240",
+  {id:"pga-tour", n:"002", client:"PGA Tour", short:"PGA Tour", disc:"Mobile App", tint:"#2B3F5C",
     role:"UI lead", platform:"iOS &amp; Android", cover:"m-pga-cover",
     team:"With Shockoe and the PGA Tour brand and product teams",
     tagline:"Fans follow players, not tournaments. We rebuilt the PGA Tour app around that.",
@@ -378,10 +378,10 @@ const P = [
        p:["Between shots, the app tells the story of the day. Full-screen stories open on the round and close on the champion, and Watch puts every live stream one tap from the leaderboard.",
           "Every screen was built on the Haskell design system, which has its own case study."]},
       {media:[["m-pga-story","Stories and live coverage","full"]]},
-      {media:[["m-pga-explore","Explore, with news and tournament hubs","full"]]},
+      {media:[["s-hk-vision-wall","Stories, recaps and player moments","full"]]},
     ]},
 
-  {id:"haskell", n:"003", client:"Haskell Design System", short:"PGA Tour · Haskell", disc:"Design System — PGA Tour", tint:"#0A2240",
+  {id:"haskell", n:"003", client:"Haskell Design System", short:"PGA Tour · Haskell", disc:"Design System — PGA Tour", tint:"#A68A5B",
     role:"Design system &amp; product design", platform:"iOS · Android · Web · Figma", cover:"s-hk-moodboard",
     team:"With Shockoe and the PGA Tour digital, brand and engineering teams",
     tagline:"One design system for every screen the PGA Tour puts in front of fans.",
@@ -390,22 +390,22 @@ const P = [
       {k:"(The Vision)", h:"A digital evolution, built on one foundation.",
        p:["The PGA Tour was reimagining its digital experience: every shot live, every hole in 3D, and stories that follow the players fans care about. Ambitions that big need a system underneath, or every new feature turns into a one-off.",
           "Haskell is that system. I helped define its foundations and components and carried them into the product, so the vision work and the shipping app spoke the same language."]},
-      {media:[["s-hk-vision-wall","Stories, recaps and player moments from one kit","full"]]},
+      {media:[["s-hk-spacing-methods","Spacing methods, built on a 4dp grid","full"]]},
       {media:[["s-hk-theme-palette","Theme palette: navy, gold and stone","full"]]},
       {k:"(Foundations)", h:"Tokens named for their job.",
        p:["Suisse Int’l brings clarity and Tobias brings character, across a scale that runs from hero moments down to dense stats. Underneath sit the tokens for color, motion and space, each named for what it does rather than its value.",
           "Motion got the same care as color. One easing curve drives every transition, and a linear curve handles anything that scales or scrubs."]},
       {media:[["s-hk-easing","Motion tokens: easing","full"]]},
-      {k:"(Themes)", h:"One kit, every tournament.",
-       p:["Big events get their own look without forking the system. Theme parameters cover the loading animation, brand color, iconography and logo, so The Players can feel like The Players while every component underneath stays the same."]},
-      {media:[["s-hk-theme-screens","The Players theme across the app","full"]]},
-      {k:"(Outcome)", h:"From vision deck to shipped product.",
-       p:["Haskell gave design and engineering one source of truth across app and web. New features start from proven components instead of blank screens, and the same patterns run from the leaderboard to TourCast shot tracking."]},
-      {media:[["s-hk-vision-web","Web news and live leaderboard","full"]]},
-      {media:[["s-hk-tourcast","TourCast shot tracking, built on the same tokens","full"]]},
+      {k:"(Specs)", h:"Rules a partner can follow without a meeting.",
+       p:["Every part of a theme has a spec: logos at 600 by 600 with room for the mask, tab bar icons in a 24dp grid with 1.5 to 2dp strokes, and colors that hold a 4.5:1 contrast ratio. Big events like The Players get their own look without forking the system."]},
+      {media:[["s-hk-spec-icons","Tab bar icon specs","full"]]},
+      {k:"(Art Direction)", h:"Rules for the course itself.",
+       p:["Golf is as much about place as players, so Haskell covers imagery too: aerial vistas, top-down flyovers and golden-hour light, with specs for frame rate and stabilization. Design and engineering now share one source of truth, and the same patterns run from the leaderboard to TourCast shot tracking."]},
+      {media:[["s-hk-imagery-mood","Art direction: the course moodboard","full"]]},
+      {media:[["s-hk-spec-color","Color specs, applied to a themed leaderboard","full"]]},
     ]},
 
-  {id:"rock-hall", n:"004", client:"Rock &amp; Roll Hall of Fame", short:"Rock Hall", disc:"Digital Experience", tint:"#B5121B",
+  {id:"rock-hall", n:"004", client:"Rock &amp; Roll Hall of Fame", short:"Rock Hall", disc:"Digital Experience", tint:"#8C2F2A",
     role:"Art direction, UX &amp; UI", platform:"Responsive web", cover:"m-rh-cover",
     team:"With Grow and the Rock &amp; Roll Hall of Fame team",
     tagline:"The museum of the loudest art form on earth deserved a website that didn’t whisper.",
@@ -429,7 +429,7 @@ const P = [
       {media:[["m-rh-visit","Plan your visit","full"]]},
     ]},
 
-  {id:"dickies", n:"005", client:"Dickies", short:"Dickies", disc:"E-Commerce Redesign", tint:"#8A6A3B",
+  {id:"dickies", n:"005", client:"Dickies", short:"Dickies", disc:"E-Commerce Redesign", tint:"#7C6A4A",
     role:"UI &amp; visual design lead", platform:"Shopify · ReCharge", cover:"m-dk-cover",
     team:"With VF Corporation, the Dickies brand team and partner agencies",
     tagline:"A storefront for people who actually wear the clothes to work.",
@@ -455,7 +455,7 @@ const P = [
       {media:[["m-dk-team","Skate team member, Christian Henry","full"]]},
     ]},
 
-  {id:"dickies-brand", n:"006", client:"Dickies Brand Guidelines", short:"Dickies Brand", disc:"Brand Guidelines", tint:"#8A6A3B",
+  {id:"dickies-brand", n:"006", client:"Dickies Brand Guidelines", short:"Dickies Brand", disc:"Brand Guidelines", tint:"#5F6340",
     role:"Brand &amp; visual design", platform:"Brand guidelines site · Retail · Digital", cover:"s-dbc-type-big",
     team:"With VF Corporation and the Dickies brand team",
     tagline:"A brand guide built like the clothes: tough, practical and impossible to misread.",
@@ -478,7 +478,7 @@ const P = [
       {media:[["s-dbc-photo","Photography: Make Us Feel","full"]]},
     ]},
 
-  {id:"canvas", n:"007", client:"Canvas Design System", short:"VF Corp · Canvas", disc:"Design System — VF Corporation", tint:"#3E4458",
+  {id:"canvas", n:"007", client:"Canvas Design System", short:"VF Corp · Canvas", disc:"Design System — VF Corporation", tint:"#5A6278",
     role:"Design system designer", platform:"Figma · Open source", cover:"s-cvg-bento",
     team:"With the VF Corporation digital and design system teams",
     tagline:"One system, built from scratch in Figma, that every VF brand can make its own.",
@@ -504,7 +504,7 @@ const P = [
       {media:[["s-cv-icons","The squared icon set","full"]]},
     ]},
 
-  {id:"smartwool", n:"008", client:"Smartwool", short:"Smartwool", disc:"Site Architecture / UX", tint:"#2E5E4E",
+  {id:"smartwool", n:"008", client:"Smartwool", short:"Smartwool", disc:"Site Architecture / UX", tint:"#3F6B5A",
     role:"UX &amp; visual design", platform:"Responsive web", cover:"m-sw-cover",
     team:"With VF Corporation and the Smartwool digital and brand teams",
     tagline:"A homepage that helps you find your gear as easily as the brand says “Go far. Feel good.”",
@@ -527,7 +527,7 @@ const P = [
       {media:[["m-sw-coll","Shop collections","full"]]},
     ]},
 
-  {id:"beacon", n:"009", client:"Beacon Design System®", short:"Morgan Stanley", disc:"Design System — Morgan Stanley", tint:"#1F3A68",
+  {id:"beacon", n:"009", client:"Beacon Design System®", short:"Morgan Stanley", disc:"Design System — Morgan Stanley", tint:"#6A5C82",
     role:"Design system designer", platform:"Web docs · Figma &amp; Sketch kits", cover:"m-bc-cover",
     team:"With Morgan Stanley’s design system team",
     tagline:"A design system as supportive as the components themselves.",
