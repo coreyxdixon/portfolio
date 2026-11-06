@@ -463,13 +463,13 @@ const P = [
 
   {id:"dickies", n:"005", client:"Dickies", short:"Dickies", disc:"E-Commerce Redesign", tint:"#8A6A3B",
     role:"UI &amp; visual design lead", platform:"Shopify · ReCharge", cover:"m-dk-cover",
-    team:"With the Dickies brand team and partner agencies",
+    team:"With VF Corporation, the Dickies brand team and partner agencies",
     tagline:"A storefront for people who actually wear the clothes to work.",
     hero:["m-dk-home","Home, desktop and mobile"],
     story:[
       {k:"(The Ask)", h:"A site as hardworking as the people who shop it.",
        p:["Dickies has made workwear since 1922. Its customers are welders, ranchers, skaters and chefs who are hard on their clothes and have no patience for a fussy website.",
-          "The redesign was part of a wider brand refresh with a new identity and a custom typeface drawn from the logo. I led UI and visual design, carrying that refresh into a responsive store that balances grit with utility."]},
+          "Working with VF Corporation and the Dickies brand team, we redesigned the site as part of a wider brand refresh with a new identity and a custom typeface drawn from the logo. I led UI and visual design, carrying that refresh into a responsive store that balances grit with utility."]},
       {media:[["m-dk-plp","Men’s Pants, a category landing page","full"]]},
       {media:[["m-dk-pdp","Product page for the Original 874® Work Pant","full"]]},
       {k:"(The Audit)", h:"Most customers shop on their phones. The old site fought them.",
@@ -489,7 +489,7 @@ const P = [
 
   {id:"dickies-brand", n:"006", client:"Dickies Brand Guidelines", short:"Dickies Brand", disc:"Brand Guidelines", tint:"#8A6A3B",
     role:"Brand &amp; visual design", platform:"Brand guidelines site · Retail · Digital", cover:"s-dbc-type-big",
-    team:"With the Dickies brand team",
+    team:"With VF Corporation and the Dickies brand team",
     tagline:"A brand guide built like the clothes: tough, practical and impossible to misread.",
     hero:["s-dbc-type-big","Big Text, the custom display face made for big brand moments"],
     story:[
@@ -531,19 +531,19 @@ const P = [
       {media:[["s-cv-buttons","Button types and states","full"]]},
       {k:"(Components)", h:"Thirty-plus components, documented one by one.",
        p:["The library covers everything a storefront needs, from accordions and buttons to navigation, filters, product cards, ratings, search and loaders. Each component has its own documentation page and copy-paste stickers.",
-          "Designers at The North Face and Dickies now start from the same tested parts, and each brand still looks like itself."]},
-      {media:[["s-cv-tokens-color","Design tokens for color","full"]]},
+          "Designers at The North Face and Dickies now start from the same tested parts, and each brand still looks like itself, as the concept below shows: the same card, with The North Face’s black, red and square corners."]},
+      {media:[["s-cvg-tnf","Concept: the same product card, themed for The North Face","full"]]},
       {media:[["s-cv-icons","The squared icon set","full"]]},
     ]},
 
   {id:"smartwool", n:"008", client:"Smartwool", short:"Smartwool", disc:"Site Architecture / UX", tint:"#2E5E4E",
     role:"UX &amp; visual design", platform:"Responsive web", cover:"m-sw-cover",
-    team:"With the Smartwool digital and brand teams",
+    team:"With VF Corporation and the Smartwool digital and brand teams",
     tagline:"A homepage that helps you find your gear as easily as the brand says “Go far. Feel good.”",
     hero:["m-sw-home","Home, desktop and mobile"],
     story:[
       {k:"(The Ask)", h:"A site that welcomes the overwhelmed.",
-       p:["Smartwool makes great merino gear, and a lot of it. Socks alone come in dozens of cushion levels, heights and activities, and shoppers were landing on the site without knowing where to start.",
+       p:["Working with VF Corporation and the Smartwool team, we took on the homepage. Smartwool makes great merino gear, and a lot of it. Socks alone come in dozens of cushion levels, heights and activities, and shoppers were landing on the site without knowing where to start.",
           "So we started over, from the structure up, backed by analytics, heuristic reviews and testing against competitors."]},
       {media:[["m-sw-v2","An earlier direction, Cold days are coming","full"]]},
       {media:[["m-sw-act","Shop by activity","full"]]},
@@ -620,7 +620,7 @@ try{ mode = localStorage.getItem("cd-mode") || "grid" }catch(e){}
 
 function home(){
   const cards = P.map((p,i)=>`<a class="card ${layout[i%layout.length]}" href="#${p.id}">
-      ${cover(p,"Cover · 3:2")}
+      ${cover(p,"")}
       <div class="cap"><span class="mono mute">N°${p.n}</span><span class="cap-t">${p.client}</span><span class="mono mute r">${p.disc}</span></div>
     </a>`).join("");
   const list = P.map(p=>`<li><a href="#${p.id}"><span class="n mono mute">N°${p.n}</span><span class="t">${p.client}</span><span class="d mono">${p.disc}</span><span class="y mono mute">${p.draft?"In progress":"Case study"} →</span></a></li>`).join("");
