@@ -263,6 +263,7 @@ header.top{transition:transform .7s cubic-bezier(.2,.7,.2,1),background-color .3
 .slot{display:block}
 .dl{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
 .dl:hover{color:var(--hover)}
+.tag{display:inline-block;font-size:10px;line-height:1;padding:3px 7px 3px;border:1px solid var(--rule);border-radius:20px;color:var(--mute);margin-left:6px;vertical-align:2px;white-space:nowrap}
 /* Entrance */
 @media (prefers-reduced-motion:no-preference){
   .view>*{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
@@ -482,21 +483,22 @@ const P = [
   {id:"paypal", n:"008", client:"PayPal", short:"PayPal", disc:"Product Design", tint:"#003087", draft:true},
 ];
 const ROWS = [
-  ["Jun 2026 — Present","GetWyz","Senior Designer","Full-time · Richmond, VA · Product and visual design across the platform"],
+  ["Jun 2026 — Present","GetWyz","Senior Designer","Richmond, VA · Hybrid · Product and visual design across the platform"],
   ["Feb 2026 — Jun 2026","PayPal","Senior UX Designer","Contract · Remote · PayPal and Venmo consumer and merchant experiences, motion and prototyping"],
-  ["Nov 2025 — Mar 2026","Left Field Labs","Senior Designer","Freelance · Remote · Motion and art direction for Google I/O 2026"],
-  ["Dec 2024 — Nov 2025","Grow","Senior Designer","Contract · Product design and design systems for Capital One enterprise tools"],
-  ["Oct 2023 — Dec 2024","Shockoe","Design Team Lead","Full-time · Remote · Responsive web and native mobile apps"],
+  ["Nov 2025 — Mar 2026","Left Field Labs","Senior Designer","Freelance · Los Angeles · Remote · Motion and art direction for Google I/O 2026"],
+  ["Dec 2024 — Nov 2025","Grow","Senior Designer","Contract · Norfolk, VA · Product design and design systems for Capital One enterprise tools"],
+  ["Oct 2023 — Dec 2024","Shockoe","Design Team Lead","Mobile by Design · Remote · Responsive web and native mobile apps"],
   ["Jun 2022 — Oct 2023","VF Corporation","Senior Designer","Contract · Remote · Design systems and redesigns for Dickies, The North Face, Vans and Timberland"],
   ["Oct 2021 — Jun 2022","Shockoe","Senior Product Designer","Contract · Remote · Responsive web and native mobile clients"],
-  ["Mar 2020 — Oct 2021","Pow","Senior Designer","Remote · Features and design system work for Morgan Stanley’s Beacon"],
+  ["Mar 2020 — Oct 2021","Pow","Senior Designer","Portland, OR · Remote · Features and design system work for Morgan Stanley’s Beacon"],
   ["Jan 2019 — Mar 2020","Money.com","Visual Designer","San Juan, PR · UX and product design for consumer financial tools"],
-  ["Jan 2018 — Dec 2018","CarMax","Visual Designer","Contract · Responsive product and lifecycle design"],
-  ["Nov 2016 — Jan 2018","Capital One","Associate Visual Designer","Patterns and components for the Gravity design system"],
+  ["Jan 2018 — Dec 2018","CarMax","Visual Designer","Contract · Richmond, VA · Responsive product and lifecycle design"],
+  ["Nov 2016 — Jan 2018","Capital One","Associate Visual Designer","Richmond, VA · Patterns and components for the Gravity design system"],
   ["Jun 2012 — Nov 2016","Dominion Enterprises","Product Designer","Norfolk, VA · Web and native apps for Homes.com"],
 ];
 const EDU = [["2006 — 2010","Old Dominion University","Bachelor of Fine Arts"],["2016","University of Richmond","Full Stack Bootcamp"],["2019","Future London Academy","UX Design Week"]];
-const rowHTML = r=>`<div class="grid r-row"><span class="when mono mute">${r[0]}</span><span class="co">${r[1]}</span><span class="role">${r[2]}</span><span class="desc">${r[3]}</span></div>`;
+const rowHTML = r=>{ const m=r[3].match(/^(Contract|Freelance) · /); const tag=m?` <span class="tag mono">${m[1]}</span>`:""; const d=m?r[3].slice(m[0].length):r[3];
+  return `<div class="grid r-row"><span class="when mono mute">${r[0]}</span><span class="co">${r[1]}</span><span class="role">${r[2]}${tag}</span><span class="desc">${d}</span></div>`; };
 const layout = [""];
 
 const ph = (p, i, label, ar) => `<div class="ph" style="--tint:${p.tint};--ar:${ar||p.ar}">
