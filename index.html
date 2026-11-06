@@ -42,7 +42,7 @@
   --s1:8px; --s2:16px; --s3:20px; --s4:clamp(32px,4.2vw,60px); --s5:clamp(60px,8.2vw,132px); --s6:clamp(84px,12.2vw,188px);
   color-scheme:dark;
 }
-:root[data-mode="light"]{--paper:#F5F5F2; --ink:#0D0D0C; --mute:#76766F; --rule:#DADAD5; --tile:#E8E8E4; --hover:#9A9A93; color-scheme:light}
+:root[data-mode="light"]{--paper:#F5F5F2; --ink:#0D0D0C; --mute:#6B6B64; --rule:#DADAD5; --tile:#E8E8E4; --hover:#9A9A93; color-scheme:light}
 html,body,header.top,body::before{transition:background-color .35s ease,color .35s ease}
 
 *{box-sizing:border-box}
@@ -136,6 +136,10 @@ nav.main a:hover{color:var(--hover)}
 /* Image placeholders */
 .ph{container-type:inline-size;position:relative;background:var(--tile);aspect-ratio:var(--ar,4/3);max-width:100%;overflow:hidden;width:100%}
 .ph::before{content:"";position:absolute;inset:0;background:var(--tint);opacity:.55}
+.card .ph,.index .ph{background:var(--tint)}
+.card .ph::before{opacity:1;background:radial-gradient(120% 90% at 20% 0%,rgba(255,255,255,.10),transparent 55%),radial-gradient(90% 80% at 100% 100%,rgba(0,0,0,.28),transparent 60%)}
+.card .ph .ph-mark{color:#F4F1EA;opacity:1}
+.card .ph .ph-n,.card .ph .ph-l{color:#F4F1EA;opacity:.9}
 .ph .ph-l{position:absolute;left:12px;bottom:10px;color:var(--mute)}
 .ph .ph-n{position:absolute;right:12px;top:10px;color:var(--mute)}
 .ph .ph-mark{position:absolute;inset:0;display:grid;place-items:center;padding:0 8%;text-align:center;text-wrap:balance;line-height:.95;font-weight:500;letter-spacing:-.05em;font-size:clamp(14px,9.5cqi,80px);color:var(--ink);opacity:.9}
@@ -362,7 +366,7 @@ setMode(saved);
 document.querySelector(".modes").addEventListener("click",e=>{const b=e.target.closest("[data-set]"); if(b) setMode(b.dataset.set)});
 const IMG = {"m-bc-color":[3200,2000],"m-bc-comps":[3200,2000],"m-bc-cover":[3200,2000],"m-bc-gallery":[3200,2000],"m-bc-home":[3200,2000],"m-bc-pattern":[3200,2000],"m-bc-start":[3200,2000],"m-bc-type":[3200,2000],"m-dk-cover":[3200,2000],"m-dk-home":[3200,2000],"m-dk-pdp":[3200,2000],"m-dk-plp":[3200,2000],"m-dk-scrubs":[3200,2000],"m-dk-skate":[3200,2000],"m-dk-stories":[3200,2000],"m-dk-team":[3200,2000],"m-io-color":[3200,2000],"m-io-complete":[3200,2000],"m-io-cover":[3200,2000],"m-io-play":[3200,2000],"m-io-progress":[3200,2000],"m-io-reveal":[3200,2000],"m-io-share":[3200,2000],"m-io-sound":[3200,2000],"m-pga-cover":[3200,2000],"m-pga-hole":[3200,2000],"m-pga-live":[3200,2000],"m-pga-onboard":[3200,2000],"m-pga-stats":[3200,2000],"m-pga-story":[3200,2000],"m-rh-ceremony":[3200,2000],"m-rh-classes":[3200,2000],"m-rh-cover":[3200,2000],"m-rh-inductee":[3200,2000],"m-rh-museum":[3200,2000],"m-rh-tv":[3200,2000],"m-rh-visit":[3200,2000],"m-rh-vote":[3200,2000],"m-sw-act":[3200,2000],"m-sw-coll":[3200,2000],"m-sw-cover":[3200,2000],"m-sw-gear":[3200,2000],"m-sw-home":[3200,2000],"m-sw-plant":[3200,2000],"m-sw-prod":[3200,2000],"m-sw-v2":[3200,2000]};
 const P = [
-  {id:"google-io", n:"001", client:"Google I/O 2026", short:"Google I/O", disc:"Experiential / Motion", tint:"#26344A",
+  {id:"google-io", n:"001", client:"Google I/O 2026", short:"Google I/O", disc:"Experiential / Motion", tint:"#A23E1D",
     role:"Motion design &amp; art direction", platform:"Web · desktop &amp; mobile", cover:"m-io-cover",
     team:"With Left Field Labs and the Google I/O team",
     tagline:"Google could have just announced the date. Instead, we built a game the whole community had to play to unlock it.",
@@ -388,7 +392,7 @@ const P = [
       {media:[["m-io-share","You did it. Shareable badges for finishing every bundle","full"]]},
     ]},
 
-  {id:"pga-tour", n:"002", client:"PGA Tour", short:"PGA Tour", disc:"Mobile App", tint:"#1A2636",
+  {id:"pga-tour", n:"002", client:"PGA Tour", short:"PGA Tour", disc:"Mobile App", tint:"#1C2B4A",
     role:"UI lead", platform:"iOS &amp; Android", cover:"m-pga-cover",
     team:"With Shockoe and the PGA Tour brand and product teams",
     tagline:"Fans follow players, not tournaments. We rebuilt the PGA Tour app around that.",
@@ -413,7 +417,7 @@ const P = [
       {media:[["s-hk-vision-wall","Stories, recaps and player moments","full"]]},
     ]},
 
-  {id:"haskell", n:"003", client:"Haskell Design System", short:"PGA Tour · Haskell", disc:"Design System — PGA Tour", tint:"#4A3B24",
+  {id:"haskell", n:"003", client:"Haskell Design System", short:"PGA Tour · Haskell", disc:"Design System — PGA Tour", tint:"#2F4A35",
     role:"Design system &amp; product design", platform:"iOS · Android · Web · Figma", cover:"s-hk-moodboard",
     team:"With Shockoe and the PGA Tour digital, brand and engineering teams",
     tagline:"One design system for every screen the PGA Tour puts in front of fans.",
@@ -437,7 +441,7 @@ const P = [
       {media:[["s-hk-spec-color","Color specs, applied to a themed leaderboard","full"]]},
     ]},
 
-  {id:"rock-hall", n:"004", client:"Rock &amp; Roll Hall of Fame", short:"Rock Hall", disc:"Digital Experience", tint:"#4A1A17",
+  {id:"rock-hall", n:"004", client:"Rock &amp; Roll Hall of Fame", short:"Rock Hall", disc:"Digital Experience", tint:"#7D1E22",
     role:"Art direction, UX &amp; UI", platform:"Responsive web", cover:"m-rh-cover",
     team:"With Grow and the Rock &amp; Roll Hall of Fame team",
     tagline:"The museum of the loudest art form on earth deserved a website that didn’t whisper.",
@@ -461,7 +465,7 @@ const P = [
       {media:[["m-rh-visit","Plan your visit","full"]]},
     ]},
 
-  {id:"dickies", n:"005", client:"Dickies", short:"Dickies", disc:"E-Commerce Redesign", tint:"#3F3424",
+  {id:"dickies", n:"005", client:"Dickies", short:"Dickies", disc:"E-Commerce Redesign", tint:"#4E3426",
     role:"UI &amp; visual design lead", platform:"Shopify · ReCharge", cover:"m-dk-cover",
     team:"With VF Corporation, the Dickies brand team and partner agencies",
     tagline:"A storefront for people who actually wear the clothes to work.",
@@ -487,7 +491,7 @@ const P = [
       {media:[["m-dk-team","Skate team member, Christian Henry","full"]]},
     ]},
 
-  {id:"dickies-brand", n:"006", client:"Dickies Brand Guidelines", short:"Dickies Brand", disc:"Brand Guidelines", tint:"#33361F",
+  {id:"dickies-brand", n:"006", client:"Dickies Brand Guidelines", short:"Dickies Brand", disc:"Brand Guidelines", tint:"#8A5418",
     role:"Brand &amp; visual design", platform:"Brand guidelines site · Retail · Digital", cover:"s-dbc-type-big",
     team:"With VF Corporation and the Dickies brand team",
     tagline:"A brand guide built like the clothes: tough, practical and impossible to misread.",
@@ -510,7 +514,7 @@ const P = [
       {media:[["s-dbc-photo","Photography: Make Us Feel","full"]]},
     ]},
 
-  {id:"canvas", n:"007", client:"Canvas Design System", short:"VF Corp · Canvas", disc:"Design System — VF Corporation", tint:"#2E3342",
+  {id:"canvas", n:"007", client:"Canvas Design System", short:"VF Corp · Canvas", disc:"Design System — VF Corporation", tint:"#55552B",
     role:"Design system designer", platform:"Figma · Open source", cover:"s-cvg-bento",
     team:"With the VF Corporation digital and design system teams",
     tagline:"One system, built from scratch in Figma, that every VF brand can make its own.",
@@ -536,7 +540,7 @@ const P = [
       {media:[["s-cv-icons","The squared icon set","full"]]},
     ]},
 
-  {id:"smartwool", n:"008", client:"Smartwool", short:"Smartwool", disc:"Site Architecture / UX", tint:"#1F3329",
+  {id:"smartwool", n:"008", client:"Smartwool", short:"Smartwool", disc:"Site Architecture / UX", tint:"#245656",
     role:"UX &amp; visual design", platform:"Responsive web", cover:"m-sw-cover",
     team:"With VF Corporation and the Smartwool digital and brand teams",
     tagline:"A homepage that helps you find your gear as easily as the brand says “Go far. Feel good.”",
@@ -559,7 +563,7 @@ const P = [
       {media:[["m-sw-coll","Shop collections","full"]]},
     ]},
 
-  {id:"beacon", n:"009", client:"Beacon Design System®", short:"Morgan Stanley", disc:"Design System — Morgan Stanley", tint:"#332C40",
+  {id:"beacon", n:"009", client:"Beacon Design System®", short:"Morgan Stanley", disc:"Design System — Morgan Stanley", tint:"#4D2B45",
     role:"Design system designer", platform:"Web docs · Figma &amp; Sketch kits", cover:"m-bc-cover",
     team:"With Morgan Stanley’s design system team",
     tagline:"A design system as supportive as the components themselves.",
@@ -609,7 +613,7 @@ const ph = (p, i, label, ar) => `<div class="ph" style="--tint:${p.tint};--ar:${
   ${i===0?`<span class="ph-mark">${p.short}</span>`:""}
   <span class="ph-l mono">${label}</span></div>`;
 
-const img = (k, alt, eager) => { const d=IMG[k]||[1600,900]; return `<img class="shot" src="/work/${k}.webp" alt="${alt}" width="${d[0]}" height="${d[1]}" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async">`; };
+const img = (k, alt, eager) => { const d=IMG[k]||[1600,900]; return `<img class="shot" src="/work/${k}.webp?v=11061346" alt="${alt}" width="${d[0]}" height="${d[1]}" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async">`; };
 const USE_COVERS = false; // flip to true once every project has a matching-resolution cover
 const cover = (p, label) => (USE_COVERS && p.cover)
   ? `<div class="ph ph-img" style="--ar:3/2">${img(p.cover, p.short.replace(/&amp;/g,"&")+" project cover")}</div>`
@@ -717,7 +721,7 @@ function projectReal(p){
   const bp = b => { n++; const ks=Object.keys(b.bp); const first=ks[0];
     return `<div class="grid p-media"><div class="spec" data-bpview><div class="spec-head mono"><span class="mute">(Breakpoints) — <span class="bp-w">${BPPX[first]}px</span></span>
       <span class="seg" role="group" aria-label="Breakpoint">${ks.map(k=>`<button data-bp="${k}" aria-pressed="${k===first}">${k}</button>`).join("")}</span></div>
-      <div class="bp-stage"><div class="bp-frame" style="width:${BPW[first]}">${ks.map(k=>{const d=IMG[b.bp[k]]||[1600,1000];return `<img src="/work/${b.bp[k]}.webp" alt="${alt(b.cap+" — "+k)}" width="${d[0]}" height="${d[1]}" loading="lazy" decoding="async" data-k="${k}" class="${k===first?"on":""}">`}).join("")}</div></div>
+      <div class="bp-stage"><div class="bp-frame" style="width:${BPW[first]}">${ks.map(k=>{const d=IMG[b.bp[k]]||[1600,1000];return `<img src="/work/${b.bp[k]}.webp?v=11061346" alt="${alt(b.cap+" — "+k)}" width="${d[0]}" height="${d[1]}" loading="lazy" decoding="async" data-k="${k}" class="${k===first?"on":""}">`}).join("")}</div></div>
       <div class="spec-cap mono mute"><span>${b.cap}</span><span>${String(n).padStart(2,"0")}</span></div></div></div>`; };
   const tok = b => { return `<div class="grid p-media"><div class="spec"><div class="spec-head mono"><span class="mute">(Tokens) — click to copy</span><span class="mute">${b.tokens.length} values</span></div>
       <div class="tok mono">${b.tokens.map(t=>`<button data-copy="${t[1]}" style="--c:${t[1]}" aria-label="Copy ${t[0]} ${t[1]}"><i></i><span><b>${t[0]}</b><em>${t[1].toUpperCase()}</em></span></button>`).join("")}</div>
