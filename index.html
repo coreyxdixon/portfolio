@@ -265,9 +265,8 @@ header.top{transition:transform .7s cubic-bezier(.2,.7,.2,1),background-color .3
 @media (prefers-reduced-motion:reduce){.cur,.cur-ring,.peek{display:none!important}}
 
 .ph-th img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
-.card .ph-th{background:#0b0b0b}.card .ph-th::before{display:block;opacity:1;z-index:1;background:radial-gradient(55% 45% at 50% 50%,rgba(0,0,0,.42),transparent 75%)}
-.card .ph-th .ph-mark{z-index:2;color:#F4F1EA;text-shadow:0 2px 30px rgba(0,0,0,.35)}.card .ph-th .ph-n{z-index:2;opacity:1;color:#F4F1EA;background:rgba(0,0,0,.62);padding:4px 8px;top:8px;right:8px;letter-spacing:.04em}
-.peek .ph-th .ph-mark,.peek .ph-th .ph-n{display:none}.peek .ph-th::before{display:none}
+.card .ph-th,.peek .ph-th{background:#0b0b0b}.card .ph-th::before,.peek .ph-th::before{display:block;opacity:1;z-index:1;background:radial-gradient(55% 45% at 50% 50%,rgba(0,0,0,.42),transparent 75%)}
+.card .ph-th .ph-mark,.peek .ph-th .ph-mark{z-index:2;color:#F4F1EA;text-shadow:0 2px 30px rgba(0,0,0,.35)}.card .ph-th .ph-n,.peek .ph-th .ph-n{z-index:2;opacity:1;color:#F4F1EA;background:rgba(0,0,0,.62);padding:4px 8px;top:8px;right:8px;letter-spacing:.04em}
 .card:hover .ph-th img{transform:scale(1.04)}
 @media (pointer:coarse){.modes button,.copy,.burger,a[download],a[href^="https://linkedin"],a[href="#resume"],[aria-label="Close menu"]{position:relative}
 .modes button::after,.copy::after,a[download]::after,a[href^="https://linkedin"]::after,a[href="#resume"]::after,[aria-label="Close menu"]::after{content:"";position:absolute;inset:-12px -6px}}
