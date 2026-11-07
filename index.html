@@ -641,8 +641,10 @@ const coverOld = (p, label) => (USE_COVERS && p.cover)
   ? `<div class="ph ph-img" style="--ar:3/2">${img(p.cover, p.short.replace(/&amp;/g,"&")+" project cover")}</div>`
   : ph(p,0,label,"3/2");
 
+// Default view: grid on phones, index on desktop. A visitor's own choice is remembered per device size.
+const modeKey = () => "cd-view-" + (matchMedia("(max-width:760px)").matches ? "m" : "d");
 let mode = "grid";
-try{ mode = localStorage.getItem("cd-mode") || "grid" }catch(e){}
+try{ mode = localStorage.getItem(modeKey()) || mode }catch(e){}
 
 function home(){
   const cards = P.map((p,i)=>`<a class="card ${layout[i%layout.length]}" href="#${p.id}">
@@ -845,7 +847,7 @@ app.addEventListener("click", e=>{
   const cp = e.target.closest("[data-copy]");
   if(cp){ const em=cp.querySelector("em"), t=cp.dataset.copy; try{navigator.clipboard.writeText(t).then(()=>{em.textContent="Copied";setTimeout(()=>em.textContent=t.toUpperCase(),1200)})}catch(err){} return; }
   const b = e.target.closest("[data-mode]"); if(!b) return;
-  mode = b.dataset.mode; try{localStorage.setItem("cd-mode",mode)}catch(e){}
+  mode = b.dataset.mode; try{localStorage.setItem(modeKey(),mode)}catch(e){}
   document.getElementById("work-grid").hidden = mode!=="grid";
   document.getElementById("work-index").hidden = mode!=="index";
   document.querySelectorAll("[data-mode]").forEach(x=>x.setAttribute("aria-pressed", x.dataset.mode===mode));
