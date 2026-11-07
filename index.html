@@ -498,16 +498,16 @@ const P = [
     ]},
 
   {id:"dickies-brand", n:"006", client:"Dickies Brand Guidelines", short:"Dickies Brand", disc:"Brand Guidelines", tint:"#8A5418",
-    role:"Brand &amp; visual design", platform:"Brand guidelines site · Retail · Digital", cover:"l-db-1",
+    role:"Brand &amp; visual design", platform:"Brand guidelines site · Retail · Digital", cover:"l-db-3",
     team:"With VF Corporation and the Dickies brand team",
     tagline:"A brand guide built like the clothes: tough, practical and impossible to misread.",
-    hero:["l-db-1","Big Text, from the guide to the homepage"],
+    hero:["l-db-3","The full-color logo, from the guide to the team pages"],
     story:[
       {k:"(The Brief)", h:"One source of truth for every Dickies team.",
        p:["Dickies shows up everywhere: its own site, wholesale partners, stores, campaigns and collaborations. Without a shared guide, every team was interpreting the brand on its own.",
           "We built the guidelines as a browsable site covering logo, color, typography, photography and real examples, so anyone could find an answer in a few clicks."]},
       {media:[["l-db-2","The system in action, and in Stories","full"]]},
-      {media:[["l-db-3","The full-color logo, on and off the site","full"]]},
+      {media:[["l-db-8","Campaign examples, from the guide to the homepage","full"]]},
       {k:"(Color)", h:"Khaki, charcoal and blood red.",
        p:["The palette comes straight from the workwear. Khakis and charcoal do most of the work, and blood red is saved for accents. Every color ships with HEX, RGB, PMS and CMYK values, plus clear do’s and don’ts for contrast."]},
       {media:[["l-db-4","Primary colors, applied to the product page","full"]]},
@@ -619,7 +619,7 @@ const ph = (p, i, label, ar) => `<div class="ph" style="--tint:${p.tint};--ar:${
   ${i===0?`<span class="ph-mark">${p.short}</span>`:""}
   <span class="ph-l mono">${label}</span></div>`;
 
-const img = (k, alt, eager) => { const d=IMG[k]||[1600,900]; return `<img class="shot" src="/work/${k}.webp?v=11070700" alt="${alt}" width="${d[0]}" height="${d[1]}" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async">`; };
+const img = (k, alt, eager) => { const d=IMG[k]||[1600,900]; return `<img class="shot" src="/work/${k}.webp?v=11070800" alt="${alt}" width="${d[0]}" height="${d[1]}" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async">`; };
 const USE_COVERS = false; // flip to true once every project has a matching-resolution cover
 const cover = (p, label) => (USE_COVERS && p.cover)
   ? `<div class="ph ph-img" style="--ar:3/2">${img(p.cover, p.short.replace(/&amp;/g,"&")+" project cover")}</div>`
@@ -727,7 +727,7 @@ function projectReal(p){
   const bp = b => { n++; const ks=Object.keys(b.bp); const first=ks[0];
     return `<div class="grid p-media"><div class="spec" data-bpview><div class="spec-head mono"><span class="mute">(Breakpoints) — <span class="bp-w">${BPPX[first]}px</span></span>
       <span class="seg" role="group" aria-label="Breakpoint">${ks.map(k=>`<button data-bp="${k}" aria-pressed="${k===first}">${k}</button>`).join("")}</span></div>
-      <div class="bp-stage"><div class="bp-frame" style="width:${BPW[first]}">${ks.map(k=>{const d=IMG[b.bp[k]]||[1600,1000];return `<img src="/work/${b.bp[k]}.webp?v=11070700" alt="${alt(b.cap+" — "+k)}" width="${d[0]}" height="${d[1]}" loading="lazy" decoding="async" data-k="${k}" class="${k===first?"on":""}">`}).join("")}</div></div>
+      <div class="bp-stage"><div class="bp-frame" style="width:${BPW[first]}">${ks.map(k=>{const d=IMG[b.bp[k]]||[1600,1000];return `<img src="/work/${b.bp[k]}.webp?v=11070800" alt="${alt(b.cap+" — "+k)}" width="${d[0]}" height="${d[1]}" loading="lazy" decoding="async" data-k="${k}" class="${k===first?"on":""}">`}).join("")}</div></div>
       <div class="spec-cap mono mute"><span>${b.cap}</span><span>${String(n).padStart(2,"0")}</span></div></div></div>`; };
   const tok = b => { return `<div class="grid p-media"><div class="spec"><div class="spec-head mono"><span class="mute">(Tokens) — click to copy</span><span class="mute">${b.tokens.length} values</span></div>
       <div class="tok mono">${b.tokens.map(t=>`<button data-copy="${t[1]}" style="--c:${t[1]}" aria-label="Copy ${t[0]} ${t[1]}"><i></i><span><b>${t[0]}</b><em>${t[1].toUpperCase()}</em></span></button>`).join("")}</div>
