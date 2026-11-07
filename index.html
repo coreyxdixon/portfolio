@@ -635,7 +635,7 @@ const ph = (p, i, label, ar) => `<div class="ph" style="--tint:${p.tint};--ar:${
 
 const img = (k, alt, eager) => { const d=IMG[k]||[1600,900]; const lock=/^(l|m)-/.test(k); return (lock?'<span class="shot-wrap">':'')+`<img class="shot" src="/work/${k}.webp?v=11071105" alt="${alt}" width="${d[0]}" height="${d[1]}" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async">`+(lock?'</span>':''); };
 const USE_COVERS = false; // flip to true once every project has a matching-resolution cover
-const thumb = (p) => `<div class="ph ph-th" style="--tint:${p.tint};--ar:3/2"><img src="/work/th-${p.id}.webp?v=11071105" alt="" width="1500" height="1000" loading="lazy" decoding="async"><span class="ph-n mono">${p.n}.00</span><span class="ph-mark">${p.short}</span></div>`;
+const thumb = (p, small) => `<div class="ph ph-th" style="--tint:${p.tint};--ar:3/2"><img src="/work/th-${p.id}${small?"-s":""}.webp?v=11071105" alt="" width="${small?600:1500}" height="${small?400:1000}" ${small?"":'loading="lazy"'} decoding="async"><span class="ph-n mono">${p.n}.00</span><span class="ph-mark">${p.short}</span></div>`;
 const cover = (p, label) => thumb(p);
 const coverOld = (p, label) => (USE_COVERS && p.cover)
   ? `<div class="ph ph-img" style="--ar:3/2">${img(p.cover, p.short.replace(/&amp;/g,"&")+" project cover")}</div>`
@@ -906,7 +906,7 @@ document.getElementById("copy").addEventListener("click", e=>{
     const row=e.target.closest(".index a");
     const id=row?row.getAttribute("href").slice(1):null;
     if(id!==peekId){ peekId=id; const p=id&&P.find(x=>x.id===id);
-      if(p){ peek.innerHTML=cover(p,"N°"+p.n); peek.classList.add("on") } else peek.classList.remove("on"); }
+      if(p){ peek.innerHTML=thumb(p,true); peek.classList.add("on") } else peek.classList.remove("on"); }
   });
   (function tick(){ cx+=(mx-cx)*.2; cy+=(my-cy)*.2; px+=(mx-px)*.12; py+=(my-py)*.12;
     sc+=(st-sc)*.18; const tf=`translate3d(${cx}px,${cy}px,0) scale(${sc})`; cur.style.transform=tf; ring.style.transform=tf;
@@ -916,6 +916,9 @@ document.getElementById("copy").addEventListener("click", e=>{
 })();
 
 addEventListener("hashchange", route); route();
+// Warm the list-view previews (about 150KB total) once the page is idle, so hovering shows them instantly.
+(function(){ const go=()=>P.forEach(p=>{ const i=new Image(); i.src=`work/th-${p.id}-s.webp?v=11071105`; i.decode&&i.decode().catch(()=>{}); });
+  if(matchMedia("(hover:hover) and (pointer:fine)").matches){ ("requestIdleCallback" in window) ? requestIdleCallback(go,{timeout:2500}) : setTimeout(go,1200); } })();
 addEventListener("pageshow",e=>{ if(!e.persisted && (!location.hash||location.hash==="#home")) scrollTo(0,0) });
 addEventListener("load",()=>{ if((!location.hash||location.hash==="#home") && scrollY<4) scrollTo(0,0) });
 const words=["design systems","storefronts","platforms","event experiences","enterprise tools","AI-built prototypes"]; let wi=0;
