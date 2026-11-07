@@ -528,22 +528,22 @@ const P = [
     story:[
       {k:"(The Brief)", h:"One foundation for brands that look nothing alike.",
        p:["Canvas is the open-source design system behind VF Corporation’s digital experiences, shared by brands like The North Face, Dickies, Vans and Timberland. Those brands don’t look or sound alike, and the system had to serve all of them.",
-          "We built Canvas from scratch in Figma as a scalable system: shared components underneath, and a layer of tokens on top that each brand can change, from typeface to color to corner radius."]},
-      {media:[["l-cv-2","The default palette","full"]]},
-      {media:[["l-cv-3","Swap the tokens, keep the components (illustrative brands)","full"]]},
-      {k:"(Theming)", h:"Swap the tokens. Keep the components.",
-       p:["Brand colors are open for each brand to customize. Neutrals, status, filter and social colors stay consistent for everyone. Every color maps to a token for text, icons, backgrounds and borders, so a brand changes a handful of values and every component follows.",
-          "These are the real default values from the library. Click a swatch to copy it."]},
-      {tokens:[["Slate-20","#454b5b"],["Slate-30","#646d82"],["Slate-40","#818ba3"],["Slate-50","#99a3bc"],["Slate-60","#afb8cf"],["Slate-80","#d5dae6"],["Slate-90","#ebeef4"],["Black","#000000"],["Grey-10","#2a2a2a"],["Grey-20","#525252"],["Grey-30","#757575"],["Grey-40","#9a9a9a"],["Grey-50","#b8b8b8"],["Grey-60","#cfcfcf"],["Grey-70","#e1e1e1"],["Grey-80","#eeeeee"],["Grey-90","#f8f8f8"],["Green-30","#457030"],["Green-90","#e4f8e0"],["Youtube","#e7221a"],["Twitter","#1da1f2"],["Pinterest","#bd091c"],["Instagram","#833ab4"],["Facebook","#3b5998"]], cap:"Canvas color styles: brand, neutral, status and social"},
+          "So the question was never what Canvas should look like. It was how little a brand should have to change to make it their own."]},
+      {media:[["s-cv2-tokens","How it starts: brand tokens, semantic tokens, components","full"]]},
+      {k:"(How It Starts)", h:"Tokens first. Screens second.",
+       p:["We built Canvas from scratch in Figma, starting from tokens rather than screens. Brand tokens hold the few values a brand owns: color, typeface, corner radius. Semantic tokens name each job, like a primary button background or a muted label. Components only ever read the semantic layer.",
+          "A brand edits the first layer and leaves the rest alone. Everything downstream updates on its own."]},
+      {media:[["s-cv2-ramps","Brand ramps are customizable. Neutrals, status and social stay fixed.","full"]]},
+      {k:"(Foundations)", h:"One token, two sizes.",
+       p:["Type works the same way. Each style is a token for family, size, line height, letter spacing and weight, with a desktop and a mobile value, so Display 1 drops from 80 to 40 on a phone without anyone redrawing a screen. Brands swap the family and keep the scale.",
+          "Buttons, inputs, filters, ratings, navigation and loaders sit on top: thirty-plus components, each with its own documentation page and copy-paste stickers."]},
       {media:[["l-cv-4","Type scale, desktop to mobile","full"]]},
-      {k:"(Type)", h:"One token, two sizes.",
-       p:["The type scale is a set of tokens for family, size, line height, letter spacing and weight. Each one carries a desktop and a mobile value, so Display 1 drops from 80 to 40 on a phone without anyone redrawing a screen. Brands can swap the family and keep the scale."]},
       {media:[["l-cv-5","Button types and states","full"]]},
-      {k:"(Components)", h:"Thirty-plus components, documented one by one.",
-       p:["The library covers everything a storefront needs, from accordions and buttons to navigation, filters, product cards, ratings, search and loaders. Each component has its own documentation page and copy-paste stickers.",
-          "Designers at The North Face and Dickies now start from the same tested parts, and each brand still looks like itself, as the concept below shows: the same card, with The North Face’s black, red and square corners."]},
-      {media:[["l-cv-6","Concept: the same card, themed for The North Face","full"]]},
-      {media:[["l-cv-7","Icons and component stickers","full"]]},
+      {k:"(How It Scales)", h:"Swap the tokens. Keep the components.",
+       p:["Here is the same product page twice. On the left, Canvas defaults. On the right, The North Face’s tokens: black, their red, square corners, uppercase calls to action. Not one component was redrawn.",
+          "That is the whole point of the system. Designers at The North Face and Dickies start from the same tested parts, and each brand still looks like itself."]},
+      {media:[["s-cv2-brands","One component, two brands: Canvas default and The North Face (concept)","full"]]},
+      {media:[["l-cv-6","Concept: the full product page themed for The North Face","full"]]},
     ]},
 
   {id:"smartwool", n:"008", client:"Smartwool", short:"Smartwool", disc:"Site Architecture / UX", tint:"#245656",
@@ -619,7 +619,7 @@ const ph = (p, i, label, ar) => `<div class="ph" style="--tint:${p.tint};--ar:${
   ${i===0?`<span class="ph-mark">${p.short}</span>`:""}
   <span class="ph-l mono">${label}</span></div>`;
 
-const img = (k, alt, eager) => { const d=IMG[k]||[1600,900]; return `<img class="shot" src="/work/${k}.webp?v=11062258" alt="${alt}" width="${d[0]}" height="${d[1]}" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async">`; };
+const img = (k, alt, eager) => { const d=IMG[k]||[1600,900]; return `<img class="shot" src="/work/${k}.webp?v=11061200" alt="${alt}" width="${d[0]}" height="${d[1]}" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async">`; };
 const USE_COVERS = false; // flip to true once every project has a matching-resolution cover
 const cover = (p, label) => (USE_COVERS && p.cover)
   ? `<div class="ph ph-img" style="--ar:3/2">${img(p.cover, p.short.replace(/&amp;/g,"&")+" project cover")}</div>`
@@ -727,7 +727,7 @@ function projectReal(p){
   const bp = b => { n++; const ks=Object.keys(b.bp); const first=ks[0];
     return `<div class="grid p-media"><div class="spec" data-bpview><div class="spec-head mono"><span class="mute">(Breakpoints) — <span class="bp-w">${BPPX[first]}px</span></span>
       <span class="seg" role="group" aria-label="Breakpoint">${ks.map(k=>`<button data-bp="${k}" aria-pressed="${k===first}">${k}</button>`).join("")}</span></div>
-      <div class="bp-stage"><div class="bp-frame" style="width:${BPW[first]}">${ks.map(k=>{const d=IMG[b.bp[k]]||[1600,1000];return `<img src="/work/${b.bp[k]}.webp?v=11062258" alt="${alt(b.cap+" — "+k)}" width="${d[0]}" height="${d[1]}" loading="lazy" decoding="async" data-k="${k}" class="${k===first?"on":""}">`}).join("")}</div></div>
+      <div class="bp-stage"><div class="bp-frame" style="width:${BPW[first]}">${ks.map(k=>{const d=IMG[b.bp[k]]||[1600,1000];return `<img src="/work/${b.bp[k]}.webp?v=11061200" alt="${alt(b.cap+" — "+k)}" width="${d[0]}" height="${d[1]}" loading="lazy" decoding="async" data-k="${k}" class="${k===first?"on":""}">`}).join("")}</div></div>
       <div class="spec-cap mono mute"><span>${b.cap}</span><span>${String(n).padStart(2,"0")}</span></div></div></div>`; };
   const tok = b => { return `<div class="grid p-media"><div class="spec"><div class="spec-head mono"><span class="mute">(Tokens) — click to copy</span><span class="mute">${b.tokens.length} values</span></div>
       <div class="tok mono">${b.tokens.map(t=>`<button data-copy="${t[1]}" style="--c:${t[1]}" aria-label="Copy ${t[0]} ${t[1]}"><i></i><span><b>${t[0]}</b><em>${t[1].toUpperCase()}</em></span></button>`).join("")}</div>
