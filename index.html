@@ -68,7 +68,7 @@ hr{border:0;border-top:1px solid var(--rule);margin:0}
 header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);padding-block:var(--s2);border-bottom:1px solid var(--rule)}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--paper)}
 header.top .grid{align-items:start}
-.brand{grid-column:1/4;font-weight:500;font-size:23px;line-height:1;letter-spacing:-.02em;justify-self:start;align-self:center;display:inline-flex;align-items:center;min-height:44px;margin-block:-8px}
+.brand{grid-column:1/4;font-weight:500;font-size:15px;line-height:1;letter-spacing:-.02em;justify-self:start;align-self:center;display:inline-flex;align-items:center;min-height:44px;margin-block:-8px}
 .h-role{grid-column:4/7}
 .h-loc{grid-column:7/10}
 nav.main{grid-column:10/13;display:flex;gap:18px;justify-content:flex-end;align-items:center}
@@ -330,7 +330,7 @@ header.top{transition:transform .7s cubic-bezier(.2,.7,.2,1),background-color .3
     <span class="h-loc mute">Richmond, VA<br>14 Years · Est. 2012</span>
     <nav class="main">
       <span class="links">
-        <a href="#home" data-nav="home">Work</a>
+        <a href="#work" data-nav="home">Work</a>
         <a href="#resume" data-nav="resume">Resume</a>
         <a href="#contact" data-nav="contact">Contact</a>
       </span>
@@ -342,7 +342,7 @@ header.top{transition:transform .7s cubic-bezier(.2,.7,.2,1),background-color .3
 
 <div class="menu" id="menu" aria-hidden="true" inert>
   <nav class="menu-links" aria-label="Mobile">
-    <a href="#home" data-nav="home">Work<span class="mono mute">Selected work</span></a>
+    <a href="#work" data-nav="home">Work<span class="mono mute">Selected work</span></a>
     <a href="#resume" data-nav="resume">Resume<span class="mono mute">Experience</span></a>
     <a href="#contact" data-nav="contact">Contact<span class="mono mute">Say hello</span></a>
   </nav>
@@ -686,7 +686,7 @@ function project(p){
   const mods = p.modules || ["Hero","Key Screen","Flow","Detail","Detail","System"];
   return `<div class="view">
     <section class="p-hero">
-      <a class="p-back mono" href="#home">← Index</a>
+      <a class="p-back mono" href="#work">← Index</a>
       <div class="mono mute" style="margin-bottom:var(--s3)">N°${p.n} ${p.draft?'· <span class="draft">Copy pending</span>':""}</div>
       <h1 class="p-title">${p.client}<span class="c">.</span></h1>
       <div class="grid p-meta mono">
@@ -749,7 +749,7 @@ function projectReal(p){
     : `<section class="grid p-block"><span class="k mono mute">${b.k}</span><h3 class="h h-sub">${b.h}</h3><div class="b">${b.p.map(t=>`<p>${t}</p>`).join("")}</div></section>`).join("");
   return `<div class="view">
     <section class="p-hero">
-      <a class="p-back mono" href="#home">← Index</a>
+      <a class="p-back mono" href="#work">← Index</a>
       <div class="mono mute" style="margin-bottom:var(--s2)">N°${p.n}</div>
       <h1 class="p-title">${p.client}<span class="c">.</span></h1>
       <div class="grid p-meta mono">
@@ -807,14 +807,28 @@ function resume(){
 }
 
 const app = document.getElementById("app");
+let homeY=0, onHome=false, goTop=false;
+try{ history.scrollRestoration="manual" }catch(e){}
+document.addEventListener("click",e=>{ const a=e.target.closest('a[href="#home"],a[href="#work"]'); if(!a) return;
+  const same = a.getAttribute("href")===(location.hash||"#home");
+  if(a.getAttribute("href")==="#home") goTop=true;
+  if(same){ e.preventDefault(); if(typeof setMenu==="function") setMenu(false);
+    const t=a.getAttribute("href")==="#work"?document.querySelector(".sec-head"):null;
+    scrollTo({top:t?t.getBoundingClientRect().top+scrollY-70:0,behavior:"smooth"}); goTop=false; } },true);
 function route(){
-  const h = location.hash.slice(1) || "home";
+  if(onHome) homeY=scrollY;
+  let h = location.hash.slice(1) || "home";
+  const toWork = h==="work"; if(toWork) h="home";
   if(h==="contact"){ document.getElementById("contact").scrollIntoView({behavior:"smooth"}); setNav("contact"); return; }
   const p = P.find(x=>x.id===h);
   app.innerHTML = p ? project(p) : h==="resume" ? resume() : home();
   document.title = p ? `${p.client.replace(/&amp;/g,"&")} — Corey Dixon©` : h==="resume" ? "Resume — Corey Dixon©" : "Corey Dixon©";
   setNav(p ? "home" : h==="resume" ? "resume" : "home");
-  window.scrollTo(0,0);
+  const wasHome=onHome; onHome = (h==="home");
+  if(onHome && toWork){ const t=document.querySelector(".sec-head"); scrollTo(0, t ? t.getBoundingClientRect().top+scrollY-70 : 0); }
+  else if(onHome && !goTop && !wasHome && homeY>0){ const y=homeY; scrollTo(0,y); requestAnimationFrame(()=>scrollTo(0,y)); setTimeout(()=>scrollTo(0,y),120); }
+  else window.scrollTo(0,0);
+  goTop=false;
 }
 function setNav(k){ document.querySelectorAll("[data-nav]").forEach(a=>a.toggleAttribute("aria-current", a.dataset.nav===k) && a.setAttribute("aria-current","page")) }
 app.addEventListener("click", e=>{
@@ -839,6 +853,7 @@ burger.addEventListener("click",()=>setMenu(!menu.classList.contains("open")));
 menu.addEventListener("click",e=>{ if(e.target.closest("a")) setMenu(false) });
 addEventListener("keydown",e=>{ if(e.key==="Escape") setMenu(false) });
 matchMedia("(min-width:761px)").addEventListener("change",e=>{ if(e.matches) setMenu(false) });
+addEventListener("hashchange",()=>{ if(menu.classList.contains("open")) setMenu(false) });
 document.getElementById("copy").addEventListener("click", e=>{
   const b=e.currentTarget, t=document.getElementById("email").textContent;
   const done=()=>{b.textContent="Copied";b.classList.add("done");setTimeout(()=>{b.textContent="Copy email";b.classList.remove("done")},1800)};
