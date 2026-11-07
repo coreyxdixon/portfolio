@@ -263,6 +263,8 @@ header.top{transition:transform .7s cubic-bezier(.2,.7,.2,1),background-color .3
 .card .ph-th .ph-mark{z-index:2;color:#F4F1EA;text-shadow:0 2px 30px rgba(0,0,0,.35)}.card .ph-th .ph-n{z-index:2}
 .card:hover .ph-th img{transform:scale(1.04)}
 @media (min-width:761px){.work>.card:last-child:nth-child(odd){grid-column:1/-1}.work>.card:last-child:nth-child(odd) .ph{aspect-ratio:21/9}.work>.card:last-child:nth-child(odd) .ph-th img{object-position:50% 8%}}
+@media (pointer:coarse){.modes button,.copy,.burger,a[download],a[href^="https://linkedin"],a[href="#resume"],[aria-label="Close menu"]{position:relative}
+.modes button::after,.copy::after,a[download]::after,a[href^="https://linkedin"]::after,a[href="#resume"]::after,[aria-label="Close menu"]::after{content:"";position:absolute;inset:-12px -6px}}
 .ph-img{background:var(--tile)}
 .ph-img::before{display:none}
 .ph-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -346,7 +348,7 @@ header.top{transition:transform .7s cubic-bezier(.2,.7,.2,1),background-color .3
   </nav>
   <div class="menu-foot mono">
     <div><span class="mute">Email</span><span>hi@coreydixon.design</span></div>
-    <div><span class="mute">Elsewhere</span><a href="https://linkedin.com/in/corey-dixon">LinkedIn ↗</a><a href="/Corey-Dixon-CV-2026.pdf" download>CV (PDF) ↓</a></div>
+    <div><span class="mute">Elsewhere</span><a href="https://linkedin.com/in/corey-dixon" target="_blank" rel="noopener">LinkedIn ↗</a><a href="/Corey-Dixon-CV-2026.pdf" download>CV (PDF) ↓</a></div>
     <div><span class="mute">Based</span><span>Richmond, VA</span></div>
     <div><span class="mute">Status</span><span><i class="live" aria-hidden="true"></i>Open to select work</span></div>
     <div><span class="mute">Site</span><span>2026 Edition</span></div>
@@ -363,7 +365,7 @@ header.top{transition:transform .7s cubic-bezier(.2,.7,.2,1),background-color .3
     <div class="big"><a href="mailto:hi@coreydixon.design">Get in touch<span class="c">.</span></a></div>
     <div class="open mono"><span class="mute">Open to work in —</span><span>Product Design</span><span>Design Systems</span><span>E-Commerce</span><span>Experience Design</span></div>
     <div class="col mono"><span class="mute">Email</span><span id="email">hi@coreydixon.design</span><button type="button" class="copy mono" id="copy">Copy email</button></div>
-    <div class="col mono"><span class="mute">Elsewhere</span><a href="https://linkedin.com/in/corey-dixon">LinkedIn ↗</a><a class="dl" href="/Corey-Dixon-CV-2026.pdf" download>CV (PDF) ↓</a></div>
+    <div class="col mono"><span class="mute">Elsewhere</span><a href="https://linkedin.com/in/corey-dixon" target="_blank" rel="noopener">LinkedIn ↗</a><a class="dl" href="/Corey-Dixon-CV-2026.pdf" download>CV (PDF) ↓</a></div>
     <div class="col mono"><span class="mute">Based</span><span>Richmond, VA</span></div>
     <div class="col mono"><span class="mute">Note</span><span>All work shown belongs to its respective owners. © 2026</span></div>
   </div>
@@ -626,9 +628,9 @@ const ph = (p, i, label, ar) => `<div class="ph" style="--tint:${p.tint};--ar:${
   ${i===0?`<span class="ph-mark">${p.short}</span>`:""}
   <span class="ph-l mono">${label}</span></div>`;
 
-const img = (k, alt, eager) => { const d=IMG[k]||[1600,900]; const lock=/^(l|m)-/.test(k); return (lock?'<span class="shot-wrap">':'')+`<img class="shot" src="/work/${k}.webp?v=11070900" alt="${alt}" width="${d[0]}" height="${d[1]}" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async">`+(lock?'</span>':''); };
+const img = (k, alt, eager) => { const d=IMG[k]||[1600,900]; const lock=/^(l|m)-/.test(k); return (lock?'<span class="shot-wrap">':'')+`<img class="shot" src="/work/${k}.webp?v=11070930" alt="${alt}" width="${d[0]}" height="${d[1]}" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async">`+(lock?'</span>':''); };
 const USE_COVERS = false; // flip to true once every project has a matching-resolution cover
-const thumb = (p) => `<div class="ph ph-th" style="--tint:${p.tint};--ar:3/2"><img src="/work/th-${p.id}.webp?v=11070900" alt="" width="1800" height="1200" loading="lazy" decoding="async"><span class="ph-n mono">${p.n}.00</span><span class="ph-mark">${p.short}</span></div>`;
+const thumb = (p) => `<div class="ph ph-th" style="--tint:${p.tint};--ar:3/2"><img src="/work/th-${p.id}.webp?v=11070930" alt="" width="1500" height="1000" loading="lazy" decoding="async"><span class="ph-n mono">${p.n}.00</span><span class="ph-mark">${p.short}</span></div>`;
 const cover = (p, label) => thumb(p);
 const coverOld = (p, label) => (USE_COVERS && p.cover)
   ? `<div class="ph ph-img" style="--ar:3/2">${img(p.cover, p.short.replace(/&amp;/g,"&")+" project cover")}</div>`
@@ -736,7 +738,7 @@ function projectReal(p){
   const bp = b => { n++; const ks=Object.keys(b.bp); const first=ks[0];
     return `<div class="grid p-media"><div class="spec" data-bpview><div class="spec-head mono"><span class="mute">(Breakpoints) — <span class="bp-w">${BPPX[first]}px</span></span>
       <span class="seg" role="group" aria-label="Breakpoint">${ks.map(k=>`<button data-bp="${k}" aria-pressed="${k===first}">${k}</button>`).join("")}</span></div>
-      <div class="bp-stage"><div class="bp-frame" style="width:${BPW[first]}">${ks.map(k=>{const d=IMG[b.bp[k]]||[1600,1000];return `<img src="/work/${b.bp[k]}.webp?v=11070900" alt="${alt(b.cap+" — "+k)}" width="${d[0]}" height="${d[1]}" loading="lazy" decoding="async" data-k="${k}" class="${k===first?"on":""}">`}).join("")}</div></div>
+      <div class="bp-stage"><div class="bp-frame" style="width:${BPW[first]}">${ks.map(k=>{const d=IMG[b.bp[k]]||[1600,1000];return `<img src="/work/${b.bp[k]}.webp?v=11070930" alt="${alt(b.cap+" — "+k)}" width="${d[0]}" height="${d[1]}" loading="lazy" decoding="async" data-k="${k}" class="${k===first?"on":""}">`}).join("")}</div></div>
       <div class="spec-cap mono mute"><span>${b.cap}</span><span>${String(n).padStart(2,"0")}</span></div></div></div>`; };
   const tok = b => { return `<div class="grid p-media"><div class="spec"><div class="spec-head mono"><span class="mute">(Tokens) — click to copy</span><span class="mute">${b.tokens.length} values</span></div>
       <div class="tok mono">${b.tokens.map(t=>`<button data-copy="${t[1]}" style="--c:${t[1]}" aria-label="Copy ${t[0]} ${t[1]}"><i></i><span><b>${t[0]}</b><em>${t[1].toUpperCase()}</em></span></button>`).join("")}</div>
@@ -777,7 +779,7 @@ function resume(){
         <dl class="facts mono">
           <dt>Based</dt><dd>Richmond, VA</dd>
           <dt>Email</dt><dd>hi@coreydixon.design</dd>
-          <dt>Profile</dt><dd><a href="https://linkedin.com/in/corey-dixon">LinkedIn ↗</a></dd>
+          <dt>Profile</dt><dd><a href="https://linkedin.com/in/corey-dixon" target="_blank" rel="noopener">LinkedIn ↗</a></dd>
           <dt>Experience</dt><dd>14 years · Since 2012</dd>
           <dt>CV</dt><dd><a class="dl" href="/Corey-Dixon-CV-2026.pdf" download>Download PDF ↓</a></dd>
         </dl>
