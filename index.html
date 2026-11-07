@@ -367,7 +367,7 @@ function setMode(m){ if(m==="light") root.setAttribute("data-mode","light"); els
 let saved="dark"; try{saved=localStorage.getItem("cd-theme")||"dark"}catch(e){}
 setMode(saved);
 document.querySelector(".modes").addEventListener("click",e=>{const b=e.target.closest("[data-set]"); if(b) setMode(b.dataset.set)});
-const IMG = {"m-bc-color":[3200,2000],"m-bc-comps":[3200,2000],"m-bc-cover":[3200,2000],"m-bc-gallery":[3200,2000],"m-bc-home":[3200,2000],"m-bc-pattern":[3200,2000],"m-bc-start":[3200,2000],"m-bc-type":[3200,2000],"m-dk-cover":[3200,2000],"m-dk-home":[3200,2000],"m-dk-pdp":[3200,2000],"m-dk-plp":[3200,2000],"m-dk-scrubs":[3200,2000],"m-dk-skate":[3200,2000],"m-dk-stories":[3200,2000],"m-dk-team":[3200,2000],"m-io-color":[3200,2000],"m-io-complete":[3200,2000],"m-io-cover":[3200,2000],"m-io-play":[3200,2000],"m-io-progress":[3200,2000],"m-io-reveal":[3200,2000],"m-io-share":[3200,2000],"m-io-sound":[3200,2000],"m-pga-cover":[3200,2000],"m-pga-hole":[3200,2000],"m-pga-live":[3200,2000],"m-pga-onboard":[3200,2000],"m-pga-stats":[3200,2000],"m-pga-story":[3200,2000],"m-rh-ceremony":[3200,2000],"m-rh-classes":[3200,2000],"m-rh-cover":[3200,2000],"m-rh-inductee":[3200,2000],"m-rh-museum":[3200,2000],"m-rh-tv":[3200,2000],"m-rh-visit":[3200,2000],"m-rh-vote":[3200,2000],"m-sw-act":[3200,2000],"m-sw-coll":[3200,2000],"m-sw-cover":[3200,2000],"m-sw-gear":[3200,2000],"m-sw-home":[3200,2000],"m-sw-plant":[3200,2000],"m-sw-prod":[3200,2000],"m-sw-v2":[3200,2000]};
+const IMG = {"m-bc-color":[3200,2000],"m-bc-comps":[3200,2000],"m-bc-cover":[3200,2000],"m-bc-gallery":[3200,2000],"m-bc-home":[3200,2000],"m-bc-pattern":[3200,2000],"m-bc-start":[3200,2000],"m-bc-type":[3200,2000],"m-dk-cover":[3200,2000],"m-dk-home":[3200,2000],"m-dk-pdp":[3200,2000],"m-dk-plp":[3200,2000],"m-dk-scrubs":[3200,2000],"m-dk-skate":[3200,2000],"m-dk-stories":[3200,2000],"m-dk-team":[3200,2000],"m-io-color":[3200,2000],"m-io-complete":[3200,2000],"m-io-cover":[3200,2000],"m-io-play":[3200,2000],"m-io-progress":[3200,2000],"m-io-reveal":[3200,2000],"m-io-share":[3200,2000],"m-io-sound":[3200,2000],"m-pga-cover":[3200,2000],"m-pga-hole":[3200,2000],"m-pga-live":[3200,2000],"m-pga-onboard":[3200,2000],"m-pga-stats":[3200,2000],"m-pga-story":[3200,2000],"m-rh-cover":[3200,2000],"m-rh-inductee":[3200,2000],"m-rh-tv":[3200,2000],"m-sw-act":[3200,2000],"m-sw-coll":[3200,2000],"m-sw-cover":[3200,2000],"m-sw-gear":[3200,2000],"m-sw-home":[3200,2000],"m-sw-plant":[3200,2000],"m-sw-prod":[3200,2000],"m-sw-v2":[3200,2000]};
 const P = [
   {id:"google-io", n:"001", client:"Google I/O 2026", short:"Google I/O", disc:"Experiential / Motion", tint:"#A23E1D",
     role:"Motion design &amp; art direction", platform:"Web · desktop &amp; mobile", cover:"m-io-cover",
@@ -401,7 +401,7 @@ const P = [
     tagline:"Fans follow players, not tournaments. We rebuilt the PGA Tour app around that.",
     hero:["m-pga-cover","YourTOUR, a tournament hub and hole detail"],
     story:[
-      {k:"(The Problem)", h:"A powerful app that made fans do all the work.",
+      {k:"(The Brief)", h:"A powerful app that made fans do all the work.",
        p:["At Shockoe, we partnered with the PGA Tour on its flagship app. It had scores, stats, video and news, organized the way the Tour thinks about golf: by event and by round. Fans think about golf by player. Checking on your favorite golfer took several taps and a lot of scrolling.",
           "The brief was onboarding, personalization and a simpler core experience, with more of the Tour’s energy in the product."]},
       {media:[["m-pga-onboard","Onboarding. Pick your tours, then your players","full"]]},
@@ -423,10 +423,10 @@ const P = [
   {id:"haskell", n:"003", client:"Haskell Design System", short:"PGA Tour · Haskell", disc:"Design System — PGA Tour", tint:"#2F4A35",
     role:"Design system &amp; product design", platform:"iOS · Android · Web · Figma", cover:"l-hk-1",
     team:"With Shockoe and the PGA Tour digital, brand and engineering teams",
-    tagline:"One design system for every screen the PGA Tour puts in front of fans.",
+    tagline:"Every shot, every hole, every screen. One system underneath it all.",
     hero:["l-hk-1","Foundations, and YourTOUR built on them"],
     story:[
-      {k:"(The Vision)", h:"A digital evolution, built on one foundation.",
+      {k:"(The Brief)", h:"A digital evolution, built on one foundation.",
        p:["The PGA Tour was reimagining its digital experience: every shot live, every hole in 3D, and stories that follow the players fans care about. Ambitions that big need a system underneath, or every new feature turns into a one-off.",
           "Haskell is that system. I helped define its foundations and components and carried them into the product, so the vision work and the shipping app spoke the same language."]},
       {media:[["l-hk-2","Spacing methods on a 4dp grid, applied to the scorecard","full"]]},
@@ -447,25 +447,25 @@ const P = [
   {id:"rock-hall", n:"004", client:"Rock &amp; Roll Hall of Fame", short:"Rock Hall", disc:"Digital Experience", tint:"#7D1E22",
     role:"Art direction, UX &amp; UI", platform:"Responsive web", cover:"m-rh-cover",
     team:"With Grow and the Rock &amp; Roll Hall of Fame team",
-    tagline:"The museum of the loudest art form on earth deserved a website that didn’t whisper.",
-    hero:["m-rh-inductee","Inductee page, The Rolling Stones"],
+    tagline:"Most people will never make it to Cleveland. So we brought the museum to them.",
+    hero:["m-rh-inductee","The Rolling Stones, inducted 1989"],
     story:[
-      {k:"(The Brief)", h:"Bring rock’s raw spirit online, without losing the museum.",
-       p:["With Grow, we partnered with the Rock &amp; Roll Hall of Fame on its digital experience. The site has to sell tickets and memberships and tell the story of hundreds of inductees, and it has to feel like rock and roll while it does.",
-          "I worked on art direction, UX and UI across the experience and led visual direction on the inductee pages."]},
-      {media:[["m-rh-ceremony","Induction. The Class of 2025 is here","full"]]},
-      {media:[["m-rh-vote","Vote for the 2025 inductees","full"]]},
-      {k:"(Inspiration)", h:"Wheat-pasted posters on a New York wall.",
-       p:["We took our cues from the layered posters pasted across New York: big condensed type, high-contrast photography and bold frames. That language gave every page attitude.",
-          "The hard part was keeping it readable. We set rules for when the volume goes up and when it backs off, so a page could feel loud and still be easy to scan."]},
-      {media:[["m-rh-classes","Explore the Hall of Fame by class","full"]]},
-      {k:"(RockHallTV)", h:"Legendary performances, on demand.",
-       p:["Every inductee gets a page that opens with their name set huge over archival photography, browsable by class or A to Z. RockHallTV takes it further: a channel of legendary performances, interviews and iconic moments, wrapped in the same loud visual language."]},
+      {k:"(The Brief)", h:"Put the museum on every screen.",
+       p:["With Grow, we partnered with the Rock &amp; Roll Hall of Fame on its digital experience. The museum is full of guitars, stage clothes, posters and handwritten lyrics. Online, the site was mostly tickets, hours and a list of names.",
+          "Our idea was to treat every inductee page like a gallery. I worked on art direction, UX and UI, and led visual direction on the inductee pages, where the objects, the music and the story come together."]},
+      {media:[["l-rh-guitar","From the museum: an artifact module, desktop and mobile","full"]]},
+      {k:"(Artifacts)", h:"Every object tells part of the story.",
+       p:["The artifact module puts a real object from the collection at the center of the page, lit like it sits behind glass, with the story beside it and the footage of it being played below. Visitors can spin it in 3D or watch it in action.",
+          "One system carries a guitar, a pair of sneakers, a stage costume or a concert poster. Records work the same way: pull one from the stack and it spins out of its sleeve and plays."]},
+      {media:[["l-rh-sound","Their signature sound: records you can play","full"]]},
+      {media:[["l-rh-quote","In their own words","full"]]},
+      {media:[["l-rh-essay","The 1989 Hall of Fame essay, as the printed program","full"]]},
+      {k:"(The Archive)", h:"Pulled from the Hall’s own archive.",
+       p:["Every induction comes with an essay, printed in the ceremony program. Instead of retyping it, we presented the program itself, with the pull quote beside it and a link to read the whole thing. Quotes from the artists sit in full-bleed photography, in their own words."]},
+      {media:[["l-rh-influence","Their influence: who they learned from, and who learned from them","full"]]},
+      {k:"(Legacy)", h:"From the page to the stage.",
+       p:["Influence maps connect each inductee to the artists who shaped them and the ones they shaped, so one visit turns into an hour of exploring. RockHallTV extends the same language into a channel of legendary performances and interviews, and the same component library runs the museum, ticketing and induction pages."]},
       {media:[["m-rh-tv","RockHallTV, desktop and mobile","full"]]},
-      {k:"(The Museum)", h:"From the screen to Cleveland.",
-       p:["The same system carries the museum side: exhibits, hours and tickets. Every page points back to a visit, and a shared set of components means the Rock Hall team can keep publishing without a designer rebuilding each page."]},
-      {media:[["m-rh-museum","The Museum","full"]]},
-      {media:[["m-rh-visit","Plan your visit","full"]]},
     ]},
 
   {id:"dickies", n:"005", client:"Dickies", short:"Dickies", disc:"E-Commerce Redesign", tint:"#4E3426",
@@ -474,7 +474,7 @@ const P = [
     tagline:"A storefront for people who actually wear the clothes to work.",
     hero:["m-dk-home","Home, desktop and mobile"],
     story:[
-      {k:"(The Ask)", h:"A site as hardworking as the people who shop it.",
+      {k:"(The Brief)", h:"A site as hardworking as the people who shop it.",
        p:["Dickies has made workwear since 1922. Its customers are welders, ranchers, skaters and chefs who are hard on their clothes and have no patience for a fussy website.",
           "Working with VF Corporation and the Dickies brand team, we redesigned the site as part of a wider brand refresh with a new identity and a custom typeface drawn from the logo. I led UI and visual design, carrying that refresh into a responsive store that balances grit with utility."]},
       {media:[["m-dk-plp","Men’s Pants, a category landing page","full"]]},
@@ -500,7 +500,7 @@ const P = [
     tagline:"A brand guide built like the clothes: tough, practical and impossible to misread.",
     hero:["l-db-1","Big Text, from the guide to the homepage"],
     story:[
-      {k:"(The Ask)", h:"One source of truth for every Dickies team.",
+      {k:"(The Brief)", h:"One source of truth for every Dickies team.",
        p:["Dickies shows up everywhere: its own site, wholesale partners, stores, campaigns and collaborations. Without a shared guide, every team was interpreting the brand on its own.",
           "We built the guidelines as a browsable site covering logo, color, typography, photography and real examples, so anyone could find an answer in a few clicks."]},
       {media:[["l-db-2","The system in action, and in Stories","full"]]},
@@ -523,7 +523,7 @@ const P = [
     tagline:"One system, built from scratch in Figma, that every VF brand can make its own.",
     hero:["l-cv-1","Canvas components, desktop and mobile"],
     story:[
-      {k:"(The Ask)", h:"One foundation for brands that look nothing alike.",
+      {k:"(The Brief)", h:"One foundation for brands that look nothing alike.",
        p:["Canvas is the open-source design system behind VF Corporation’s digital experiences, shared by brands like The North Face, Dickies, Vans and Timberland. Those brands don’t look or sound alike, and the system had to serve all of them.",
           "We built Canvas from scratch in Figma as a scalable system: shared components underneath, and a layer of tokens on top that each brand can change, from typeface to color to corner radius."]},
       {media:[["l-cv-2","The default palette","full"]]},
@@ -546,10 +546,10 @@ const P = [
   {id:"smartwool", n:"008", client:"Smartwool", short:"Smartwool", disc:"Site Architecture / UX", tint:"#245656",
     role:"UX &amp; visual design", platform:"Responsive web", cover:"m-sw-cover",
     team:"With VF Corporation and the Smartwool digital and brand teams",
-    tagline:"A homepage that helps you find your gear as easily as the brand says “Go far. Feel good.”",
+    tagline:"Too much great gear and no obvious way in. We redesigned the front door.",
     hero:["m-sw-home","Home, desktop and mobile"],
     story:[
-      {k:"(The Ask)", h:"A site that welcomes the overwhelmed.",
+      {k:"(The Brief)", h:"A site that welcomes the overwhelmed.",
        p:["Working with VF Corporation and the Smartwool team, we took on the homepage. Smartwool makes great merino gear, and a lot of it. Socks alone come in dozens of cushion levels, heights and activities, and shoppers were landing on the site without knowing where to start.",
           "So we started over, from the structure up, backed by analytics, heuristic reviews and testing against competitors."]},
       {media:[["m-sw-v2","An earlier direction, Cold days are coming","full"]]},
@@ -569,10 +569,10 @@ const P = [
   {id:"beacon", n:"009", client:"Beacon Design System®", short:"Morgan Stanley", disc:"Design System — Morgan Stanley", tint:"#4D2B45",
     role:"Design system designer", platform:"Web docs · Figma &amp; Sketch kits", cover:"m-bc-cover",
     team:"With Morgan Stanley’s design system team",
-    tagline:"A design system as supportive as the components themselves.",
+    tagline:"Morgan Stanley already had a design system. We made designers want to use it.",
     hero:["m-bc-home","Great work starts here. The Beacon home"],
     story:[
-      {k:"(The Ask)", h:"Snackable wisdom for the busy designer.",
+      {k:"(The Brief)", h:"Snackable wisdom for the busy designer.",
        p:["Beacon is Morgan Stanley’s customer-facing design system, supporting many digital products under one brand. The system worked. Adoption was the problem: designers were busy, the guidance was dense, and best practices were easy to skip.",
           "My job was to make the right thing the easy thing."]},
       {media:[["m-bc-start","Get started","full"]]},
@@ -616,7 +616,7 @@ const ph = (p, i, label, ar) => `<div class="ph" style="--tint:${p.tint};--ar:${
   ${i===0?`<span class="ph-mark">${p.short}</span>`:""}
   <span class="ph-l mono">${label}</span></div>`;
 
-const img = (k, alt, eager) => { const d=IMG[k]||[1600,900]; return `<img class="shot" src="/work/${k}.webp?v=11061349" alt="${alt}" width="${d[0]}" height="${d[1]}" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async">`; };
+const img = (k, alt, eager) => { const d=IMG[k]||[1600,900]; return `<img class="shot" src="/work/${k}.webp?v=11062229" alt="${alt}" width="${d[0]}" height="${d[1]}" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async">`; };
 const USE_COVERS = false; // flip to true once every project has a matching-resolution cover
 const cover = (p, label) => (USE_COVERS && p.cover)
   ? `<div class="ph ph-img" style="--ar:3/2">${img(p.cover, p.short.replace(/&amp;/g,"&")+" project cover")}</div>`
@@ -724,7 +724,7 @@ function projectReal(p){
   const bp = b => { n++; const ks=Object.keys(b.bp); const first=ks[0];
     return `<div class="grid p-media"><div class="spec" data-bpview><div class="spec-head mono"><span class="mute">(Breakpoints) — <span class="bp-w">${BPPX[first]}px</span></span>
       <span class="seg" role="group" aria-label="Breakpoint">${ks.map(k=>`<button data-bp="${k}" aria-pressed="${k===first}">${k}</button>`).join("")}</span></div>
-      <div class="bp-stage"><div class="bp-frame" style="width:${BPW[first]}">${ks.map(k=>{const d=IMG[b.bp[k]]||[1600,1000];return `<img src="/work/${b.bp[k]}.webp?v=11061349" alt="${alt(b.cap+" — "+k)}" width="${d[0]}" height="${d[1]}" loading="lazy" decoding="async" data-k="${k}" class="${k===first?"on":""}">`}).join("")}</div></div>
+      <div class="bp-stage"><div class="bp-frame" style="width:${BPW[first]}">${ks.map(k=>{const d=IMG[b.bp[k]]||[1600,1000];return `<img src="/work/${b.bp[k]}.webp?v=11062229" alt="${alt(b.cap+" — "+k)}" width="${d[0]}" height="${d[1]}" loading="lazy" decoding="async" data-k="${k}" class="${k===first?"on":""}">`}).join("")}</div></div>
       <div class="spec-cap mono mute"><span>${b.cap}</span><span>${String(n).padStart(2,"0")}</span></div></div></div>`; };
   const tok = b => { return `<div class="grid p-media"><div class="spec"><div class="spec-head mono"><span class="mute">(Tokens) — click to copy</span><span class="mute">${b.tokens.length} values</span></div>
       <div class="tok mono">${b.tokens.map(t=>`<button data-copy="${t[1]}" style="--c:${t[1]}" aria-label="Copy ${t[0]} ${t[1]}"><i></i><span><b>${t[0]}</b><em>${t[1].toUpperCase()}</em></span></button>`).join("")}</div>
