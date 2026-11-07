@@ -200,8 +200,8 @@ footer .col span{overflow-wrap:anywhere}
 @media (max-width:760px){.p-meta div{grid-column:span 6}}
 .p-block{padding-block:var(--s5) 0;row-gap:var(--s3)}
 .p-block .k{grid-column:1/4}
-.p-block .h{grid-column:4/12;font-size:clamp(26px,3.4vw,52px);line-height:1.02;letter-spacing:-.04em;font-weight:500;margin:0;text-wrap:balance}
-.p-block .b{grid-column:7/12;font-size:17px;line-height:1.55;max-width:62ch}
+.p-block .h{grid-column:4/12;font-size:clamp(26px,3.4vw,52px);line-height:1.02;letter-spacing:-.04em;font-weight:500;margin:0;text-wrap:pretty}
+.p-block .b{grid-column:4/11;font-size:17px;line-height:1.55;max-width:68ch}
 .p-block .b p{margin:0 0 1em}
 @media (max-width:860px){.p-block .k,.p-block .h,.p-block .b{grid-column:1/-1}}
 .p-media{padding-top:var(--s4);row-gap:var(--s4)}
@@ -263,7 +263,7 @@ header.top{transition:transform .7s cubic-bezier(.2,.7,.2,1),background-color .3
 .ph-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .shot{display:block;width:100%;height:auto;background:var(--tile)}
 .m-off .shot{}
-.h-sub{grid-column:4/9!important;font-size:clamp(20px,2vw,30px)!important;letter-spacing:-.025em!important}
+.h-sub{grid-column:4/11!important;font-size:clamp(20px,2vw,30px)!important;letter-spacing:-.025em!important}
 @media (max-width:860px){.h-sub{grid-column:1/-1!important}}
 @media (max-width:760px){.p-media figure>.shot,.p-media .spec{margin-inline:-16px;width:calc(100% + 32px);max-width:none}.p-media figcaption{padding-top:10px}}
 .p-block .team{grid-column:4/12;margin:0}
@@ -299,6 +299,8 @@ header.top{transition:transform .7s cubic-bezier(.2,.7,.2,1),background-color .3
   .view>*:nth-child(2){animation-delay:.06s}.view>*:nth-child(3){animation-delay:.12s}.view>*:nth-child(4){animation-delay:.18s}
   @keyframes rise{from{transform:translateY(14px)}to{transform:none}}
 }
+
+@media (max-width:760px){.statement,.lede,.about .v,.p-title,.p-block .h,footer .ticker{text-wrap:pretty;max-width:none}}
 </style>
 </head>
 <body>
@@ -367,7 +369,7 @@ function setMode(m){ if(m==="light") root.setAttribute("data-mode","light"); els
 let saved="dark"; try{saved=localStorage.getItem("cd-theme")||"dark"}catch(e){}
 setMode(saved);
 document.querySelector(".modes").addEventListener("click",e=>{const b=e.target.closest("[data-set]"); if(b) setMode(b.dataset.set)});
-const IMG = {"m-bc-color":[3200,2000],"m-bc-comps":[3200,2000],"m-bc-cover":[3200,2000],"m-bc-gallery":[3200,2000],"m-bc-home":[3200,2000],"m-bc-pattern":[3200,2000],"m-bc-start":[3200,2000],"m-bc-type":[3200,2000],"m-dk-cover":[3200,2000],"m-dk-home":[3200,2000],"m-dk-pdp":[3200,2000],"m-dk-plp":[3200,2000],"m-dk-scrubs":[3200,2000],"m-dk-skate":[3200,2000],"m-dk-stories":[3200,2000],"m-dk-team":[3200,2000],"m-io-color":[3200,2000],"m-io-complete":[3200,2000],"m-io-cover":[3200,2000],"m-io-play":[3200,2000],"m-io-progress":[3200,2000],"m-io-reveal":[3200,2000],"m-io-share":[3200,2000],"m-io-sound":[3200,2000],"m-pga-cover":[3200,2000],"m-pga-hole":[3200,2000],"m-pga-live":[3200,2000],"m-pga-onboard":[3200,2000],"m-pga-stats":[3200,2000],"m-pga-story":[3200,2000],"m-rh-cover":[3200,2000],"m-rh-inductee":[3200,2000],"m-rh-tv":[3200,2000],"m-sw-act":[3200,2000],"m-sw-coll":[3200,2000],"m-sw-cover":[3200,2000],"m-sw-gear":[3200,2000],"m-sw-home":[3200,2000],"m-sw-plant":[3200,2000],"m-sw-prod":[3200,2000],"m-sw-v2":[3200,2000]};
+const IMG = {"m-bc-color":[3200,2000],"m-bc-comps":[3200,2000],"m-bc-cover":[3200,2000],"m-bc-gallery":[3200,2000],"m-bc-home":[3200,2000],"m-bc-pattern":[3200,2000],"m-bc-start":[3200,2000],"m-bc-type":[3200,2000],"m-dk-cover":[3200,2000],"m-dk-home":[3200,2000],"m-dk-pdp":[3200,2000],"m-dk-plp":[3200,2000],"m-dk-scrubs":[3200,2000],"m-dk-skate":[3200,2000],"m-dk-stories":[3200,2000],"m-dk-team":[3200,2000],"m-io-color":[3200,2000],"m-io-complete":[3200,2000],"m-io-cover":[3200,2000],"m-io-play":[3200,2000],"m-io-progress":[3200,2000],"m-io-reveal":[3200,2000],"m-io-share":[3200,2000],"m-io-sound":[3200,2000],"m-pga2-feed":[3200,2000],"m-pga2-hero":[3200,2000],"m-pga2-hole":[3200,2000],"m-pga2-live":[3200,2000],"m-pga2-story":[3200,2000],"m-rh-tv":[3200,2000],"m-sw-act":[3200,2000],"m-sw-coll":[3200,2000],"m-sw-cover":[3200,2000],"m-sw-gear":[3200,2000],"m-sw-home":[3200,2000],"m-sw-plant":[3200,2000],"m-sw-prod":[3200,2000],"m-sw-v2":[3200,2000]};
 const P = [
   {id:"google-io", n:"001", client:"Google I/O 2026", short:"Google I/O", disc:"Experiential / Motion", tint:"#A23E1D",
     role:"Motion design &amp; art direction", platform:"Web · desktop &amp; mobile", cover:"m-io-cover",
@@ -396,27 +398,27 @@ const P = [
     ]},
 
   {id:"pga-tour", n:"002", client:"PGA Tour", short:"PGA Tour", disc:"Mobile App", tint:"#1C2B4A",
-    role:"UI lead", platform:"iOS &amp; Android", cover:"m-pga-cover",
+    role:"UI lead", platform:"iOS &amp; Android", cover:"m-pga2-hero",
     team:"With Shockoe and the PGA Tour brand and product teams",
     tagline:"Fans follow players, not tournaments. We rebuilt the PGA Tour app around that.",
-    hero:["m-pga-cover","YourTOUR, a tournament hub and hole detail"],
+    hero:["m-pga2-hero","YourTOUR, the live leaderboard and hole detail"],
     story:[
       {k:"(The Brief)", h:"A powerful app that made fans do all the work.",
        p:["At Shockoe, we partnered with the PGA Tour on its flagship app. It had scores, stats, video and news, organized the way the Tour thinks about golf: by event and by round. Fans think about golf by player. Checking on your favorite golfer took several taps and a lot of scrolling.",
           "The brief was onboarding, personalization and a simpler core experience, with more of the Tour’s energy in the product."]},
-      {media:[["m-pga-onboard","Onboarding. Pick your tours, then your players","full"]]},
-      {media:[["m-pga-live","Leaderboard, group scorecard and player profile","full"]]},
+      {media:[["m-pga2-feed","News, player profiles and live coverage","full"]]},
+      {media:[["s-hk-p-fan","Fan focused: the players you follow, front and center","full"]]},
       {k:"(Onboarding)", h:"Pick your players first. Everything else follows.",
        p:["Favorites moved to the very start. The players you choose shape the home feed, the alerts and what surfaces during a live round. That became YourTOUR, a feed that leads with the story of the day for the players you care about."]},
-      {media:[["m-pga-hole","Hole detail and shot plots, down to every birdie","full"]]},
+      {media:[["m-pga2-hole","Hole detail, TourCast shot tracking and the full course","full"]]},
       {k:"(Live Golf)", h:"Shot-level data, readable at a glance.",
        p:["Golf produces a huge amount of data. On the hole view we kept what a fan actually checks, par, yardage, scoring average and difficulty, laid over the hole itself, with the groups on the hole right below.",
           "Stats, course and profile screens got the same treatment: one number that matters, big, with the detail a tap away."]},
-      {media:[["m-pga-stats","Tournament stats, the course and your profile","full"]]},
+      {media:[["m-pga2-live","Group scorecard, tournament stats and the tournament hub","full"]]},
       {k:"(Stories)", h:"The round, told like a highlight reel.",
        p:["Between shots, the app tells the story of the day. Full-screen stories open on the round and close on the champion, and Watch puts every live stream one tap from the leaderboard.",
           "Every screen was built on the Haskell design system, which has its own case study."]},
-      {media:[["m-pga-story","Stories and live coverage","full"]]},
+      {media:[["m-pga2-story","Stories: Round Three, the champion, and the tournament","full"]]},
       {media:[["s-hk-vision-wall","Stories, recaps and player moments","full"]]},
     ]},
 
@@ -445,26 +447,26 @@ const P = [
     ]},
 
   {id:"rock-hall", n:"004", client:"Rock &amp; Roll Hall of Fame", short:"Rock Hall", disc:"Digital Experience", tint:"#7D1E22",
-    role:"Art direction, UX &amp; UI", platform:"Responsive web", cover:"m-rh-cover",
+    role:"Art direction, UX &amp; UI", platform:"Responsive web", cover:"l-rhx-hero-stones",
     team:"With Grow and the Rock &amp; Roll Hall of Fame team",
     tagline:"Most people will never make it to Cleveland. So we brought the museum to them.",
-    hero:["m-rh-inductee","The Rolling Stones, inducted 1989"],
+    hero:["l-rhx-hero-stones","The Rolling Stones, inducted 1989"],
     story:[
       {k:"(The Brief)", h:"Put the museum on every screen.",
-       p:["With Grow, we partnered with the Rock &amp; Roll Hall of Fame on its digital experience. The museum is full of guitars, stage clothes, posters and handwritten lyrics. Online, the site was mostly tickets, hours and a list of names.",
+       p:["With Grow, we partnered with the Rock &amp; Roll Hall of Fame on its digital experience. The museum is full of guitars, stage clothes, posters and records. Online, the site was mostly tickets, hours and a list of names.",
           "Our idea was to treat every inductee page like a gallery. I worked on art direction, UX and UI, and led visual direction on the inductee pages, where the objects, the music and the story come together."]},
-      {media:[["l-rh-guitar","From the museum: an artifact module, desktop and mobile","full"]]},
-      {k:"(Artifacts)", h:"Every object tells part of the story.",
-       p:["The artifact module puts a real object from the collection at the center of the page, lit like it sits behind glass, with the story beside it and the footage of it being played below. Visitors can spin it in 3D or watch it in action.",
-          "One system carries a guitar, a pair of sneakers, a stage costume or a concert poster. Records work the same way: pull one from the stack and it spins out of its sleeve and plays."]},
-      {media:[["l-rh-sound","Their signature sound: records you can play","full"]]},
-      {media:[["l-rh-quote","In their own words","full"]]},
-      {media:[["l-rh-essay","The 1989 Hall of Fame essay, as the printed program","full"]]},
-      {k:"(The Archive)", h:"Pulled from the Hall’s own archive.",
-       p:["Every induction comes with an essay, printed in the ceremony program. Instead of retyping it, we presented the program itself, with the pull quote beside it and a link to read the whole thing. Quotes from the artists sit in full-bleed photography, in their own words."]},
-      {media:[["l-rh-influence","Their influence: who they learned from, and who learned from them","full"]]},
-      {k:"(Legacy)", h:"From the page to the stage.",
-       p:["Influence maps connect each inductee to the artists who shaped them and the ones they shaped, so one visit turns into an hour of exploring. RockHallTV extends the same language into a channel of legendary performances and interviews, and the same component library runs the museum, ticketing and induction pages."]},
+      {media:[["l-rhx-sound","Their signature sound: records you can pull and play","full"]]},
+      {k:"(Sound)", h:"Hear why they’re in the Hall.",
+       p:["Rock and roll is something you hear. The signature sound module lets visitors pull a record from the stack and play it, with the sleeve art front and center, the way you’d flip through crates in a record store.",
+          "Archival photography gets the same respect. Spotlight modules set rare images in loose, poster-like stacks beside the story of the song."]},
+      {media:[["l-rhx-spotlight","Spotlight: archival photography beside the story","full"]]},
+      {media:[["l-rhx-timeline","Career milestones, from Ed Sullivan to Hyde Park","full"]]},
+      {k:"(The Story)", h:"A career, told in moments.",
+       p:["A milestone timeline walks through a career one moment at a time, from the Ed Sullivan Show to Hyde Park, and Their Impact puts the band on camera telling it in their own words. Every module works the same on a phone, so the story never feels like the lite version."]},
+      {media:[["l-rhx-impact","Their impact, in their own words","full"]]},
+      {k:"(The Museum)", h:"From the page to Cleveland.",
+       p:["The same modules carry the museum side: induction news, exhibits and events, each pointing back to a visit. RockHallTV takes the visual language further, into a channel of legendary performances and interviews, and one component library runs it all."]},
+      {media:[["l-rhx-feature-block","Honoring the Inductee Class of 2025, and the Main Exhibit Hall","full"]]},
       {media:[["m-rh-tv","RockHallTV, desktop and mobile","full"]]},
     ]},
 
@@ -616,7 +618,7 @@ const ph = (p, i, label, ar) => `<div class="ph" style="--tint:${p.tint};--ar:${
   ${i===0?`<span class="ph-mark">${p.short}</span>`:""}
   <span class="ph-l mono">${label}</span></div>`;
 
-const img = (k, alt, eager) => { const d=IMG[k]||[1600,900]; return `<img class="shot" src="/work/${k}.webp?v=11062229" alt="${alt}" width="${d[0]}" height="${d[1]}" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async">`; };
+const img = (k, alt, eager) => { const d=IMG[k]||[1600,900]; return `<img class="shot" src="/work/${k}.webp?v=11062250" alt="${alt}" width="${d[0]}" height="${d[1]}" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async">`; };
 const USE_COVERS = false; // flip to true once every project has a matching-resolution cover
 const cover = (p, label) => (USE_COVERS && p.cover)
   ? `<div class="ph ph-img" style="--ar:3/2">${img(p.cover, p.short.replace(/&amp;/g,"&")+" project cover")}</div>`
@@ -724,7 +726,7 @@ function projectReal(p){
   const bp = b => { n++; const ks=Object.keys(b.bp); const first=ks[0];
     return `<div class="grid p-media"><div class="spec" data-bpview><div class="spec-head mono"><span class="mute">(Breakpoints) — <span class="bp-w">${BPPX[first]}px</span></span>
       <span class="seg" role="group" aria-label="Breakpoint">${ks.map(k=>`<button data-bp="${k}" aria-pressed="${k===first}">${k}</button>`).join("")}</span></div>
-      <div class="bp-stage"><div class="bp-frame" style="width:${BPW[first]}">${ks.map(k=>{const d=IMG[b.bp[k]]||[1600,1000];return `<img src="/work/${b.bp[k]}.webp?v=11062229" alt="${alt(b.cap+" — "+k)}" width="${d[0]}" height="${d[1]}" loading="lazy" decoding="async" data-k="${k}" class="${k===first?"on":""}">`}).join("")}</div></div>
+      <div class="bp-stage"><div class="bp-frame" style="width:${BPW[first]}">${ks.map(k=>{const d=IMG[b.bp[k]]||[1600,1000];return `<img src="/work/${b.bp[k]}.webp?v=11062250" alt="${alt(b.cap+" — "+k)}" width="${d[0]}" height="${d[1]}" loading="lazy" decoding="async" data-k="${k}" class="${k===first?"on":""}">`}).join("")}</div></div>
       <div class="spec-cap mono mute"><span>${b.cap}</span><span>${String(n).padStart(2,"0")}</span></div></div></div>`; };
   const tok = b => { return `<div class="grid p-media"><div class="spec"><div class="spec-head mono"><span class="mute">(Tokens) — click to copy</span><span class="mute">${b.tokens.length} values</span></div>
       <div class="tok mono">${b.tokens.map(t=>`<button data-copy="${t[1]}" style="--c:${t[1]}" aria-label="Copy ${t[0]} ${t[1]}"><i></i><span><b>${t[0]}</b><em>${t[1].toUpperCase()}</em></span></button>`).join("")}</div>
