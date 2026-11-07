@@ -23,6 +23,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/fonts/OverusedGrotesk-VF.woff2" as="font" type="font/woff2" crossorigin>
 <title>Corey Dixon©</title>
+<script>try{history.scrollRestoration="manual"}catch(e){}</script>
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" type="image/svg+xml" href="/brand/favicon.svg">
 <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png">
@@ -140,6 +141,7 @@ nav.main a:hover{color:var(--hover)}
 /* 8px grid: spacing scale steps at breakpoints instead of fluid values */
 @media (min-width:761px){:root{--s4:48px;--s5:96px;--s6:128px;--col-gap:24px;--pad:24px}}
 @media (min-width:1200px){:root{--s4:64px;--s5:128px;--s6:192px;--pad:32px}}
+html{overflow-anchor:none}
 /* Image placeholders */
 .ph{container-type:inline-size;position:relative;background:var(--tile);aspect-ratio:var(--ar,4/3);max-width:100%;overflow:hidden;width:100%}
 .ph::before{content:"";position:absolute;inset:0;background:var(--tint);opacity:.55}
@@ -871,15 +873,23 @@ document.getElementById("copy").addEventListener("click", e=>{
   const onHome=!location.hash||location.hash==="#home";
   if(seen||!onHome||matchMedia("(prefers-reduced-motion: reduce)").matches){ sp.remove(); return; }
   try{ sessionStorage.setItem("cd-intro","1") }catch(e){}
-  sp.hidden=false; document.body.classList.add("intro"); document.body.style.overflow="hidden";
-  let done=false, timers=[];
+  sp.hidden=false; document.body.classList.add("intro"); document.body.style.overflow="hidden"; scrollTo(0,0);
+  let done=false, locked=true, timers=[];
+  let lastInput=0;
+  const block=e=>{ if(locked){ e.preventDefault(); lastInput=performance.now(); finish(); } };
+  const keys=e=>{ if(locked && [" ","ArrowDown","ArrowUp","PageDown","PageUp","Home","End"].includes(e.key)){ e.preventDefault(); } if(locked) finish(); };
+  addEventListener("wheel",block,{passive:false}); addEventListener("touchmove",block,{passive:false});
+  addEventListener("touchstart",()=>finish(),{passive:true}); addEventListener("keydown",keys);
+  const unlock=()=>{ locked=false; removeEventListener("wheel",block); removeEventListener("touchmove",block); removeEventListener("keydown",keys); };
   const finish=()=>{ if(done) return; done=true; timers.forEach(clearTimeout);
     sp.classList.add("part"); setTimeout(()=>sp.classList.add("lift"),380);
-    setTimeout(()=>{ document.body.classList.remove("intro"); document.body.style.overflow=""; },700);
+    setTimeout(()=>{ scrollTo(0,0); document.body.classList.remove("intro"); document.body.style.overflow=""; scrollTo(0,0); },700);
+    // Release scrolling only once the gesture that dismissed the intro has fully stopped (no input for 220ms).
+    const tryUnlock=()=>{ if(performance.now()-lastInput>220) unlock(); else setTimeout(tryUnlock,80); };
+    setTimeout(tryUnlock,760);
     setTimeout(()=>sp.remove(),1300); };
   timers.push(setTimeout(finish,750));
   sp.addEventListener("click",finish);
-  ["wheel","touchstart","keydown"].forEach(ev=>addEventListener(ev,finish,{once:true,passive:true}));
 })();
 
 // Cursor + project peek
@@ -905,6 +915,8 @@ document.getElementById("copy").addEventListener("click", e=>{
 })();
 
 addEventListener("hashchange", route); route();
+addEventListener("pageshow",e=>{ if(!e.persisted && (!location.hash||location.hash==="#home")) scrollTo(0,0) });
+addEventListener("load",()=>{ if((!location.hash||location.hash==="#home") && scrollY<4) scrollTo(0,0) });
 const words=["design systems","storefronts","platforms","event experiences","enterprise tools","AI-built prototypes"]; let wi=0;
 if(!matchMedia("(prefers-reduced-motion: reduce)").matches) setInterval(()=>{wi=(wi+1)%words.length;document.getElementById("rot").textContent=words[wi]},2200);
 </script>
