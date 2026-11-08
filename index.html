@@ -227,10 +227,11 @@ footer .col span{overflow-wrap:anywhere}
 @media (max-width:760px){.m-l,.m-r,.m-off{grid-column:1/-1}}
 figure{margin:0;display:flex;flex-direction:column;gap:var(--s1);min-width:0}
 figcaption{display:flex;justify-content:space-between;gap:16px}
-.stats{padding-top:var(--s5);row-gap:var(--s3)}
+.stats{padding-top:var(--s4);row-gap:var(--s3)}
+.stats .stat span{max-width:32ch;line-height:1.5}
 .stat{grid-column:span 4;border-top:1px solid var(--ink);padding-top:var(--s2);display:flex;flex-direction:column;gap:var(--s1)}
-.stat b{font-size:clamp(40px,5vw,80px);font-weight:500;letter-spacing:-.05em;line-height:1}
-@media (max-width:760px){.stat{grid-column:1/-1}}
+.stat b{font-family:var(--sans);font-size:clamp(40px,5vw,80px);font-weight:500;letter-spacing:-.05em;line-height:1}
+@media (max-width:760px){.stat{grid-column:1/-1;flex-direction:row;align-items:baseline;gap:var(--s2)}.stat b{font-size:40px;min-width:3.4ch}.stats{row-gap:var(--s2)}}
 .next{display:block;margin-top:var(--s6);border-top:1px solid var(--ink);padding-top:var(--s2)}
 .next .t{font-weight:500;letter-spacing:-.055em;line-height:.9;font-size:clamp(44px,9vw,150px);display:block;margin-top:var(--s3)}
 .next:hover .t{color:var(--hover)}
@@ -348,7 +349,7 @@ header.top{transition:transform .7s cubic-bezier(.2,.7,.2,1),background-color .3
 <header class="top">
   <div class="grid mono">
     <a class="brand" href="#home" style="font-family:var(--sans);text-transform:none">Corey Dixon<span class="c">©</span></a>
-    <span class="h-role">Senior Product &amp;<br>Experience Designer</span>
+    <span class="h-role">Senior &amp; Lead<br>Product Designer</span>
     <span class="h-loc mute">Richmond, VA<br>14 Years · Est. 2012</span>
     <nav class="main">
       <span class="links">
@@ -405,6 +406,7 @@ const P = [
   {id:"google-io", n:"001", client:"Google I/O 2026", short:"Google I/O", disc:"Experiential / Motion", tint:"#A23E1D",
     role:"Motion design &amp; art direction", platform:"Web · desktop &amp; mobile", cover:"m-io-cover",
     scope:"25 playable builds that unlocked the I/O 2026 date, on desktop and mobile",
+    stats:[["25","Playable builds that unlocked the I/O 2026 date"],["5,000+","In-person I/O attendees, plus a global livestream audience"],["2","Platforms, desktop and mobile"]],
     team:"With Left Field Labs and the Google I/O team",
     tagline:"Google could have just announced the date. Instead, we built a game the whole community had to play to unlock it.",
     hero:["m-io-play","Let’s play. Bundle select on desktop and mobile"],
@@ -432,6 +434,7 @@ const P = [
   {id:"pga-tour", n:"002", client:"PGA Tour", short:"PGA Tour", disc:"Mobile App", tint:"#1C2B4A",
     role:"UI lead", platform:"iOS &amp; Android", cover:"m-pga2-hero",
     scope:"YourTOUR, live leaderboards, TOURCast shot tracking, scorecards and Watch, on iOS and Android",
+    stats:[["3M+","Installs on Google Play alone"],["5","Core tabs, rebuilt around the players fans follow"],["2","Native platforms, iOS and Android"]],
     team:"With Shockoe and the PGA Tour brand and product teams",
     tagline:"Fans follow players, not tournaments. We rebuilt the PGA Tour app around that.",
     hero:["m-pga2-hero","YourTOUR, the live leaderboard and hole detail"],
@@ -458,6 +461,7 @@ const P = [
   {id:"haskell", n:"003", client:"Haskell Design System", short:"PGA Tour · Haskell", disc:"Design System — PGA Tour", tint:"#2F4A35",
     role:"Design system &amp; product design", platform:"iOS · Android · Web · Figma", cover:"l-hk-1",
     scope:"Tokens, type, color, icons, motion and specs shared across iOS, Android and web",
+    stats:[["3","Platforms on one system: iOS, Android and web"],["4.5:1","Minimum contrast on every Tour theme"],["1","Source of truth for partners and engineering"]],
     team:"With Shockoe and the PGA Tour digital, brand and engineering teams",
     tagline:"Every shot, every hole, every screen. One system underneath it all.",
     hero:["l-hk-1","Foundations, and YourTOUR built on them"],
@@ -481,8 +485,9 @@ const P = [
     ]},
 
   {id:"rock-hall", n:"004", client:"Rock &amp; Roll Hall of Fame", short:"Rock Hall", disc:"Digital Experience", tint:"#7D1E22",
-    role:"Art direction, UX &amp; UI", platform:"Responsive web", cover:"l-rhx-hero-stones",
+    role:"Art direction lead · UX &amp; UI", platform:"Responsive web", cover:"l-rhx-hero-stones",
     scope:"Inductee pages, artifact and archive modules, and one component library behind the whole site",
+    stats:[["514K+","Museum visitors in 2024, now with the museum online"],["46B","Media impressions from the 2024 Induction Ceremony"],["1","Component library behind every page, from inductees to tickets"]],
     team:"With Grow and the Rock &amp; Roll Hall of Fame team",
     tagline:"Most people will never make it to Cleveland. So we brought the museum to them.",
     hero:["l-rhx-hero-stones","The Rolling Stones, inducted 1989"],
@@ -509,6 +514,7 @@ const P = [
   {id:"dickies", n:"005", client:"Dickies", short:"Dickies", disc:"E-Commerce Redesign", tint:"#4E3426",
     role:"UI &amp; visual design lead", platform:"Shopify · ReCharge", cover:"m-dk-cover",
     scope:"Home, category, product, Skate, Scrubs, Stories and team pages on Shopify",
+    stats:[["100+","Countries where Dickies is sold"],["7","Page types redesigned, from home to team pages"],["1","Shared storefront system across workwear, skate and scrubs"]],
     team:"With VF Corporation, the Dickies brand team and partner agencies",
     tagline:"A storefront for people who actually wear the clothes to work.",
     hero:["m-dk-home","Home, desktop and mobile"],
@@ -536,6 +542,7 @@ const P = [
   {id:"dickies-brand", n:"006", client:"Dickies Brand Guidelines", short:"Dickies Brand", disc:"Brand Guidelines", tint:"#8A5418",
     role:"Brand &amp; visual design", platform:"Brand guidelines site · Retail · Digital", cover:"l-db-3",
     scope:"Logo, color, typography, photography and real examples in one browsable guide",
+    stats:[["100+","Countries the brand guide serves"],["4","Pillars: logo, color, type and photography"],["3","Channels on one guide: brand, retail and digital"]],
     team:"With VF Corporation and the Dickies brand team",
     tagline:"A brand guide built like the clothes: tough, practical and impossible to misread.",
     hero:["l-db-3","The full-color logo, from the guide to the team pages"],
@@ -558,8 +565,9 @@ const P = [
     ]},
 
   {id:"canvas", n:"007", client:"Canvas Design System", short:"VF Corp · Canvas", disc:"Design System — VF Corporation", tint:"#55552B",
-    role:"Design system designer", platform:"Figma · Open source", cover:"l-cv-1",
+    role:"Design system lead", platform:"Figma · Open source", cover:"l-cv-1",
     scope:"30+ components and a token layer shared by The North Face, Dickies, Vans and Timberland",
+    stats:[["30+","Components, documented one by one"],["4","VF brands on one system"],["3","Token tiers: brand, semantic and component"]],
     team:"With the VF Corporation digital and design system teams",
     tagline:"One system, built from scratch in Figma, that every VF brand can make its own.",
     hero:["l-cv-1","Canvas components, desktop and mobile"],
@@ -587,6 +595,7 @@ const P = [
   {id:"smartwool", n:"008", client:"Smartwool", short:"Smartwool", disc:"Site Architecture / UX", tint:"#245656",
     role:"UX &amp; visual design", platform:"Responsive web", cover:"m-sw-cover",
     scope:"Site architecture, home, activity, collection, category and product pages",
+    stats:[["5","Page templates redesigned"],["1","New site architecture built around activities"],["2","Breakpoints designed for every page, desktop and mobile"]],
     team:"With VF Corporation and the Smartwool digital and brand teams",
     tagline:"Too much great gear and no obvious way in. We redesigned the front door.",
     hero:["m-sw-home","Home, desktop and mobile"],
@@ -609,8 +618,9 @@ const P = [
     ]},
 
   {id:"beacon", n:"009", client:"Beacon Design System®", short:"Morgan Stanley", disc:"Design System — Morgan Stanley", tint:"#4D2B45",
-    role:"Design system designer", platform:"Web docs · Figma &amp; Sketch kits", cover:"m-bc-cover",
+    role:"Design system lead", platform:"Web docs · Figma &amp; Sketch kits", cover:"m-bc-cover",
     scope:"Foundations, components, patterns and documentation for Morgan Stanley product teams",
+    stats:[["3","Layers: foundations, components and patterns"],["2","Design kits, Figma and Sketch"],["1","Shared language for Morgan Stanley product teams"]],
     team:"With Morgan Stanley’s design system team",
     tagline:"Morgan Stanley already had a design system. We made designers want to use it.",
     hero:["m-bc-home","Great work starts here. The Beacon home"],
@@ -677,34 +687,31 @@ function home(){
       ${cover(p,"")}
       <div class="cap"><span class="mono mute">N°${p.n}</span><span class="cap-t">${p.client}</span><span class="mono mute r">${p.disc}</span></div>
     </a>`).join("");
-  const gated = `<a class="card" href="mailto:hi@coreydixon.design?subject=PayPal%20%2F%20Capital%20One%20walkthrough"><div class="ph ph-th ph-gated" style="--ar:3/2"><img src="/work/th-fintech.webp?v=11081600" alt="" width="1500" height="1000" loading="lazy" decoding="async"><span class="ph-n mono">010.00</span><span class="ph-mark">PayPal · Capital One</span><span class="ph-l mono">Under NDA · walkthrough on request</span></div>
-      <div class="cap"><span class="mono mute">N°010</span><span class="cap-t">Fintech, on request</span><span class="mono mute r">PayPal · Venmo · Capital One</span></div></a>`;
-  const gatedLi = `<li><a href="mailto:hi@coreydixon.design?subject=PayPal%20%2F%20Capital%20One%20walkthrough"><span class="n mono mute">N°010</span><span class="t">Fintech, on request</span><span class="d mono">PayPal · Venmo · Capital One</span><span class="y mono mute">Request →</span></a></li>`;
   const list = P.map(p=>`<li><a href="#${p.id}"><span class="n mono mute">N°${p.n}</span><span class="t">${p.client}</span><span class="d mono">${p.disc}</span><span class="y mono mute">${p.draft?"In progress":"Case study"} →</span></a></li>`).join("");
   return `<div class="view">
     <section class="hero">
-      <h1 class="statement">Shaping scalable digital systems across enterprise, culture, and global brands. <span class="mute">Building experiences that blend craft and utility.</span></h1>
+      <h1 class="statement">Lead product designer behind design systems and digital products for global brands. <span class="mute">14 years taking the work from first idea to shipped.</span></h1>
       <div class="grid">
         <p class="lede lede-sm mono mute">(Index) — Selected work, 2021–2026</p>
         <dl class="facts mono">
-          <dt>Practice</dt><dd>Product &amp; Experience Design</dd>
+          <dt>Practice</dt><dd>Product Design · Design Systems</dd>
           <dt>Focus</dt><dd>Design Systems, E-Com, Platforms</dd>
-          <dt>Tenure</dt><dd>14 Years, Agency &amp; In-House</dd>
+          <dt>Tenure</dt><dd>14 Years · Senior &amp; Lead Roles</dd>
           <dt>Status</dt><dd><i class="live" aria-hidden="true"></i>Open to select work</dd>
         </dl>
       </div>
     </section>
     <section>
       <div class="sec-head"><div class="grid mono">
-        <span class="l">(Selected Work)</span><span class="m mute">N°001 — N°010</span>
+        <span class="l">(Selected Work)</span><span class="m mute">N°001 — N°${P.at(-1).n}</span>
         <span class="r"><span class="toggle" role="group" aria-label="View"><button data-mode="grid" aria-pressed="${mode==="grid"}">Grid</button><button data-mode="index" aria-pressed="${mode==="index"}">Index</button></span></span>
       </div></div>
-      <div id="work-grid" class="work" ${mode==="index"?"hidden":""}>${cards}${gated}</div>
-      <ul id="work-index" class="index" ${mode==="grid"?"hidden":""}>${list}${gatedLi}</ul>
+      <div id="work-grid" class="work" ${mode==="index"?"hidden":""}>${cards}</div>
+      <ul id="work-index" class="index" ${mode==="grid"?"hidden":""}>${list}</ul>
     </section>
     <section class="about"><div class="grid">
       <span class="k mono mute">(Intro)</span>
-      <p class="v">Senior Product &amp; Experience Designer with 14 years building scalable web and app experiences for enterprise and global brands, across agency and in-house teams.</p>
+      <p class="v">Senior and lead product designer with 14 years building scalable web and app experiences for enterprise and global brands, across agency and in-house teams.</p>
       <div class="clients mono"><span class="mute">Work —</span>${["Capital One","Google","Morgan Stanley","PGA Tour","PayPal","The North Face","Dickies","Smartwool","Rock Hall"].map(c=>`<span>${c}</span>`).join("")}</div>
     </div></section>
     <section>
@@ -801,9 +808,10 @@ function projectReal(p){
     </section>
     <section class="grid glance mono">
       <div><span class="mute">Role</span><span>${p.role}</span></div>
-      <div><span class="mute">Team</span><span>${p.team.replace(/^With (the )?/,"").replace(/^./,c=>c.toUpperCase())}</span></div>
+      <div><span class="mute">Team</span><span>A small, lean team, with ${p.team.replace(/^With /,"")}</span></div>
       <div><span class="mute">Scope</span><span>${p.scope||p.platform}</span></div>
     </section>
+    ${p.stats?`<section class="grid stats mono">${p.stats.map(x=>`<div class="stat"><b>${x[0]}</b><span class="mute">${x[1]}</span></div>`).join("")}</section>`:""}
     ${blocks}
     <a class="next" href="#${nx.id}"><span class="mono mute">Next — N°${nx.n}</span><span class="t">${nx.client} →</span></a>
   </div>`;
@@ -813,7 +821,7 @@ function resume(){
   const rows = ROWS;
   return `<div class="view">
     <section class="hero">
-      <h1 class="statement">Senior Product &amp; Experience Designer. <span class="mute">14 years building scalable web and app experiences for enterprise and global brands.</span></h1>
+      <h1 class="statement">Senior &amp; Lead Product Designer. <span class="mute">14 years building scalable web and app experiences for enterprise and global brands.</span></h1>
       <div class="grid">
         <p class="lede lede-sm mono mute">(Resume) — Experience &amp; capabilities</p>
         <dl class="facts mono">
