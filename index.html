@@ -231,7 +231,7 @@ figcaption{display:flex;justify-content:space-between;gap:16px}
 .stats .stat span{max-width:32ch;line-height:1.5}
 .stat{grid-column:span 4;border-top:1px solid var(--ink);padding-top:var(--s2);display:flex;flex-direction:column;gap:var(--s1)}
 .stat b{font-family:var(--sans);font-size:clamp(40px,5vw,80px);font-weight:500;letter-spacing:-.05em;line-height:1}
-@media (max-width:760px){.stat{grid-column:1/-1;flex-direction:row;align-items:baseline;gap:var(--s2)}.stat b{font-size:40px;min-width:3.4ch}.stats{row-gap:var(--s2)}}
+@media (max-width:760px){.stat{grid-column:1/-1}.stat b{font-size:48px}.stats{row-gap:var(--s3)}}
 .next{display:block;margin-top:var(--s6);border-top:1px solid var(--ink);padding-top:var(--s2)}
 .next .t{font-weight:500;letter-spacing:-.055em;line-height:.9;font-size:clamp(44px,9vw,150px);display:block;margin-top:var(--s3)}
 .next:hover .t{color:var(--hover)}
@@ -403,11 +403,11 @@ setMode(saved);
 document.querySelector(".modes").addEventListener("click",e=>{const b=e.target.closest("[data-set]"); if(b) setMode(b.dataset.set)});
 const IMG = {"m-bc-color":[3200,2000],"m-bc-comps":[3200,2000],"m-bc-cover":[3200,2000],"m-bc-gallery":[3200,2000],"m-bc-home":[3200,2000],"m-bc-pattern":[3200,2000],"m-bc-start":[3200,2000],"m-bc-type":[3200,2000],"m-dk-cover":[3200,2000],"m-dk-home":[3200,2000],"m-dk-pdp":[3200,2000],"m-dk-plp":[3200,2000],"m-dk-scrubs":[3200,2000],"m-dk-skate":[3200,2000],"m-dk-stories":[3200,2000],"m-dk-team":[3200,2000],"m-io-color":[3200,2000],"m-io-complete":[3200,2000],"m-io-cover":[3200,2000],"m-io-play":[3200,2000],"m-io-progress":[3200,2000],"m-io-reveal":[3200,2000],"m-io-share":[3200,2000],"m-io-sound":[3200,2000],"m-pga2-feed":[3200,2000],"m-pga2-hero":[3200,2000],"m-pga2-hole":[3200,2000],"m-pga2-live":[3200,2000],"m-pga2-story":[3200,2000],"m-sw-act":[3200,2000],"m-sw-coll":[3200,2000],"m-sw-cover":[3200,2000],"m-sw-gear":[3200,2000],"m-sw-home":[3200,2000],"m-sw-plant":[3200,2000],"m-sw-prod":[3200,2000],"m-sw-v2":[3200,2000]};
 const P = [
-  {id:"google-io", n:"001", client:"Google I/O 2026", short:"Google I/O", disc:"Experiential / Motion", tint:"#A23E1D",
-    role:"Motion design &amp; art direction", platform:"Web · desktop &amp; mobile", cover:"m-io-cover",
+  {id:"google-io", n:"001", client:"Google I/O 2026", short:"Google I/O", disc:"Art Direction / Design", tint:"#A23E1D",
+    role:"Art direction &amp; design", platform:"Web · desktop &amp; mobile", cover:"m-io-cover",
     scope:"25 playable builds that unlocked the I/O 2026 date, on desktop and mobile",
-    stats:[["25","Playable builds that turned the date reveal into a game"],["5,000+","I/O attendees, plus a global livestream audience, primed before the keynote"],["1","Community-unlocked launch moment, earned play by play"]],
-    lead:"A tight crew at Left Field Labs. I led motion and art direction, working hand in hand with Google’s I/O team and the developers building each game",
+    stats:[["Day 1","The global community unlocked the I/O date the day it launched"],["5,000+","I/O attendees, plus a worldwide livestream audience, primed before the keynote"],["5","Gemini-powered game bundles, one visual language"]],
+    lead:"A tight crew at Left Field Labs. I led art direction and design, working hand in hand with Google’s I/O team and the developers building each game",
     team:"With Left Field Labs and the Google I/O team",
     tagline:"Google could have just announced the date. Instead, we built a game the whole community had to play to unlock it.",
     hero:["m-io-play","Let’s play. Bundle select on desktop and mobile"],
@@ -418,7 +418,7 @@ const P = [
       {media:[["m-io-sound","Emoji Code, one of the bundle builds","full"]]},
       {media:[["m-io-color","Color sense, a precision game","full"]]},
       {k:"(Direction)", h:"Google’s brand, treated like a physical material.",
-       p:["I led art direction and motion. We treated Google’s palette as folded, bent and layered cards with light moving across them, so each bundle had its own personality and still read instantly as Google.",
+       p:["I led art direction and design. We treated Google’s palette as folded, bent and layered cards with light moving across them, so each bundle had its own personality and still read instantly as Google.",
           "Type stayed calm and huge so the play could be loud. “Let’s play” did most of the talking."]},
       {media:[["m-io-complete","Bundle complete, the payoff moment","full"]]},
       {k:"(Motion System)", h:"One motion vocabulary for designers, animators and engineers.",
@@ -435,7 +435,7 @@ const P = [
   {id:"pga-tour", n:"002", client:"PGA Tour", short:"PGA Tour", disc:"Mobile App", tint:"#1C2B4A",
     role:"UI lead", platform:"iOS &amp; Android", cover:"m-pga2-hero",
     scope:"YourTOUR, live leaderboards, TOURCast shot tracking, scorecards and Watch, on iOS and Android",
-    stats:[["3M+","Fans on Google Play alone, now greeted by their players"],["0","Taps to your favorite golfers: YourTOUR leads the home feed"],["2","Native platforms shipping one experience, iOS and Android"]],
+    stats:[["4.5★","App Store rating across 45K+ reviews"],["3M+","Fans on Google Play alone, now greeted by their players"],["0","Taps to your favorite golfers: YourTOUR leads the home feed"]],
     lead:"A lean Shockoe squad embedded with the Tour. As UI lead, I set the visual direction and partnered daily with product, brand and engineering",
     team:"With Shockoe and the PGA Tour brand and product teams",
     tagline:"Fans follow players, not tournaments. We rebuilt the PGA Tour app around that.",
@@ -628,7 +628,7 @@ const P = [
   {id:"beacon", n:"009", client:"Beacon Design System®", short:"Morgan Stanley", disc:"Design System — Morgan Stanley", tint:"#4D2B45",
     role:"Design system lead", platform:"Web docs · Figma &amp; Sketch kits", cover:"m-bc-cover",
     scope:"Foundations, components, patterns and documentation for Morgan Stanley product teams",
-    stats:[["34%","Faster design work when designers start from a shared kit (Figma research)"],["47%","Faster front-end builds with a design system (Sparkbox study)"],["1","Kit every Morgan Stanley product designer starts from"]],
+    stats:[["Firm-wide","Adopted by design teams across Morgan Stanley"],["34%","Faster design work when designers start from a shared kit (Figma research)"],["47%","Faster front-end builds with a design system (Sparkbox study)"]],
     lead:"A small team inside Morgan Stanley’s design system group. I led the design work and documented it for the product teams",
     team:"With Morgan Stanley’s design system team",
     tagline:"Morgan Stanley already had a design system. We made designers want to use it.",
