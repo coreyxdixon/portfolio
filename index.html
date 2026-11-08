@@ -69,7 +69,7 @@ hr{border:0;border-top:1px solid var(--rule);margin:0}
 header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);padding-block:var(--s2);border-bottom:1px solid var(--rule)}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--paper)}
 header.top .grid{align-items:start}
-.brand{grid-column:1/4;font-weight:500;font-size:16px;line-height:1;letter-spacing:-.02em;justify-self:start;align-self:center;display:inline-flex;align-items:center;min-height:44px;margin-block:-8px}
+.brand{grid-column:1/4;font-weight:500;font-size:20px;line-height:1;letter-spacing:-.02em;justify-self:start;align-self:center;display:inline-flex;align-items:center;min-height:44px;margin-block:-8px}
 .h-role{grid-column:4/7}
 .h-loc{grid-column:7/10}
 nav.main{grid-column:10/13;display:flex;gap:16px;justify-content:flex-end;align-items:center}
@@ -142,6 +142,18 @@ nav.main a:hover{color:var(--hover)}
 @media (min-width:761px){:root{--s4:48px;--s5:96px;--s6:128px;--col-gap:24px;--pad:24px}}
 @media (min-width:1200px){:root{--s4:64px;--s5:128px;--s6:192px;--pad:32px}}
 html{overflow-anchor:none}
+/* Touch-target pass: invisible hit areas so text links reach 44px on touch screens and 24px with a mouse,
+   without moving anything visually (WCAG 2.5.8). Buttons get real size. */
+.p-back,a[download],a[href^="https://linkedin"],a[href="#resume"]:not([data-nav]){position:relative}
+.p-back::after,a[download]::after,a[href^="https://linkedin"]::after,a[href="#resume"]:not([data-nav])::after{content:"";position:absolute;inset:-6px -8px}
+.toggle button{min-height:24px}
+@media (pointer:coarse){
+  .p-back::after,a[download]::after,a[href^="https://linkedin"]::after,a[href="#resume"]:not([data-nav])::after{inset:-16px -8px}
+  footer .col a + a{margin-top:var(--s3)}
+  .toggle button{min-height:44px;min-width:56px}
+  .copy{min-height:44px}
+}
+
 /* Image placeholders */
 .ph{container-type:inline-size;position:relative;background:var(--tile);aspect-ratio:var(--ar,4/3);max-width:100%;overflow:hidden;width:100%}
 .ph::before{content:"";position:absolute;inset:0;background:var(--tint);opacity:.55}
@@ -188,7 +200,7 @@ footer .big{grid-column:1/-1;font-weight:500;letter-spacing:-.055em;line-height:
 footer .open{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:var(--s1) var(--s3);padding-block:var(--s2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:var(--s3)}
 footer .grid{row-gap:var(--s3)}
 footer .big a:hover{color:var(--hover)}
-@media (hover:hover) and (pointer:fine){footer .big a{pointer-events:none;cursor:default}}
+
 .copy{font:inherit;color:var(--ink);background:none;border:1px solid var(--rule);padding:4px 8px;margin-top:8px;align-self:flex-start;cursor:pointer;transition:border-color .2s,color .2s}
 .copy:hover{border-color:var(--ink)}
 .copy.done{color:var(--mute)}
@@ -208,7 +220,7 @@ footer .col span{overflow-wrap:anywhere}
 .p-block .k{grid-column:1/4}
 .p-block .h{grid-column:4/12;font-size:clamp(26px,3.4vw,52px);line-height:1.02;letter-spacing:-.04em;font-weight:500;margin:0;text-wrap:pretty}
 .p-block .b{grid-column:4/11;font-size:17px;line-height:1.55;max-width:68ch}
-.p-block .b p{margin:0 0 1em}
+.p-block .b p{margin:0 0 var(--s2)}
 @media (max-width:860px){.p-block .k,.p-block .h,.p-block .b{grid-column:1/-1}}
 .p-media{padding-top:var(--s4);row-gap:var(--s4)}
 .m-full{grid-column:1/-1}.m-l{grid-column:1/7}.m-r{grid-column:7/13}.m-off{grid-column:5/13}
