@@ -145,11 +145,11 @@ nav.main a:hover{color:var(--hover)}
 html{overflow-anchor:none}
 /* Touch-target pass: invisible hit areas so text links reach 44px on touch screens and 24px with a mouse,
    without moving anything visually (WCAG 2.5.8). Buttons get real size. */
-.p-back,a[download],a[href^="https://linkedin"],a[href="#resume"]:not([data-nav]){position:relative}
-.p-back::after,a[download]::after,a[href^="https://linkedin"]::after,a[href="#resume"]:not([data-nav])::after{content:"";position:absolute;inset:-6px -8px}
+.p-back,a[download],a[href^="https://linkedin"],a[href="/resume/"]:not([data-nav]){position:relative}
+.p-back::after,a[download]::after,a[href^="https://linkedin"]::after,a[href="/resume/"]:not([data-nav])::after{content:"";position:absolute;inset:-6px -8px}
 .toggle button{min-height:24px}
 @media (pointer:coarse){
-  .p-back::after,a[download]::after,a[href^="https://linkedin"]::after,a[href="#resume"]:not([data-nav])::after{inset:-16px -8px}
+  .p-back::after,a[download]::after,a[href^="https://linkedin"]::after,a[href="/resume/"]:not([data-nav])::after{inset:-16px -8px}
   footer .col a + a{margin-top:var(--s3)}
   .toggle button{min-height:44px;min-width:56px}
   .copy{min-height:44px}
@@ -164,6 +164,7 @@ html{overflow-anchor:none}
 .card .ph .ph-n,.card .ph .ph-l{color:#F4F1EA;opacity:.9}
 .ph .ph-l{position:absolute;left:16px;bottom:8px;color:var(--mute)}
 .ph .ph-n{position:absolute;right:16px;top:8px;color:var(--mute)}
+.ph-th .ph-aw{position:absolute;left:8px;top:8px;z-index:2;color:#0C0C0B;background:#F4F1EA;padding:4px 8px;letter-spacing:.04em}
 .ph .ph-mark{position:absolute;inset:0;display:grid;place-items:center;padding:0 8%;text-align:center;text-wrap:balance;line-height:.95;font-weight:500;letter-spacing:-.05em;font-size:clamp(14px,9.5cqi,80px);color:var(--ink);opacity:.9}
 
 /* Work grid */
@@ -284,8 +285,8 @@ header.top{transition:transform .7s cubic-bezier(.2,.7,.2,1),background-color .3
 .card .ph-gated .ph-l{z-index:2;left:16px;bottom:16px;color:#F4F1EA;opacity:.8}
 .card .ph-th .ph-mark,.peek .ph-th .ph-mark{z-index:2;color:#F4F1EA;text-shadow:0 2px 30px rgba(0,0,0,.35)}.card .ph-th .ph-n,.peek .ph-th .ph-n{z-index:2;opacity:1;color:#F4F1EA;background:rgba(0,0,0,.62);padding:4px 8px;top:8px;right:8px;letter-spacing:.04em}
 .card:hover .ph-th img{transform:scale(1.04)}
-@media (pointer:coarse){.modes button,.copy,.burger,a[download],a[href^="https://linkedin"],a[href="#resume"],[aria-label="Close menu"]{position:relative}
-.modes button::after,.copy::after,a[download]::after,a[href^="https://linkedin"]::after,a[href="#resume"]::after,[aria-label="Close menu"]::after{content:"";position:absolute;inset:-12px -6px}}
+@media (pointer:coarse){.modes button,.copy,.burger,a[download],a[href^="https://linkedin"],a[href="/resume/"],[aria-label="Close menu"]{position:relative}
+.modes button::after,.copy::after,a[download]::after,a[href^="https://linkedin"]::after,a[href="/resume/"]::after,[aria-label="Close menu"]::after{content:"";position:absolute;inset:-12px -6px}}
 .ph-img{background:var(--tile)}
 .ph-img::before{display:none}
 .ph-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -299,7 +300,8 @@ header.top{transition:transform .7s cubic-bezier(.2,.7,.2,1),background-color .3
 .glance{padding-top:var(--s4);row-gap:var(--s3)}
 .glance div{grid-column:span 6;display:flex;flex-direction:column;gap:var(--s1);border-top:1px solid var(--rule);padding-top:var(--s2)}
 .glance div span:last-child{max-width:44ch;line-height:1.5}
-@media (max-width:760px){.glance div{grid-column:1/-1}}
+.glance.g3 div{grid-column:span 4}
+@media (max-width:760px){.glance div,.glance.g3 div{grid-column:1/-1}}
 .p-block .team{grid-column:4/12;margin:0}
 .m-half{grid-column:span 6}
 @media (max-width:760px){.m-half{grid-column:1/-1}.p-block .team{grid-column:1/-1}}
@@ -350,13 +352,13 @@ header.top{transition:transform .7s cubic-bezier(.2,.7,.2,1),background-color .3
 
 <header class="top">
   <div class="grid mono">
-    <a class="brand" href="#home" style="font-family:var(--sans);text-transform:none">Corey Dixon<span class="c">©</span></a>
+    <a class="brand" href="/" style="font-family:var(--sans);text-transform:none">Corey Dixon<span class="c">©</span></a>
     <span class="h-role">Senior &amp; Lead<br>Product Designer</span>
     <span class="h-loc mute">Richmond, VA<br>14 Years · Est. 2012</span>
     <nav class="main">
       <span class="links">
-        <a href="#work" data-nav="home">Work</a>
-        <a href="#resume" data-nav="resume">Resume</a>
+        <a href="/#work" data-nav="home">Work</a>
+        <a href="/resume/" data-nav="resume">Resume</a>
         <a href="#contact" data-nav="contact">Contact</a>
       </span>
       <span class="modes" role="group" aria-label="Color mode"><button type="button" data-set="dark" aria-label="Dark mode" aria-pressed="true"></button><button type="button" data-set="light" aria-label="Light mode" aria-pressed="false"></button></span>
@@ -367,8 +369,8 @@ header.top{transition:transform .7s cubic-bezier(.2,.7,.2,1),background-color .3
 
 <div class="menu" id="menu" aria-hidden="true" inert>
   <nav class="menu-links" aria-label="Mobile">
-    <a href="#work" data-nav="home">Work<span class="mono mute">Selected work</span></a>
-    <a href="#resume" data-nav="resume">Resume<span class="mono mute">Experience</span></a>
+    <a href="/#work" data-nav="home">Work<span class="mono mute">Selected work</span></a>
+    <a href="/resume/" data-nav="resume">Resume<span class="mono mute">Experience</span></a>
     <a href="#contact" data-nav="contact">Contact<span class="mono mute">Say hello</span></a>
   </nav>
   <div class="menu-foot mono">
@@ -508,10 +510,10 @@ const P = [
       {media:[["s-b-hk-art","Moodboard, top-down, aerial and TourCast","full"]]},
     ]},
 
-  {id:"rock-hall", n:"004", client:"Rock &amp; Roll Hall of Fame",co:"Rock &amp; Roll Hall of Fame", short:"Rock Hall", disc:"Web Experience", tint:"#7D1E22",
+  {id:"rock-hall", award:"Webby Nominee ×2", awardLong:"Webby Awards 2026 Nominee in Music and Cultural Institutions", n:"004", client:"Rock &amp; Roll Hall of Fame",co:"Rock &amp; Roll Hall of Fame", short:"Rock Hall", disc:"Web Experience", tint:"#7D1E22",
     role:"Art direction &amp; UX lead", platform:"Responsive web", cover:"l-rhx-hero-stones",
     scope:"Inductee pages, artifact and archive modules, and one component library behind the whole site",
-    stats:[["514K+","Annual museum visitors, now with the museum online for everyone else"],["46B","Induction media impressions, each one landing on a richer inductee page"],["1","Component library: new inductee pages without new design"]],
+    stats:[["514K+","Annual museum visitors, now with the museum online for everyone else"],["2","Webby Award nominations in 2026: Music and Cultural Institutions"],["1","Component library: new inductee pages without new design"]],
     lead:"I led art direction on the inductee and artist detail pages and set the visual standard for the site, with Grow and the Hall",
     team:"With Grow and the Rock &amp; Roll Hall of Fame team",
     tagline:"Most people will never make it to Cleveland. So we brought the museum to them.",
@@ -543,7 +545,37 @@ const P = [
       {media:[["s-b-rh-system","Heroes, feature blocks, class listings and calls to action from the library","full"]]},
     ]},
 
-  {id:"dickies", n:"005", client:"Dickies.com",co:"Dickies", short:"Dickies.com", disc:"E-Commerce", tint:"#4E3426",
+  {id:"beacon", n:"005", client:"Beacon Design System®",co:"Morgan Stanley", short:"Beacon", disc:"Design System", tint:"#4D2B45",
+    role:"Design system lead", platform:"Docs site · Figma · Sketch", cover:"m-bc-home",
+    scope:"Foundations, components, patterns and documentation for Morgan Stanley product teams",
+    stats:[["Firm-wide","Adopted by design teams across Morgan Stanley"],["5","Foundations: type, color, elevation, grid and icons"],["2","Synced design kits, Figma and Sketch"]],
+    lead:"I led the design of Beacon and its documentation, then helped roll it out to design teams across the firm",
+    team:"With Morgan Stanley’s design system team",
+    tagline:"Morgan Stanley already had a design system. We made designers want to use it.",
+    hero:["m-bc-home","Great work starts here. The Beacon home"],
+    story:[
+      {k:"(The Brief)", h:"Snackable wisdom for the busy designer.",
+       p:["Beacon is Morgan Stanley’s customer-facing design system, supporting many digital products under one brand. The system worked. Adoption was the problem: designers were busy, the guidance was dense, and best practices were easy to skip.",
+          "My job was to make the right thing the easy thing."]},
+      {k:"(Getting Started)", h:"A front door designers want to open.",
+       p:["The home leads with what’s new and one clear way in. Get Started hands designers the Figma and Sketch kits and a checklist, so a first visit ends with the right files open. Illustration did a lot of the work: every section got its own character, so the docs felt like a place worth visiting."]},
+      {media:[["m-bc-start","Get started","full"]]},
+      {k:"(Components)", h:"Answers in seconds, not chapters.",
+       p:["The docs were reorganized into clear Foundations, Components and Patterns sections, each with design, development and accessibility tabs. Every component has its own page, and the gallery shows them all with their live states."]},
+      {media:[["m-bc-comps","Components overview","full"]]},
+      {media:[["m-bc-gallery","Every component, with live states","full"]]},
+      {k:"(Patterns)", h:"From parts to answers.",
+       p:["Components solve small problems. Patterns solve the common big ones, like multi-step forms, empty states and errors, with guidance written in plain language. Synced Figma and Sketch kits meant what designers placed matched what engineering had built."]},
+      {media:[["m-bc-pattern","Patterns: forms with inline validation","full"]]},
+      {k:"(Foundations)", h:"A palette that can be bold and sensitive.",
+       p:["Foundations cover type, color, elevation, grid and icons. Inter carries everything, and the palette leans on Morgan Stanley blues with a few brighter accents, each with its value and where it belongs.",
+          "The color, typography, components and patterns pages were designed for this case study to complete the story, using the same components and illustrations as the original direction."]},
+      {tokens:[["Light Blue","#187aba"],["Medium Blue","#005c90"],["Dark Blue","#002b51"],["Seafoam","#6fc8cb"],["Teal","#62e1e6"],["Pale Blue","#b9e8fe"],["Jade","#006600"],["Lilac","#675882"],["Action Blue","#0069b5"]], cap:"The Beacon palette"},
+      {media:[["m-bc-color","Foundations: color","full"]]},
+      {media:[["m-bc-type","Foundations: typography","full"]]},
+    ]},
+
+  {id:"dickies", n:"006", client:"Dickies.com",co:"Dickies", short:"Dickies.com", disc:"E-Commerce", tint:"#4E3426",
     role:"UI &amp; visual design lead", platform:"Shopify · Responsive web", cover:"m-dk-home",
     scope:"Home, category, product, Skate, Scrubs, Stories and team pages on Shopify",
     stats:[["100+","Countries, one storefront system for workwear, skate and scrubs"],["7","Page types redesigned on shared parts"],["1","Design language from home to checkout"]],
@@ -575,7 +607,7 @@ const P = [
       {media:[["m-dk-team","Skate team member, Christian Henry","full"]]},
     ]},
 
-  {id:"dickies-brand", n:"006", client:"Dickies Brand Guidelines",co:"Dickies", short:"Dickies Brand", disc:"Brand System", tint:"#8A5418",
+  {id:"dickies-brand", n:"007", client:"Dickies Brand Guidelines",co:"Dickies", short:"Dickies Brand", disc:"Brand System", tint:"#8A5418",
     role:"Brand designer", platform:"Guidelines site · Retail · Digital", cover:"s-dbg-hero",
     scope:"Logo, color, typography, photography and real examples in one browsable guide",
     stats:[["100+","Countries working from one guide instead of scattered decks"],["3","Channels aligned: brand, retail and digital"],["1","Source of truth, so campaigns start on-brand instead of being fixed in review"]],
@@ -607,7 +639,7 @@ const P = [
       {media:[["s-dbg-action","The logo in retail, on apparel, on packaging and in product details","full"]]},
     ]},
 
-  {id:"canvas", n:"007", client:"Canvas Design System",co:"VF Corporation", short:"Canvas", disc:"Design System", tint:"#55552B",
+  {id:"canvas", n:"008", client:"Canvas Design System",co:"VF Corporation", short:"Canvas", disc:"Design System", tint:"#55552B",
     role:"Design system lead", platform:"Figma · Open source", cover:"s-cv-hero",
     scope:"70+ components and a token layer shared by The North Face, Dickies, Vans and Timberland",
     stats:[["70+","Components, each documented with its own page"],["60+","Design tokens for color, type and borders"],["4","VF brands building from one system instead of four"]],
@@ -637,7 +669,7 @@ const P = [
       {media:[["l-cv-6","Canvas, themed for The North Face: the product page on desktop and mobile","full"]]},
     ]},
 
-  {id:"smartwool", n:"008", client:"Smartwool.com",co:"Smartwool", short:"Smartwool.com", disc:"E-Commerce", tint:"#245656",
+  {id:"smartwool", n:"009", client:"Smartwool.com",co:"Smartwool", short:"Smartwool.com", disc:"E-Commerce", tint:"#245656",
     role:"UX &amp; visual designer", platform:"Responsive web", cover:"m-sw-home",
     scope:"Site architecture, home, activity, collection, category and product pages",
     stats:[["5","Page templates rebuilt around how people shop"],["1","Site architecture organized by activity, not product code"],["2","Breakpoints designed for every page"]],
@@ -666,37 +698,6 @@ const P = [
       {media:[["s-b-sw-mobile","Home, activities, what’s new, Plant-Based Dyes and collections on mobile","full"]]},
     ]},
 
-  {id:"beacon", n:"009", client:"Beacon Design System®",co:"Morgan Stanley", short:"Beacon", disc:"Design System", tint:"#4D2B45",
-    role:"Design system lead", platform:"Docs site · Figma · Sketch", cover:"m-bc-home",
-    scope:"Foundations, components, patterns and documentation for Morgan Stanley product teams",
-    stats:[["Firm-wide","Adopted by design teams across Morgan Stanley"],["5","Foundations: type, color, elevation, grid and icons"],["2","Synced design kits, Figma and Sketch"]],
-    lead:"I led the design of Beacon and its documentation, then helped roll it out to design teams across the firm",
-    team:"With Morgan Stanley’s design system team",
-    tagline:"Morgan Stanley already had a design system. We made designers want to use it.",
-    hero:["m-bc-home","Great work starts here. The Beacon home"],
-    story:[
-      {k:"(The Brief)", h:"Snackable wisdom for the busy designer.",
-       p:["Beacon is Morgan Stanley’s customer-facing design system, supporting many digital products under one brand. The system worked. Adoption was the problem: designers were busy, the guidance was dense, and best practices were easy to skip.",
-          "My job was to make the right thing the easy thing."]},
-      {k:"(Getting Started)", h:"A front door designers want to open.",
-       p:["The home leads with what’s new and one clear way in. Get Started hands designers the Figma and Sketch kits and a checklist, so a first visit ends with the right files open. Illustration did a lot of the work: every section got its own character, so the docs felt like a place worth visiting."]},
-      {media:[["m-bc-start","Get started","full"]]},
-      {k:"(Components)", h:"Answers in seconds, not chapters.",
-       p:["The docs were reorganized into clear Foundations, Components and Patterns sections, each with design, development and accessibility tabs. Every component has its own page, and the gallery shows them all with their live states."]},
-      {media:[["m-bc-comps","Components overview","full"]]},
-      {media:[["m-bc-gallery","Every component, with live states","full"]]},
-      {k:"(Patterns)", h:"From parts to answers.",
-       p:["Components solve small problems. Patterns solve the common big ones, like multi-step forms, empty states and errors, with guidance written in plain language. Synced Figma and Sketch kits meant what designers placed matched what engineering had built."]},
-      {media:[["m-bc-pattern","Patterns: forms with inline validation","full"]]},
-      {k:"(Foundations)", h:"A palette that can be bold and sensitive.",
-       p:["Foundations cover type, color, elevation, grid and icons. Inter carries everything, and the palette leans on Morgan Stanley blues with a few brighter accents, each with its value and where it belongs.",
-          "The color, typography, components and patterns pages were designed for this case study to complete the story, using the same components and illustrations as the original direction."]},
-      {tokens:[["Light Blue","#187aba"],["Medium Blue","#005c90"],["Dark Blue","#002b51"],["Seafoam","#6fc8cb"],["Teal","#62e1e6"],["Pale Blue","#b9e8fe"],["Jade","#006600"],["Lilac","#675882"],["Action Blue","#0069b5"]], cap:"The Beacon palette"},
-      {media:[["m-bc-color","Foundations: color","full"]]},
-      {media:[["m-bc-type","Foundations: typography","full"]]},
-    ]},
-
-  
 ];
 const ROWS = [
   ["Jun 2026 — Present","GetWyz","Senior Designer","Richmond, VA · Hybrid · Product and visual design across the platform"],
@@ -722,9 +723,9 @@ const ph = (p, i, label, ar) => `<div class="ph" style="--tint:${p.tint};--ar:${
   ${i===0?`<span class="ph-mark">${p.short}</span>`:""}
   <span class="ph-l mono">${label}</span></div>`;
 
-const img = (k, alt, eager) => { const d=IMG[k]||[1600,900]; const lock=/^(l|m)-/.test(k); return (lock?'<span class="shot-wrap">':'')+`<img class="shot" src="/work/${k}.webp?v=11091340" alt="${alt}" width="${d[0]}" height="${d[1]}" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async">`+(lock?'</span>':''); };
+const img = (k, alt, eager) => { const d=IMG[k]||[1600,900]; const lock=/^(l|m)-/.test(k); return (lock?'<span class="shot-wrap">':'')+`<img class="shot" src="/work/${k}.webp?v=11091620" alt="${alt}" width="${d[0]}" height="${d[1]}" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async">`+(lock?'</span>':''); };
 const USE_COVERS = false; // flip to true once every project has a matching-resolution cover
-const thumb = (p, small) => `<div class="ph ph-th" style="--tint:${p.tint};--ar:3/2"><img src="/work/th-${p.id}${small?"-s":""}.webp?v=11091340" alt="" width="${small?600:1500}" height="${small?400:1000}" ${small?"":'loading="lazy"'} decoding="async"><span class="ph-n mono">${p.n}.00</span><span class="ph-mark">${p.short}</span></div>`;
+const thumb = (p, small) => `<div class="ph ph-th" style="--tint:${p.tint};--ar:3/2"><img src="/work/th-${p.id}${small?"-s":""}.webp?v=11091620" alt="" width="${small?600:1500}" height="${small?400:1000}" ${small?"":'loading="lazy"'} decoding="async"><span class="ph-n mono">${p.n}.00</span>${p.award?`<span class="ph-aw mono">${p.award}</span>`:""}<span class="ph-mark">${p.short}</span></div>`;
 const cover = (p, label) => thumb(p);
 const coverOld = (p, label) => (USE_COVERS && p.cover)
   ? `<div class="ph ph-img" style="--ar:3/2">${img(p.cover, p.short.replace(/&amp;/g,"&")+" project cover")}</div>`
@@ -736,11 +737,11 @@ let mode = "grid";
 try{ mode = localStorage.getItem(modeKey()) || mode }catch(e){}
 
 function home(){
-  const cards = P.map((p,i)=>`<a class="card ${layout[i%layout.length]}" href="#${p.id}">
+  const cards = P.map((p,i)=>`<a class="card ${layout[i%layout.length]}" href="/${p.id}/">
       ${cover(p,"")}
       <div class="cap"><span class="mono mute">N°${p.n}</span><span class="cap-t">${p.co}</span><span class="mono mute r">${p.disc}</span></div>
     </a>`).join("");
-  const list = P.map(p=>`<li><a href="#${p.id}"><span class="n mono mute">N°${p.n}</span><span class="t">${p.client}</span><span class="d mono">${p.disc}</span><span class="y mono mute">${p.draft?"In progress":"Case study"} →</span></a></li>`).join("");
+  const list = P.map(p=>`<li><a href="/${p.id}/"><span class="n mono mute">N°${p.n}</span><span class="t">${p.client}</span><span class="d mono">${p.disc}</span><span class="y mono mute">${p.draft?"In progress":"Case study"} →</span></a></li>`).join("");
   return `<div class="view">
     <section class="hero">
       <h1 class="statement">Lead product designer behind design systems and digital products for global brands. <span class="mute">14 years taking the work from first idea to shipped.</span></h1>
@@ -769,7 +770,7 @@ function home(){
       <div class="clients mono"><span class="mute">Industries —</span>${["Fintech &amp; financial services","Payments","Enterprise &amp; B2B tools","E-commerce &amp; retail","Sports &amp; media","Consumer tech"].map(c=>`<span>${c}</span>`).join("")}</div>
     </div></section>
     <section>
-      <div class="sec-head"><div class="grid mono"><span class="l">(Experience)</span><span class="m mute">Years / Company / Role / Scope</span><span class="r"><a href="#resume">Full resume →</a></span></div></div>
+      <div class="sec-head"><div class="grid mono"><span class="l">(Experience)</span><span class="m mute">Years / Company / Role / Scope</span><span class="r"><a href="/resume/">Full resume →</a></span></div></div>
       ${ROWS.slice(0,5).map(rowHTML).join("")}
     </section>
   </div>`;
@@ -783,7 +784,7 @@ function project(p){
   const mods = p.modules || ["Hero","Key Screen","Flow","Detail","Detail","System"];
   return `<div class="view">
     <section class="p-hero">
-      <a class="p-back mono" href="#work">← Index</a>
+      <a class="p-back mono" href="/#work">← Index</a>
       <div class="mono mute" style="margin-bottom:var(--s3)">N°${p.n} ${p.draft?'· <span class="draft">Copy pending</span>':""}</div>
       <h1 class="p-title">${p.client}<span class="c">.</span></h1>
       <div class="grid p-meta mono">
@@ -820,7 +821,7 @@ function project(p){
       <div class="stat"><b>—</b><span class="mute">Outcome metric 02</span></div>
       <div class="stat"><b>—</b><span class="mute">Outcome metric 03</span></div>
     </section>
-    <a class="next" href="#${nx.id}"><span class="mono mute">Next — N°${nx.n}</span><span class="t">${nx.client} →</span></a>
+    <a class="next" href="/${nx.id}/"><span class="mono mute">Next — N°${nx.n}</span><span class="t">${nx.client} →</span></a>
   </div>`;
 }
 
@@ -835,7 +836,7 @@ function projectReal(p){
   const bp = b => { n++; const ks=Object.keys(b.bp); const first=ks[0];
     return `<div class="grid p-media"><div class="spec" data-bpview><div class="spec-head mono"><span class="mute">(Breakpoints) — <span class="bp-w">${BPPX[first]}px</span></span>
       <span class="seg" role="group" aria-label="Breakpoint">${ks.map(k=>`<button data-bp="${k}" aria-pressed="${k===first}">${k}</button>`).join("")}</span></div>
-      <div class="bp-stage"><div class="bp-frame" style="width:${BPW[first]}">${ks.map(k=>{const d=IMG[b.bp[k]]||[1600,1000];return `<img src="/work/${b.bp[k]}.webp?v=11091340" alt="${alt(b.cap+" — "+k)}" width="${d[0]}" height="${d[1]}" loading="lazy" decoding="async" data-k="${k}" class="${k===first?"on":""}">`}).join("")}</div></div>
+      <div class="bp-stage"><div class="bp-frame" style="width:${BPW[first]}">${ks.map(k=>{const d=IMG[b.bp[k]]||[1600,1000];return `<img src="/work/${b.bp[k]}.webp?v=11091620" alt="${alt(b.cap+" — "+k)}" width="${d[0]}" height="${d[1]}" loading="lazy" decoding="async" data-k="${k}" class="${k===first?"on":""}">`}).join("")}</div></div>
       <div class="spec-cap mono mute"><span>${b.cap}</span><span>${String(n).padStart(2,"0")}</span></div></div></div>`; };
   const tok = b => { return `<div class="grid p-media"><div class="spec"><div class="spec-head mono"><span class="mute">(Tokens) — click to copy</span><span class="mute">${b.tokens.length} values</span></div>
       <div class="tok mono">${b.tokens.map(t=>`<button data-copy="${t[1]}" style="--c:${t[1]}" aria-label="Copy ${t[0]} ${t[1]}"><i></i><span><b>${t[0]}</b><em>${t[1].toUpperCase()}</em></span></button>`).join("")}</div>
@@ -846,7 +847,7 @@ function projectReal(p){
     : `<section class="grid p-block"><span class="k mono mute">${b.k}</span><h3 class="h h-sub">${b.h}</h3><div class="b">${b.p.map(t=>`<p>${t}</p>`).join("")}</div></section>`).join("");
   return `<div class="view">
     <section class="p-hero">
-      <a class="p-back mono" href="#work">← Index</a>
+      <a class="p-back mono" href="/#work">← Index</a>
       <div class="mono mute" style="margin-bottom:var(--s2)">N°${p.n}</div>
       <h1 class="p-title">${p.client}<span class="c">.</span></h1>
       <div class="grid p-meta mono">
@@ -860,13 +861,14 @@ function projectReal(p){
       <span class="k mono mute">(Overview)</span>
       <h2 class="h">${p.tagline}</h2>
     </section>
-    <section class="grid glance mono">
+    <section class="grid glance mono${p.awardLong?" g3":""}">
       <div><span class="mute">Role</span><span>${p.role}</span></div>
       <div><span class="mute">Team</span><span>${p.lead||p.team}</span></div>
+      ${p.awardLong?`<div><span class="mute">Recognition</span><span>${p.awardLong}</span></div>`:""}
     </section>
     ${p.stats?`<section class="grid stats mono">${p.stats.map(x=>`<div class="stat"><b>${x[0].replace("★",'<span class="star">★</span>')}</b><span class="mute">${x[1]}</span></div>`).join("")}</section>`:""}
     ${blocks}
-    <a class="next" href="#${nx.id}"><span class="mono mute">Next — N°${nx.n}</span><span class="t">${nx.client} →</span></a>
+    <a class="next" href="/${nx.id}/"><span class="mono mute">Next — N°${nx.n}</span><span class="t">${nx.client} →</span></a>
   </div>`;
 }
 
@@ -910,15 +912,29 @@ function resume(){
 const app = document.getElementById("app");
 let homeY=0, onHome=false, goTop=false;
 try{ history.scrollRestoration="manual" }catch(e){}
-document.addEventListener("click",e=>{ const a=e.target.closest('a[href="#home"],a[href="#work"]'); if(!a) return;
-  const same = a.getAttribute("href")===(location.hash||"#home");
-  if(a.getAttribute("href")==="#home") goTop=true;
-  if(same){ e.preventDefault(); if(typeof setMenu==="function") setMenu(false);
-    const t=a.getAttribute("href")==="#work"?document.querySelector(".sec-head"):null;
-    scrollTo({top:t?t.getBoundingClientRect().top+scrollY-70:0,behavior:"smooth"}); goTop=false; } },true);
+// Each case study has its own URL (/rock-hall/) so a shared link previews that project. Links navigate in place with the History API.
+const KEYS = ()=>P.map(p=>p.id).concat(["resume"]);
+function key(){ const p=location.pathname.replace(/^\/+|\/+$/g,"");
+  if(p && KEYS().includes(p)) return p;
+  const h=location.hash.slice(1);
+  if(!p && KEYS().includes(h)){ history.replaceState(null,"","/"+h+"/"); return h; } // old #project links
+  return (!p && h==="work") ? "work" : "home"; }
+document.addEventListener("click",e=>{ const a=e.target.closest("a[href^='/']"); if(!a||a.hasAttribute("download")||a.target||e.metaKey||e.ctrlKey||e.shiftKey||e.button) return;
+  const url=new URL(a.href, location.href); if(/\.[a-z0-9]+$/i.test(url.pathname)) return;
+  e.preventDefault(); if(typeof setMenu==="function") setMenu(false);
+  const cur=key(), target=url.pathname.replace(/^\/+|\/+$/g,"") || (url.hash==="#work"?"work":"home");
+  const onHomeNow = cur==="home"||cur==="work";
+  if(onHomeNow && (target==="home"||target==="work")){
+    const t=target==="work"?document.querySelector(".sec-head"):null;
+    history.replaceState(null,"",url.pathname+url.hash);
+    scrollTo({top:t?t.getBoundingClientRect().top+scrollY-70:0,behavior:"smooth"}); return; }
+  if(target==="home") goTop=true;
+  history.pushState(null,"",url.pathname+url.hash); route(); },true);
+addEventListener("popstate", route);
 function route(){
   if(onHome) homeY=scrollY;
-  let h = location.hash.slice(1) || "home";
+  if(location.hash==="#contact" && app.firstElementChild){ document.getElementById("contact").scrollIntoView({behavior:"smooth"}); setNav("contact"); return; }
+  let h = key();
   const toWork = h==="work"; if(toWork) h="home";
   if(h==="contact"){ document.getElementById("contact").scrollIntoView({behavior:"smooth"}); setNav("contact"); return; }
   const p = P.find(x=>x.id===h);
@@ -965,7 +981,7 @@ document.getElementById("copy").addEventListener("click", e=>{
 (function(){
   const sp=document.getElementById("splash"); let seen=false;
   try{ seen=sessionStorage.getItem("cd-intro")==="1" }catch(e){}
-  const onHome=!location.hash||location.hash==="#home";
+  const onHome=key()==="home";
   if(seen||!onHome||matchMedia("(prefers-reduced-motion: reduce)").matches){ sp.remove(); return; }
   try{ sessionStorage.setItem("cd-intro","1") }catch(e){}
   sp.hidden=false; document.body.classList.add("intro"); document.body.style.overflow="hidden"; scrollTo(0,0);
@@ -998,7 +1014,7 @@ document.getElementById("copy").addEventListener("click", e=>{
     const t=e.target.closest("a,button");
     st=(t && !t.closest(".modes"))?1.25:1;
     const row=e.target.closest(".index a");
-    const id=row?row.getAttribute("href").slice(1):null;
+    const id=row?row.getAttribute("href").replace(/\//g,""):null;
     if(id!==peekId){ peekId=id; const p=id&&P.find(x=>x.id===id);
       if(p){ peek.innerHTML=thumb(p,true); peek.classList.add("on") } else peek.classList.remove("on"); }
   });
@@ -1006,15 +1022,15 @@ document.getElementById("copy").addEventListener("click", e=>{
     sc+=(st-sc)*.18; const tf=`translate3d(${cx}px,${cy}px,0) scale(${sc})`; cur.style.transform=tf; ring.style.transform=tf;
     peek.style.transform=`translate3d(${px+32}px,${py-90}px,0)`;
     requestAnimationFrame(tick) })();
-  addEventListener("hashchange",()=>{peekId=null;peek.classList.remove("on")});
+  const unpeek=()=>{peekId=null;peek.classList.remove("on")}; addEventListener("hashchange",unpeek); addEventListener("popstate",unpeek); document.addEventListener("click",e=>{ if(e.target.closest(".index a")) unpeek() });
 })();
 
 addEventListener("hashchange", route); route();
 // Warm the list-view previews (about 150KB total) once the page is idle, so hovering shows them instantly.
-(function(){ const go=()=>P.forEach(p=>{ const i=new Image(); i.src=`work/th-${p.id}-s.webp?v=11091340`; i.decode&&i.decode().catch(()=>{}); });
+(function(){ const go=()=>P.forEach(p=>{ const i=new Image(); i.src=`work/th-${p.id}-s.webp?v=11091620`; i.decode&&i.decode().catch(()=>{}); });
   if(matchMedia("(hover:hover) and (pointer:fine)").matches){ ("requestIdleCallback" in window) ? requestIdleCallback(go,{timeout:2500}) : setTimeout(go,1200); } })();
-addEventListener("pageshow",e=>{ if(!e.persisted && (!location.hash||location.hash==="#home")) scrollTo(0,0) });
-addEventListener("load",()=>{ if((!location.hash||location.hash==="#home") && scrollY<4) scrollTo(0,0) });
+addEventListener("pageshow",e=>{ if(!e.persisted && key()==="home" && !location.hash) scrollTo(0,0) });
+addEventListener("load",()=>{ if(key()==="home" && !location.hash && scrollY<4) scrollTo(0,0) });
 const words=["design systems","mobile apps","storefronts","brand systems","digital products"]; let wi=0;
 if(!matchMedia("(prefers-reduced-motion: reduce)").matches) setInterval(()=>{wi=(wi+1)%words.length;document.getElementById("rot").textContent=words[wi]},2200);
 </script>

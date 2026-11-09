@@ -1,0 +1,1039 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Most people will never make it to Cleveland. So we brought the museum to them. Web Experience for Rock &amp; Roll Hall of Fame. Role: Art direction &amp; UX lead. Webby Awards 2026 Nominee in Music and Cultural Institutions. A case study by Corey Dixon, senior &amp; lead product designer.">
+<link rel="canonical" href="https://coreydixon.design/rock-hall/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Corey Dixon©">
+<meta property="og:url" content="https://coreydixon.design/rock-hall/">
+<meta property="og:title" content="Rock &amp; Roll Hall of Fame · Web Experience — Corey Dixon©">
+<meta property="og:description" content="Most people will never make it to Cleveland. So we brought the museum to them. Web Experience for Rock &amp; Roll Hall of Fame. Role: Art direction &amp; UX lead. Webby Awards 2026 Nominee in Music and Cultural Institutions. A case study by Corey Dixon, senior &amp; lead product designer.">
+<meta property="og:image" content="https://coreydixon.design/og/rock-hall.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Rock &amp; Roll Hall of Fame, a case study by Corey Dixon">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Rock &amp; Roll Hall of Fame · Web Experience — Corey Dixon©">
+<meta name="twitter:description" content="Most people will never make it to Cleveland. So we brought the museum to them. Web Experience for Rock &amp; Roll Hall of Fame. Role: Art direction &amp; UX lead. Webby Awards 2026 Nominee in Music and Cultural Institutions. A case study by Corey Dixon, senior &amp; lead product designer.">
+<meta name="twitter:image" content="https://coreydixon.design/og/rock-hall.jpg">
+<meta name="theme-color" content="#0C0C0B">
+<meta name="author" content="Corey Dixon">
+<link rel="manifest" href="/site.webmanifest">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Corey Dixon","jobTitle":"Senior & Lead Product Designer","url":"https://coreydixon.design/","email":"mailto:hi@coreydixon.design","address":{"@type":"PostalAddress","addressLocality":"Richmond","addressRegion":"VA","addressCountry":"US"},"sameAs":["https://linkedin.com/in/corey-dixon"],"knowsAbout":["Product design","Design systems","Component libraries","Design tokens","Mobile app design","iOS","Android","Responsive web design","Fintech","Financial services","Payments","Enterprise software","B2B tools","E-commerce","Shopify","Retail","Sports media","Accessibility","WCAG","Art direction","Interaction design","Prototyping","UX research","Figma","AI-assisted design"]}</script>
+<link rel="preload" href="/fonts/OverusedGrotesk-VF.woff2" as="font" type="font/woff2" crossorigin>
+<title>Rock &amp; Roll Hall of Fame · Web Experience — Corey Dixon©</title>
+<script>try{history.scrollRestoration="manual"}catch(e){}</script>
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="/brand/favicon.svg">
+<link rel="apple-touch-icon" href="/brand/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap">
+<style>
+@font-face{font-family:"Overused Grotesk";src:url(/fonts/OverusedGrotesk-VF.woff2) format("woff2");font-weight:300 900;font-style:normal;font-display:swap}
+/* Layout: 12-col Swiss grid, hairline rules, one oversized display moment per page, red used only for the © and active states. */
+/* Dark-first. The site's own two-circle switch sets data-mode on <html>; default is dark. */
+:root{
+  --paper:#0C0C0B; --ink:#F2F2EE; --mute:#85857E; --rule:#262624; --tile:#181816; --red:var(--ink); --hover:#7A7A74;
+  --sans:"Overused Grotesk","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --mono:"Geist Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --col-gap:16px;
+  /* Spacing scale: 8 / 16 / 24 / L / XL / XXL */
+  --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:64px; --s6:96px;
+  color-scheme:dark;
+}
+:root[data-mode="light"]{--paper:#F5F5F2; --ink:#0D0D0C; --mute:#6B6B64; --rule:#DADAD5; --tile:#E8E8E4; --hover:#9A9A93; color-scheme:light}
+html,body,header.top,body::before{transition:background-color .35s ease,color .35s ease}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0}
+img{max-width:100%;display:block}
+[hidden]{display:none!important}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.45;-webkit-font-smoothing:antialiased;
+  padding-left:var(--pad,16px);padding-left:max(var(--pad,16px), env(safe-area-inset-left,0px));
+  padding-right:max(var(--pad,16px), env(safe-area-inset-right,0px))}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--col-gap)}
+.mono{font-family:var(--mono);font-size:11.5px;letter-spacing:.02em;text-transform:uppercase}
+.mute{color:var(--mute)}
+.c{color:var(--red)}
+.live{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--live);margin-right:8px;vertical-align:1px}
+:root{--live:#86B86A}:root[data-mode="light"]{--live:#4E7F3E}
+
+hr{border:0;border-top:1px solid var(--rule);margin:0}
+
+/* Header */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);padding-block:var(--s2);border-bottom:1px solid var(--rule)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--paper)}
+header.top .grid{align-items:start}
+.brand{grid-column:1/4;font-weight:500;font-size:20px;line-height:1;letter-spacing:-.02em;justify-self:start;align-self:center;display:inline-flex;align-items:center;min-height:44px;margin-block:-8px}
+.h-role{grid-column:4/7}
+.h-loc{grid-column:7/10}
+nav.main{grid-column:10/13;display:flex;gap:16px;justify-content:flex-end;align-items:center}
+nav.main a{position:relative}
+.wip{display:inline-block;margin-left:8px;padding:4px 8px 4px;border:1px solid var(--rule);color:var(--mute);font-size:10px;line-height:1;letter-spacing:.06em;vertical-align:middle;position:relative;top:-1px}
+nav.main a[aria-current="page"]::before{content:"";position:absolute;left:-8px;top:50%;width:5px;height:5px;background:var(--red);transform:translateY(-50%)}
+nav.main a:hover{color:var(--hover)}
+.links{display:flex;gap:16px}
+.burger{display:none;position:relative;width:28px;height:22px;padding:0;margin-left:4px;background:none;border:0;cursor:pointer}
+.burger span{position:absolute;left:3px;right:3px;height:1.5px;background:var(--ink);transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.burger span:nth-child(1){top:7px}.burger span:nth-child(2){top:14px}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(3.5px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){transform:translateY(-3.5px) rotate(-45deg)}
+@media (max-width:760px){.h-role,.h-loc,.links{display:none}.brand{grid-column:1/7}nav.main{grid-column:7/13;gap:16px}.burger{display:inline-block}}
+
+/* Mobile menu: one screen, no scroll */
+.menu{position:fixed;inset:0;z-index:15;background:var(--paper);display:flex;flex-direction:column;justify-content:space-between;gap:var(--s3);
+  padding-top:calc(env(safe-area-inset-top,0px) + 72px);padding-bottom:calc(env(safe-area-inset-bottom,0px) + var(--s3));
+  padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px));
+  opacity:0;visibility:hidden;transition:opacity .3s ease,visibility 0s linear .3s}
+.menu.open{opacity:1;visibility:visible;transition:opacity .3s ease}
+.menu-links{display:flex;flex-direction:column;margin-top:var(--s3)}
+.menu-links a{display:flex;flex-direction:column;align-items:flex-start;gap:8px;font-weight:500;letter-spacing:-.055em;line-height:.9;font-size:min(15vw,9vh);padding-block:var(--s2);border-bottom:1px solid var(--rule);min-width:0}
+.menu-links a:first-child{border-top:1px solid var(--ink)}
+.menu-links a .mono{order:-1;font-weight:400;font-size:11.5px;letter-spacing:.02em;line-height:1.2;color:var(--mute)}
+.menu-links a[aria-current="page"]{color:var(--ink)}
+.menu-links a:not([aria-current="page"]){color:var(--mute)}
+.menu-links a:hover{color:var(--ink)}
+.menu-foot{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s2) var(--col-gap);border-top:1px solid var(--rule);padding-top:var(--s2)}
+.menu-foot div{display:flex;flex-direction:column;gap:4px;min-width:0}
+.menu-foot span{overflow-wrap:anywhere}
+@media (prefers-reduced-motion:no-preference){
+  .menu-links a{transform:translateY(18px);opacity:0;transition:transform .55s cubic-bezier(.2,.7,.2,1),opacity .4s ease}
+  .menu.open .menu-links a{transform:none;opacity:1}
+  .menu.open .menu-links a:nth-child(2){transition-delay:.05s}.menu.open .menu-links a:nth-child(3){transition-delay:.1s}
+}
+@media (min-width:761px){.menu{display:none}}
+
+.modes{display:flex;gap:8px;align-items:center;margin-left:8px}
+.modes button{width:13px;height:13px;border-radius:50%;padding:0;cursor:pointer;border:1px solid var(--ink);transition:transform .2s ease,box-shadow .2s ease}
+.modes button[data-set="dark"]{background:#0C0C0B}
+.modes button[data-set="light"]{background:#F5F5F2}
+.modes button[aria-pressed="true"]{box-shadow:0 0 0 2px var(--paper),0 0 0 3px var(--ink)}
+.modes button:hover{transform:scale(1.15)}
+
+/* Hero */
+.hero{padding-block:var(--s4) var(--s3)}
+.display{font-weight:500;letter-spacing:-.055em;line-height:.86;font-size:clamp(64px,15.4vw,260px);margin:0;white-space:nowrap}
+.display sup{font-size:.22em;vertical-align:top;position:relative;top:.35em;letter-spacing:0;font-weight:500}
+.hero .grid{margin-top:var(--s3);row-gap:var(--s3)}
+.statement{margin:0;max-width:16.5em;font-weight:500;font-size:clamp(36px,6.2vw,104px);line-height:.96;letter-spacing:-.05em;text-wrap:balance}
+.lede-sm{font-size:11.5px!important;letter-spacing:.02em!important;line-height:1.4!important;font-weight:400!important;align-self:start}
+.lede{grid-column:1/8;font-size:clamp(22px,2.6vw,38px);line-height:1.08;letter-spacing:-.03em;font-weight:500;margin:0;text-wrap:balance}
+.facts{grid-column:9/13;display:grid;grid-template-columns:auto 1fr;gap:var(--s1) var(--s3);align-content:start;margin:0}
+.facts dt{color:var(--mute)} .facts dd{margin:0}
+@media (max-width:860px){.lede{grid-column:1/-1}.facts{grid-column:1/-1}}
+@media (max-width:520px){.display{white-space:normal}}
+
+/* Section heading row */
+.sec-head{padding-block:var(--s2);border-top:1px solid var(--ink);margin-top:var(--s5)}
+.sec-head .grid{align-items:baseline}
+.sec-head .l{grid-column:1/4}.sec-head .m{grid-column:4/10}.sec-head .r{grid-column:10/13;text-align:right}
+.toggle{display:inline-flex;gap:0;border:1px solid var(--ink)}
+.toggle button{font:inherit;font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.03em;background:none;color:var(--ink);border:0;padding:4px 8px;cursor:pointer}
+.toggle button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+@media (max-width:760px){.sec-head .m{display:none}.sec-head .l{grid-column:1/7}.sec-head .r{grid-column:7/13}}
+
+
+/* 8px grid: spacing scale steps at breakpoints instead of fluid values */
+@media (min-width:761px){:root{--s4:48px;--s5:96px;--s6:128px;--col-gap:24px;--pad:24px}}
+@media (min-width:1200px){:root{--s4:64px;--s5:128px;--s6:192px;--pad:32px}}
+html{overflow-anchor:none}
+/* Touch-target pass: invisible hit areas so text links reach 44px on touch screens and 24px with a mouse,
+   without moving anything visually (WCAG 2.5.8). Buttons get real size. */
+.p-back,a[download],a[href^="https://linkedin"],a[href="/resume/"]:not([data-nav]){position:relative}
+.p-back::after,a[download]::after,a[href^="https://linkedin"]::after,a[href="/resume/"]:not([data-nav])::after{content:"";position:absolute;inset:-6px -8px}
+.toggle button{min-height:24px}
+@media (pointer:coarse){
+  .p-back::after,a[download]::after,a[href^="https://linkedin"]::after,a[href="/resume/"]:not([data-nav])::after{inset:-16px -8px}
+  footer .col a + a{margin-top:var(--s3)}
+  .toggle button{min-height:44px;min-width:56px}
+  .copy{min-height:44px}
+}
+
+/* Image placeholders */
+.ph{container-type:inline-size;position:relative;background:var(--tile);aspect-ratio:var(--ar,4/3);max-width:100%;overflow:hidden;width:100%}
+.ph::before{content:"";position:absolute;inset:0;background:var(--tint);opacity:.55}
+.card .ph,.index .ph{background:var(--tint)}
+.card .ph::before{opacity:1;background:radial-gradient(120% 90% at 20% 0%,rgba(255,255,255,.10),transparent 55%),radial-gradient(90% 80% at 100% 100%,rgba(0,0,0,.28),transparent 60%)}
+.card .ph .ph-mark{color:#F4F1EA;opacity:1}
+.card .ph .ph-n,.card .ph .ph-l{color:#F4F1EA;opacity:.9}
+.ph .ph-l{position:absolute;left:16px;bottom:8px;color:var(--mute)}
+.ph .ph-n{position:absolute;right:16px;top:8px;color:var(--mute)}
+.ph-th .ph-aw{position:absolute;left:8px;top:8px;z-index:2;color:#0C0C0B;background:#F4F1EA;padding:4px 8px;letter-spacing:.04em}
+.ph .ph-mark{position:absolute;inset:0;display:grid;place-items:center;padding:0 8%;text-align:center;text-wrap:balance;line-height:.95;font-weight:500;letter-spacing:-.05em;font-size:clamp(14px,9.5cqi,80px);color:var(--ink);opacity:.9}
+
+/* Work grid */
+.work{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--s5) var(--col-gap);padding-block:var(--s3) 0}
+.card{display:flex;flex-direction:column;gap:var(--s2);min-width:0}
+.card .ph{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.card:hover .ph{transform:scale(.985)}
+.card:hover .cap-t{color:var(--hover)}
+.cap{display:grid;grid-template-columns:52px 1fr auto;gap:16px;align-items:baseline;border-top:1px solid var(--rule);padding-top:var(--s2)}
+.cap-t{font-weight:500;font-size:clamp(17px,1.5vw,22px);letter-spacing:-.02em;transition:color .2s}
+.work>.card{grid-column:span 6}
+@media (max-width:760px){.work>.card{grid-column:1/-1!important}.cap{grid-template-columns:40px 1fr}.cap .r{display:none}}
+
+/* Index list */
+.index{list-style:none;margin:0;padding:0}
+.index a{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--col-gap);padding-block:var(--s3);border-bottom:1px solid var(--rule);align-items:baseline;position:relative}
+.index .n{grid-column:1/2}.index .t{grid-column:2/7;font-weight:500;font-size:clamp(22px,3.2vw,48px);letter-spacing:-.045em;line-height:1}
+.index .d{grid-column:7/11}.index .y{grid-column:11/13;text-align:right}
+.index a:hover .t{color:var(--hover)}
+.index a:hover{background:linear-gradient(var(--tile),var(--tile))}
+@media (max-width:760px){.index .n{grid-column:1/3}.index .t{grid-column:3/13}.index .d,.index .y{display:none}}
+
+/* About strip */
+.about{padding-block:var(--s5) 0}
+.about .k{grid-column:1/4}
+.about .v{grid-column:4/11;font-size:clamp(20px,2.2vw,32px);line-height:1.15;letter-spacing:-.025em;margin:0;text-wrap:balance}
+.clients{grid-column:4/13;margin-top:var(--s4);display:flex;flex-wrap:wrap;gap:var(--s1) var(--s3);font-weight:500}
+@media (max-width:760px){.about .k,.about .v,.clients{grid-column:1/-1}.about .v{margin-top:var(--s2)}}
+
+/* Footer */
+footer{margin-top:var(--s5);border-top:1px solid var(--ink);padding-block:var(--s2) var(--s4)}
+footer .ticker{grid-column:1/-1;margin:var(--s4) 0 0;font-weight:500;font-size:clamp(24px,3.4vw,54px);letter-spacing:-.04em;line-height:1.05;color:var(--mute);text-wrap:balance}
+footer .ticker #rot{color:var(--ink)}
+footer .big{grid-column:1/-1;font-weight:500;letter-spacing:-.055em;line-height:.9;font-size:clamp(44px,9vw,150px);margin:var(--s2) 0 var(--s4)}
+footer .open{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:var(--s1) var(--s3);padding-block:var(--s2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:var(--s3)}
+footer .grid{row-gap:var(--s3)}
+footer .big a:hover{color:var(--hover)}
+
+.copy{font:inherit;color:var(--ink);background:none;border:1px solid var(--rule);padding:4px 8px;margin-top:8px;align-self:flex-start;cursor:pointer;transition:border-color .2s,color .2s}
+.copy:hover{border-color:var(--ink)}
+.copy.done{color:var(--mute)}
+footer .col{grid-column:span 3;display:flex;flex-direction:column;gap:var(--s1);min-width:0}
+footer .col span{overflow-wrap:anywhere}
+@media (max-width:760px){footer .col{grid-column:span 6}}
+
+/* Project page */
+.p-hero{padding-block:var(--s3) var(--s2)}
+.p-back{display:inline-block;margin-bottom:var(--s3)}
+.p-back:hover{color:var(--hover)}
+.p-title{font-weight:500;letter-spacing:-.055em;line-height:.88;font-size:clamp(46px,7.4vw,124px);margin:0;text-wrap:balance}
+.p-meta{margin-top:var(--s3);border-top:1px solid var(--ink);padding-top:var(--s2);row-gap:var(--s3)}
+.p-meta div{grid-column:span 4;display:flex;flex-direction:column;gap:var(--s1)}
+@media (max-width:760px){.p-meta div{grid-column:span 6}}
+.p-block{padding-block:var(--s5) 0;row-gap:var(--s3)}
+.p-block .k{grid-column:1/4}
+.p-block .h{grid-column:4/12;font-size:clamp(26px,3.4vw,52px);line-height:1.02;letter-spacing:-.04em;font-weight:500;margin:0;text-wrap:pretty}
+.p-block .b{grid-column:4/11;font-size:17px;line-height:1.55;max-width:68ch}
+.p-block .b p{margin:0 0 var(--s2)}
+@media (max-width:860px){.p-block .k,.p-block .h,.p-block .b{grid-column:1/-1}}
+.p-media{padding-top:var(--s4);row-gap:var(--s4)}
+.m-full{grid-column:1/-1}.m-l{grid-column:1/7}.m-r{grid-column:7/13}.m-off{grid-column:5/13}
+@media (max-width:760px){.m-l,.m-r,.m-off{grid-column:1/-1}}
+figure{margin:0;display:flex;flex-direction:column;gap:var(--s1);min-width:0}
+figcaption{display:flex;justify-content:space-between;gap:16px}
+.stats{padding-top:var(--s4);row-gap:var(--s3)}
+.stat b .star{display:inline-block;font-size:.52em;line-height:1;vertical-align:.32em;margin-left:.08em}
+.stats .stat span{max-width:32ch;line-height:1.5}
+.stat{grid-column:span 4;border-top:1px solid var(--ink);padding-top:var(--s2);display:flex;flex-direction:column;gap:var(--s1)}
+.stat b{font-family:var(--sans);font-size:clamp(40px,5vw,80px);font-weight:500;letter-spacing:-.05em;line-height:1}
+@media (max-width:760px){.stat{grid-column:1/-1}.stat b{font-size:48px}.stats{row-gap:var(--s3)}}
+.next{display:block;margin-top:var(--s6);border-top:1px solid var(--ink);padding-top:var(--s2)}
+.next .t{font-weight:500;letter-spacing:-.055em;line-height:.9;font-size:clamp(44px,9vw,150px);display:block;margin-top:var(--s3)}
+.next:hover .t{color:var(--hover)}
+.draft{display:inline-block;border:1px dashed var(--mute);padding:4px 8px;color:var(--mute)}
+
+/* Resume */
+.r-row{padding-block:var(--s3);border-bottom:1px solid var(--rule);row-gap:var(--s1)}
+.r-row .when{grid-column:1/3}.r-row .co{grid-column:3/6;font-weight:500;font-size:clamp(18px,1.6vw,24px);letter-spacing:-.02em}
+.r-row .role{grid-column:6/9}.r-row .desc{grid-column:9/13;color:var(--mute);max-width:52ch}
+@media (max-width:860px){.r-row .when{grid-column:1/-1}.r-row .co{grid-column:1/-1}.r-row .role{grid-column:1/-1}.r-row .desc{grid-column:1/-1}}
+.skills{padding-block:var(--s3);gap:var(--s3) var(--col-gap)}
+.skills{grid-template-columns:repeat(5,minmax(0,1fr))}
+.skills div{display:flex;flex-direction:column;gap:var(--s1);min-width:0}
+@media (max-width:860px){.skills{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Splash: CD initials overlap, part, then the curtain lifts. Once per session. */
+.splash{position:fixed;inset:0;z-index:100;background:var(--paper);display:grid;place-items:center;overflow:hidden;cursor:pointer;
+  transition:transform .9s cubic-bezier(.76,0,.24,1)}
+.splash .ltrs{position:relative;display:flex;font-weight:500;letter-spacing:-.06em;line-height:.8;font-size:min(48vw,62vh);color:var(--ink)}
+.splash .ltrs span{display:block;transition:transform .7s cubic-bezier(.76,0,.24,1)}
+.splash .ltrs{gap:0}.splash .l-c{margin-right:-.01em}
+.splash .meta{position:absolute;left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));bottom:calc(env(safe-area-inset-bottom,0px) + 24px);display:flex;justify-content:space-between;color:var(--mute);transition:opacity .4s}
+.splash.part .l-c{transform:translateX(-110vw)}
+.splash.part .l-d{transform:translateX(110vw)}
+.splash.part .meta{opacity:0}
+.splash.lift{transform:translateY(-100%)}
+@media (max-width:760px){.splash .ltrs{flex-direction:column;align-items:center;font-size:min(62vw,40vh)}.splash .l-c{margin:0 0 -.08em}.splash .meta{display:grid;grid-template-columns:1fr auto;row-gap:8px;border-top:1px solid var(--rule);padding-top:16px}.splash .meta span:nth-child(2){grid-column:1/-1;grid-row:2}.splash .meta span:nth-child(3){text-align:right}
+  .splash.part .l-c{transform:translateY(-110vh)}.splash.part .l-d{transform:translateY(110vh)}}
+body.intro header.top{transform:translateY(-100%)}
+header.top{transition:transform .7s cubic-bezier(.2,.7,.2,1),background-color .35s ease}
+
+/* Cursor: trailing dot, inverts what it passes over, grows on links. Fine pointers only. */
+.cur,.cur-ring{display:none}
+@media (hover:hover) and (pointer:fine){
+  /* Two layers: the dot inverts what it crosses; a hairline ring keeps it visible over mid-grey text, where inversion alone disappears. */
+  .cur,.cur-ring{display:block;position:fixed;left:0;top:0;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;pointer-events:none;z-index:2147483647;transition:opacity .2s;will-change:transform}
+  .cur{background:#fff;mix-blend-mode:difference}
+  .cur-ring{box-shadow:0 0 0 1px var(--ink);opacity:.5}
+  .cur.off,.cur-ring.off{opacity:0}
+  .peek{position:fixed;left:0;top:0;width:280px;z-index:50;pointer-events:none;opacity:0;transform-origin:0 0;transition:opacity .25s ease;will-change:transform}
+  .peek.on{opacity:1}
+  .peek .ph{--ar:3/2}
+}
+@media (prefers-reduced-motion:reduce){.cur,.cur-ring,.peek{display:none!important}}
+
+.ph-th img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.card .ph-th,.peek .ph-th{background:#0b0b0b}.card .ph-th::before,.peek .ph-th::before{display:block;opacity:1;z-index:1;background:radial-gradient(55% 45% at 50% 50%,rgba(0,0,0,.42),transparent 75%)}
+.card .ph-gated .ph-l{z-index:2;left:16px;bottom:16px;color:#F4F1EA;opacity:.8}
+.card .ph-th .ph-mark,.peek .ph-th .ph-mark{z-index:2;color:#F4F1EA;text-shadow:0 2px 30px rgba(0,0,0,.35)}.card .ph-th .ph-n,.peek .ph-th .ph-n{z-index:2;opacity:1;color:#F4F1EA;background:rgba(0,0,0,.62);padding:4px 8px;top:8px;right:8px;letter-spacing:.04em}
+.card:hover .ph-th img{transform:scale(1.04)}
+@media (pointer:coarse){.modes button,.copy,.burger,a[download],a[href^="https://linkedin"],a[href="/resume/"],[aria-label="Close menu"]{position:relative}
+.modes button::after,.copy::after,a[download]::after,a[href^="https://linkedin"]::after,a[href="/resume/"]::after,[aria-label="Close menu"]::after{content:"";position:absolute;inset:-12px -6px}}
+.ph-img{background:var(--tile)}
+.ph-img::before{display:none}
+.ph-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.shot{display:block;width:100%;height:auto;background:var(--tile)}
+.m-off .shot{}
+.h-sub{grid-column:4/11!important;font-size:clamp(20px,2vw,30px)!important;letter-spacing:-.025em!important}
+@media (max-width:860px){.h-sub{grid-column:1/-1!important}}
+.shot-wrap{display:block;overflow:hidden;background:#000}
+@media (max-width:760px){.shot-wrap .shot{transform:scale(1.2)}.p-media figure>.shot-wrap{margin-inline:-16px;width:calc(100% + 32px)}}
+@media (max-width:760px){.p-media figure>.shot,.p-media .spec{margin-inline:-16px;width:calc(100% + 32px);max-width:none}.p-media figcaption{padding-top:8px}}
+.glance{padding-top:var(--s4);row-gap:var(--s3)}
+.glance div{grid-column:span 6;display:flex;flex-direction:column;gap:var(--s1);border-top:1px solid var(--rule);padding-top:var(--s2)}
+.glance div span:last-child{max-width:44ch;line-height:1.5}
+.glance.g3 div{grid-column:span 4}
+@media (max-width:760px){.glance div,.glance.g3 div{grid-column:1/-1}}
+.p-block .team{grid-column:4/12;margin:0}
+.m-half{grid-column:span 6}
+@media (max-width:760px){.m-half{grid-column:1/-1}.p-block .team{grid-column:1/-1}}
+/* Design-system specimens */
+.spec{grid-column:1/-1;background:var(--tile);border-radius:2px;padding:var(--pad,16px)}
+.spec-head{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:var(--s2)}
+.seg{display:inline-flex;border:1px solid var(--rule);border-radius:99px;padding:4px;gap:4px}
+.seg button{font:inherit;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);background:none;border:0;border-radius:99px;padding:8px 16px;cursor:pointer;transition:color .2s,background .2s}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.seg button:hover{color:var(--ink)}.seg button[aria-pressed="true"]:hover{color:var(--paper)}
+.bp-stage{position:relative;aspect-ratio:16/10;display:flex;justify-content:center;overflow:hidden}
+.bp-frame{position:relative;height:100%;width:100%;transition:width .6s cubic-bezier(.2,.7,.1,1);border-radius:6px;overflow:hidden;background:var(--bpbg,#000);box-shadow:0 0 0 1px var(--rule)}
+.bp-frame img{position:absolute;top:0;left:0;width:100%;height:auto;opacity:0;transition:opacity .35s}
+.bp-frame img.on{opacity:1}
+.bp-w{font-variant-numeric:tabular-nums}
+.tok{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:4px}
+.tok button{all:unset;cursor:pointer;display:flex;flex-direction:column;background:var(--paper)}
+.tok i{display:block;aspect-ratio:3/2;background:var(--c)}
+.tok span{display:flex;justify-content:space-between;gap:8px;padding:8px 16px;font-size:11px;letter-spacing:.04em}
+.tok b{font-weight:400;color:var(--ink);text-transform:uppercase}
+.tok em{font-style:normal;color:var(--mute)}
+.tok button:focus-visible{outline:2px solid var(--ink);outline-offset:-2px}
+.spec-cap{display:flex;justify-content:space-between;margin-top:16px}
+.slot{display:block}
+.dl{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.dl:hover{color:var(--hover)}
+.tag{display:inline-block;font-size:10px;line-height:1;padding:4px 8px 4px;border:1px solid var(--rule);border-radius:20px;color:var(--mute);margin-left:8px;vertical-align:2px;white-space:nowrap}
+/* Entrance */
+@media (prefers-reduced-motion:no-preference){
+  .view>*{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+  .view>*:nth-child(2){animation-delay:.06s}.view>*:nth-child(3){animation-delay:.12s}.view>*:nth-child(4){animation-delay:.18s}
+  @keyframes rise{from{transform:translateY(14px)}to{transform:none}}
+}
+
+@media (max-width:760px){.statement,.lede,.about .v,.p-title,.p-block .h,footer .ticker{text-wrap:pretty;max-width:none}}
+</style>
+</head>
+<body>
+
+
+<div class="splash" id="splash" hidden aria-hidden="true">
+  <div class="ltrs"><span class="l-c">C</span><span class="l-d">D</span></div>
+  <div class="meta mono"><span>Corey Dixon©</span><span>Product &amp; Experience Design</span><span>Richmond, VA</span></div>
+</div>
+<div class="cur" id="cur" aria-hidden="true"></div>
+<div class="cur-ring" id="cur-ring" aria-hidden="true"></div>
+<div class="peek" id="peek" aria-hidden="true"></div>
+
+<header class="top">
+  <div class="grid mono">
+    <a class="brand" href="/" style="font-family:var(--sans);text-transform:none">Corey Dixon<span class="c">©</span></a>
+    <span class="h-role">Senior &amp; Lead<br>Product Designer</span>
+    <span class="h-loc mute">Richmond, VA<br>14 Years · Est. 2012</span>
+    <nav class="main">
+      <span class="links">
+        <a href="/#work" data-nav="home">Work</a>
+        <a href="/resume/" data-nav="resume">Resume</a>
+        <a href="#contact" data-nav="contact">Contact</a>
+      </span>
+      <span class="modes" role="group" aria-label="Color mode"><button type="button" data-set="dark" aria-label="Dark mode" aria-pressed="true"></button><button type="button" data-set="light" aria-label="Light mode" aria-pressed="false"></button></span>
+      <button type="button" class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+    </nav>
+  </div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true" inert>
+  <nav class="menu-links" aria-label="Mobile">
+    <a href="/#work" data-nav="home">Work<span class="mono mute">Selected work</span></a>
+    <a href="/resume/" data-nav="resume">Resume<span class="mono mute">Experience</span></a>
+    <a href="#contact" data-nav="contact">Contact<span class="mono mute">Say hello</span></a>
+  </nav>
+  <div class="menu-foot mono">
+    <div><span class="mute">Email</span><span>hi@coreydixon.design</span></div>
+    <div><span class="mute">Elsewhere</span><a href="https://linkedin.com/in/corey-dixon" target="_blank" rel="noopener">LinkedIn ↗</a><a href="/Corey-Dixon-CV-2026.pdf" download>CV (PDF) ↓</a></div>
+    <div><span class="mute">Based</span><span>Richmond, VA</span></div>
+    <div><span class="mute">Status</span><span><i class="live" aria-hidden="true"></i>Open to select work</span></div>
+    <div><span class="mute">Site</span><span>2026 Edition</span></div>
+    <div></div>
+  </div>
+</div>
+
+<main id="app"></main>
+
+<footer id="contact">
+  <div class="grid">
+    <div class="mono mute" style="grid-column:1/-1">(Contact)</div>
+    <p class="ticker">I design <span id="rot">design systems</span>.</p>
+    <div class="big"><a href="mailto:hi@coreydixon.design">Get in touch<span class="c">.</span></a></div>
+    <div class="open mono"><span class="mute">Open to work in —</span><span>Product Design</span><span>Design Systems</span><span>Fintech</span><span>E-Commerce</span><span>Motion</span></div>
+    <div class="col mono"><span class="mute">Email</span><span id="email">hi@coreydixon.design</span><button type="button" class="copy mono" id="copy">Copy email</button></div>
+    <div class="col mono"><span class="mute">Elsewhere</span><a href="https://linkedin.com/in/corey-dixon" target="_blank" rel="noopener">LinkedIn ↗</a><a class="dl" href="/Corey-Dixon-CV-2026.pdf" download>CV (PDF) ↓</a></div>
+    <div class="col mono"><span class="mute">Based</span><span>Richmond, VA</span></div>
+    <div class="col mono"><span class="mute">Note</span><span>All work shown belongs to its respective owners. © 2026</span></div>
+  </div>
+</footer>
+
+<script>
+const root=document.documentElement;
+function setMode(m){ if(m==="light") root.setAttribute("data-mode","light"); else root.removeAttribute("data-mode");
+  document.querySelectorAll("[data-set]").forEach(b=>b.setAttribute("aria-pressed", b.dataset.set===m)); try{localStorage.setItem("cd-theme",m)}catch(e){} }
+let saved="dark"; try{saved=localStorage.getItem("cd-theme")||"dark"}catch(e){}
+setMode(saved);
+document.querySelector(".modes").addEventListener("click",e=>{const b=e.target.closest("[data-set]"); if(b) setMode(b.dataset.set)});
+const IMG = {"l-cv-4":[3200,2000],"l-cv-5":[3200,2000],"l-cv-6":[3200,2000],"l-hk-1":[3200,2000],"l-hk-2":[3200,2000],"l-hk-3":[3200,2000],"l-hk-4":[3200,2000],"l-hk-5":[3200,2000],"l-hk-6":[3200,2000],"l-hk-7":[3200,2000],"l-rh-collage":[3200,2000],"l-rh-essay":[3200,2000],"l-rh-feature":[3200,2000],"l-rh-timeline":[3200,2000],"l-rh2-influence":[3200,2000],"l-rh2-poster":[3200,2000],"l-rh2-sound":[3200,2000],"l-rh3-art":[3200,2000],"l-rh3-back":[3200,2000],"l-rh3-quote":[3200,2000],"l-rhx-hero-stones":[3200,2000],"m-bc-color":[3200,2000],"m-bc-comps":[3200,2000],"m-bc-gallery":[3200,2000],"m-bc-home":[3200,2000],"m-bc-pattern":[3200,2000],"m-bc-start":[3200,2000],"m-bc-type":[3200,2000],"m-dk-biz":[3200,2000],"m-dk-cart":[3200,2000],"m-dk-home":[3200,2000],"m-dk-pdp":[3200,2000],"m-dk-plp":[3200,2000],"m-dk-scrubs":[3200,2000],"m-dk-skate":[3200,2000],"m-dk-stories":[3200,2000],"m-dk-team":[3200,2000],"m-io-color":[3200,2000],"m-io-complete":[3200,2000],"m-io-motion":[3200,2000],"m-io-play":[3200,2000],"m-io-progress":[3200,2000],"m-io-remix":[3200,2000],"m-io-reveal":[3200,2000],"m-io-sense":[3200,2000],"m-io-share":[3200,2000],"m-io-sound":[3200,2000],"m-io-unlock":[3200,2000],"m-pga2-feed":[3200,2000],"m-pga2-hero":[3200,2000],"m-pga2-hole":[3200,2000],"m-pga2-live":[3200,2000],"m-pga2-onboard":[3200,2000],"m-pga2-story":[3200,2000],"m-sw-act":[3200,2000],"m-sw-coll":[3200,2000],"m-sw-gear":[3200,2000],"m-sw-home":[3200,2000],"m-sw-plant":[3200,2000],"m-sw-prod":[3200,2000],"m-sw-v2":[3200,2000],"s-b-cv-buttons":[3200,2000],"s-b-dk-mobile":[3200,2000],"s-b-hk-art":[3200,2000],"s-b-hk-found":[3200,2000],"s-b-hk-principles":[3200,2000],"s-b-hk-specs":[3200,2000],"s-b-hk-themes":[3200,2000],"s-b-io-direction":[3200,2000],"s-b-io-mobile":[3200,2000],"s-b-rh-system":[3200,2000],"s-b-sw-mobile":[3200,2000],"s-cv-hero":[3200,2000],"s-cv2-brands":[3200,2000],"s-cv2-ramps":[3200,2000],"s-cv2-tokens":[3200,2000],"s-dbg-action":[3200,2000],"s-dbg-color":[3200,2000],"s-dbg-dos":[3200,2000],"s-dbg-hero":[3200,2000],"s-dbg-logo":[3200,2000],"s-dbg-photo":[3200,2000],"s-dbg-type":[3200,2000],"s-hk-p-fan":[3200,2000],"s-hk-vision-wall":[3200,2000]};
+const P = [
+  {id:"google-io", n:"001", client:"Google I/O 2026",co:"Google", short:"Google I/O", disc:"Web Experience", tint:"#A23E1D",
+    role:"Art director &amp; designer", platform:"Responsive web", cover:"m-io-play",
+    scope:"25 playable builds that unlocked the I/O 2026 date, on desktop and mobile",
+    stats:[["Day 1","The community unlocked the I/O date the day it launched"],["5","Gemini-powered game bundles in one visual language"],["5,000+","I/O attendees, plus a worldwide livestream audience"]],
+    lead:"I led art direction and design for the experience, partnering with Google’s I/O team and Left Field Labs’ developers on every game",
+    team:"With Left Field Labs and the Google I/O team",
+    tagline:"Google could have just announced the date. Instead, we built a game the whole community had to play to unlock it.",
+    hero:["m-io-play","Let’s play. Bundle select on desktop and mobile"],
+    story:[
+      {k:"(The Brief)", h:"Make the date reveal something people earn together.",
+       p:["Every year, developers watch for the Google I/O date drop. For 2026, Left Field Labs and Google wanted the reveal to feel like an event of its own instead of a press release.",
+          "The idea was simple to say and hard to build: bundles of small experimental games, where every round played by anyone in the world pushed a shared counter toward unlocking the official date."]},
+      {k:"(Direction)", h:"Google’s brand, treated like a physical material.",
+       p:["I led art direction and design. We treated Google’s palette as folded, bent and layered cards with light moving across them, so each bundle had its own personality and still read instantly as Google. Finish a bundle and its card flips, folds and resolves into the Gemini spark.",
+          "Type stayed calm and huge so the play could be loud. “Let’s play” did most of the talking."]},
+      {media:[["m-io-complete","Bundle complete: the card resolves into the Gemini spark","full"]]},
+      {media:[["s-b-io-direction","The layered-card language: the bundle shelf, a card mid-flip and the Gemini spark","full"]]},
+      {k:"(The Games)", h:"One visual language across every game.",
+       p:["With many games in flight at once, the look could drift fast. I set the art direction as a system: the card language, color and type rules, and how every win, badge and progress state looks, so Emoji Code, Sketch Race, Sound in Motion and Color Sense each felt new and still read as one experience."]},
+      {media:[["m-io-sound","Emoji Code","full"]]},
+      {media:[["m-io-color","Sketch Race","full"]]},
+      {media:[["m-io-motion","Sound in Motion","full"]]},
+      {media:[["m-io-sense","Color Sense","full"]]},
+      {k:"(On Every Screen)", h:"Built for the phone in your pocket.",
+       p:["Most people played on their phones, between sessions and on the way to work. Every game was designed for touch first, and we prototyped in the browser with engineering from the start, so what got approved in review is what shipped."]},
+      {media:[["s-b-io-mobile","The full loop on mobile, from Let’s Play to the date","full"]]},
+      {k:"(The Reveal)", h:"Everyone played. Everyone unlocked it.",
+       p:["Every play anywhere filled one shared bar. When it filled, the date became a build of its own: May 19–20, rendered in the same layered cards, ready to explore and share."]},
+      {media:[["m-io-progress","Community progress. Every play fills the bar","full"]]},
+      {media:[["m-io-reveal","The date reveal, May 19–20","full"]]},
+      {k:"(The Payoff)", h:"Something to show for it.",
+       p:["Players who finished every bundle got badges to post, a hidden remix to unlock and an invitation to make a build their own. Daily reviews with Left Field Labs and weekly check-ins with Google kept every bundle on brand and on schedule through launch."]},
+      {media:[["m-io-share","You did it. Shareable badges for finishing every bundle","full"]]},
+      {media:[["m-io-unlock","A hidden unlock for the players who found it","full"]]},
+      {media:[["m-io-remix","Make it unique: remix a build and share it","full"]]},
+    ]},
+
+  {id:"pga-tour", n:"002", client:"PGA Tour App",co:"PGA Tour", short:"PGA Tour App", disc:"Mobile App", tint:"#1C2B4A",
+    role:"Design lead", platform:"iOS · Android", cover:"m-pga2-hero",
+    scope:"YourTOUR, live leaderboards, TOURCast shot tracking, scorecards and Watch, on iOS and Android",
+    stats:[["0","Taps to your favorite golfers: YourTOUR leads the home feed"],["9","Product areas redesigned, from onboarding to Watch"],["4.5★","App Store rating for the app, across 45K+ reviews"]],
+    lead:"I led design on the app at Shockoe. I owned the visual direction and the UI end to end, and drove it with the Tour’s product, brand and engineering teams",
+    team:"With Shockoe and the PGA Tour brand and product teams",
+    tagline:"Fans follow players, not tournaments. We rebuilt the PGA Tour app around that.",
+    hero:["m-pga2-hero","YourTOUR, the live leaderboard and hole detail"],
+    story:[
+      {k:"(The Brief)", h:"A powerful app that made fans do all the work.",
+       p:["At Shockoe, we partnered with the PGA Tour on its flagship app. It had scores, stats, video and news, organized the way the Tour thinks about golf: by event and by round. Fans think about golf by player. Checking on your favorite golfer took several taps and a lot of scrolling.",
+          "The brief was onboarding, personalization and a simpler core experience, with more of the Tour’s energy in the product."]},
+      {k:"(Onboarding)", h:"Pick your players first. Everything else follows.",
+       p:["Favorites moved to the very start. Pick your tours and your players, and those choices shape the home feed, the alerts and what surfaces during a live round. That became YourTOUR, a feed that leads with the story of the day for the players you care about."]},
+      {media:[["m-pga2-onboard","Choose your tours, set the scene, keep your favorites","full"]]},
+      {media:[["s-hk-p-fan","Fan focused: the players you follow, front and center","full"]]},
+      {k:"(Live Golf)", h:"Shot-level data, readable at a glance.",
+       p:["Golf produces a huge amount of data. We kept what a fan actually checks, laid over the course itself: the leaderboard, the group on the tee, par, yardage and scoring on every hole, and TourCast tracing every shot."]},
+      {media:[["m-pga2-hole","Hole detail, TourCast shot tracking and the full course","full"]]},
+      {media:[["m-pga2-live","Group scorecard, tournament stats and the tournament hub","full"]]},
+      {k:"(Coverage)", h:"One number that matters, big.",
+       p:["News, player profiles, stats and Watch got the same treatment: the number or the story that matters most, large, with the detail a tap away. Every live stream sits one tap from the leaderboard."]},
+      {media:[["m-pga2-feed","News, player profiles and live coverage","full"]]},
+      {k:"(Stories)", h:"The round, told like a highlight reel.",
+       p:["Between shots, the app tells the story of the day. Full-screen stories open on the round and close on the champion, and every tournament gets a hub with its own course photography.",
+          "Every screen was built on the Haskell design system, which has its own case study."]},
+      {media:[["m-pga2-story","Stories: Round Three, the champion, and the tournament","full"]]},
+      {media:[["s-hk-vision-wall","Stories, recaps and player moments","full"]]},
+    ]},
+
+  {id:"haskell", n:"003", client:"Haskell Design System",co:"PGA Tour", short:"Haskell", disc:"Design System", tint:"#2F4A35",
+    role:"Design system lead", platform:"iOS · Android · Web · Figma", cover:"l-hk-1",
+    scope:"Tokens, type, color, icons, motion and specs shared across iOS, Android and web",
+    stats:[["11","Foundation sets, from type and color to motion and art direction"],["3","Platforms, iOS, Android and web, from one source of truth"],["4.5:1","Minimum contrast, built into every Tour theme"]],
+    lead:"I led the Haskell system at Shockoe, building it alongside the app and owning the foundations and specs that Tour engineers and partners shipped from",
+    team:"With Shockoe and the PGA Tour digital, brand and engineering teams",
+    tagline:"Every shot, every hole, every screen. One system underneath it all.",
+    hero:["l-hk-1","Foundations, and YourTOUR built on them"],
+    story:[
+      {k:"(The Brief)", h:"A digital evolution, built on one foundation.",
+       p:["The PGA Tour was reimagining its digital experience: every shot live, every hole in 3D, and stories that follow the players fans care about. Ambitions that big need a system underneath, or every new feature turns into a one-off.",
+          "Haskell is that system. I helped define its foundations and components and carried them into the product, so the vision work and the shipping app spoke the same language."]},
+      {k:"(Principles)", h:"Fan focused. Immersive.",
+       p:["Every decision traced back to two principles: put the players fans follow front and center, and bring them directly into the competition with live scores, short video and the course itself."]},
+      {media:[["s-b-hk-principles","Principles: Fan Focused and Immersive","full"]]},
+      {k:"(Foundations)", h:"Tokens named for their job.",
+       p:["Suisse Int’l brings clarity and Tobias brings character, across a scale that runs from hero moments down to dense stats. Underneath sit the tokens for color, motion and space, each named for what it does rather than its value, on a 4dp grid.",
+          "Motion got the same care as color. One easing curve drives every transition, and a linear curve handles anything that scales or scrubs."]},
+      {media:[["l-hk-2","Spacing methods on a 4dp grid, applied to the scorecard","full"]]},
+      {media:[["l-hk-4","Motion easing, driving hole detail transitions","full"]]},
+      {media:[["s-b-hk-found","Motion durations, spacing variables, spacing methods, radii and easing","full"]]},
+      {k:"(Specs)", h:"Rules a partner can follow without a meeting.",
+       p:["Every part of the system has a spec: logos at 600 by 600 with room for the mask, tab bar icons in a 24dp grid with 1.5 to 2dp strokes, and colors that hold a 4.5:1 contrast ratio."]},
+      {media:[["l-hk-5","Tab bar icon specs, live in the app","full"]]},
+      {media:[["l-hk-7","Color specs, applied to the leaderboard","full"]]},
+      {media:[["s-b-hk-specs","Color, tab bar icon and logo specs","full"]]},
+      {k:"(Themes)", h:"Big events, without forking the system.",
+       p:["Tournaments like The Players get their own palette and imagery. The theme swaps colors and art, and every component underneath stays the same, from the tournament hub to the leaderboard."]},
+      {media:[["l-hk-3","Theme palette, applied to a tournament hub","full"]]},
+      {media:[["s-b-hk-themes","Theme palette, tournament themes and themed screens","full"]]},
+      {k:"(Art Direction)", h:"Rules for the course itself.",
+       p:["Golf is as much about place as players, so Haskell covers imagery too: aerial vistas, top-down flyovers and golden-hour light, with specs for frame rate and stabilization. Design and engineering now share one source of truth, and the same patterns run from the leaderboard to TourCast shot tracking."]},
+      {media:[["l-hk-6","Course art direction, carried into the hole view","full"]]},
+      {media:[["s-b-hk-art","Moodboard, top-down, aerial and TourCast","full"]]},
+    ]},
+
+  {id:"rock-hall", award:"Webby Nominee ×2", awardLong:"Webby Awards 2026 Nominee in Music and Cultural Institutions", n:"004", client:"Rock &amp; Roll Hall of Fame",co:"Rock &amp; Roll Hall of Fame", short:"Rock Hall", disc:"Web Experience", tint:"#7D1E22",
+    role:"Art direction &amp; UX lead", platform:"Responsive web", cover:"l-rhx-hero-stones",
+    scope:"Inductee pages, artifact and archive modules, and one component library behind the whole site",
+    stats:[["514K+","Annual museum visitors, now with the museum online for everyone else"],["2","Webby Award nominations in 2026: Music and Cultural Institutions"],["1","Component library: new inductee pages without new design"]],
+    lead:"I led art direction on the inductee and artist detail pages and set the visual standard for the site, with Grow and the Hall",
+    team:"With Grow and the Rock &amp; Roll Hall of Fame team",
+    tagline:"Most people will never make it to Cleveland. So we brought the museum to them.",
+    hero:["l-rhx-hero-stones","The Rolling Stones, inducted 1989"],
+    story:[
+      {k:"(The Brief)", h:"Put the museum on every screen.",
+       p:["With Grow, we partnered with the Rock &amp; Roll Hall of Fame on its digital experience. The museum is full of guitars, stage clothes, posters and records. Online, the site was mostly tickets, hours and a list of names.",
+          "Our idea was to treat every inductee page like a gallery. I worked on art direction, UX and UI, and led visual direction on the inductee pages, where the objects, the music and the story come together. Here is one inductee, the Rolling Stones, followed down the page."]},
+      {k:"(Artifacts)", h:"Every object tells part of the story.",
+       p:["First comes an object from the collection, lit like it sits behind glass, with the story beside it, a button to view it in 3D and footage below. A black Les Paul, a concert poster: the same module carries any object, and the layout bends to fit it."]},
+      {media:[["l-rh3-art","From the museum: a black Les Paul you can turn over in 3D","full"]]},
+      {media:[["l-rh2-poster","A Stones concert poster, straight from the collection","full"]]},
+      {k:"(Their Sound)", h:"Pull a record and it plays.",
+       p:["Records work like the objects. Pull one from the stack and it slides out of its sleeve and plays. Photo spreads from the era sit beside the music, so the page sounds and looks like the band."]},
+      {media:[["l-rh2-sound","Their signature sound: records you can pull and play","full"]]},
+      {media:[["l-rh-collage","The most satisfying hook of all time, in photos from the era","full"]]},
+      {k:"(Their Voice)", h:"Let the artists say it.",
+       p:["Backstage access puts interviews right on the page, so Mick and Keith tell the story themselves. Pull quotes run big and plain, in the Hall’s yellow, and the induction essay sits one tap away."]},
+      {media:[["l-rh3-back","Backstage access: Mick Jagger and Keith Richards, in their own words","full"]]},
+      {media:[["l-rh3-quote","In their own words: Mick Jagger","full"]]},
+      {media:[["l-rh-essay","The 1989 Hall of Fame essay","full"]]},
+      {k:"(The Archive)", h:"One visit turns into an hour.",
+       p:["Influence maps connect each inductee to the artists who shaped them and the ones they shaped, and a timeline walks through the career, so every page leads somewhere else in the Hall."]},
+      {media:[["l-rh2-influence","Their influence: who they learned from, and who learned from them","full"]]},
+      {media:[["l-rh-timeline","Career milestones, from Ed Sullivan to the Tour of the Americas","full"]]},
+      {k:"(The System)", h:"One library runs all of it.",
+       p:["The same component library carries the whole site, from inductee heroes and feature blocks to class listings, ticketing and the live induction broadcast."]},
+      {media:[["l-rh-feature","A feature block from the library: honoring the Class of 2025","full"]]},
+      {media:[["s-b-rh-system","Heroes, feature blocks, class listings and calls to action from the library","full"]]},
+    ]},
+
+  {id:"beacon", n:"005", client:"Beacon Design System®",co:"Morgan Stanley", short:"Beacon", disc:"Design System", tint:"#4D2B45",
+    role:"Design system lead", platform:"Docs site · Figma · Sketch", cover:"m-bc-home",
+    scope:"Foundations, components, patterns and documentation for Morgan Stanley product teams",
+    stats:[["Firm-wide","Adopted by design teams across Morgan Stanley"],["5","Foundations: type, color, elevation, grid and icons"],["2","Synced design kits, Figma and Sketch"]],
+    lead:"I led the design of Beacon and its documentation, then helped roll it out to design teams across the firm",
+    team:"With Morgan Stanley’s design system team",
+    tagline:"Morgan Stanley already had a design system. We made designers want to use it.",
+    hero:["m-bc-home","Great work starts here. The Beacon home"],
+    story:[
+      {k:"(The Brief)", h:"Snackable wisdom for the busy designer.",
+       p:["Beacon is Morgan Stanley’s customer-facing design system, supporting many digital products under one brand. The system worked. Adoption was the problem: designers were busy, the guidance was dense, and best practices were easy to skip.",
+          "My job was to make the right thing the easy thing."]},
+      {k:"(Getting Started)", h:"A front door designers want to open.",
+       p:["The home leads with what’s new and one clear way in. Get Started hands designers the Figma and Sketch kits and a checklist, so a first visit ends with the right files open. Illustration did a lot of the work: every section got its own character, so the docs felt like a place worth visiting."]},
+      {media:[["m-bc-start","Get started","full"]]},
+      {k:"(Components)", h:"Answers in seconds, not chapters.",
+       p:["The docs were reorganized into clear Foundations, Components and Patterns sections, each with design, development and accessibility tabs. Every component has its own page, and the gallery shows them all with their live states."]},
+      {media:[["m-bc-comps","Components overview","full"]]},
+      {media:[["m-bc-gallery","Every component, with live states","full"]]},
+      {k:"(Patterns)", h:"From parts to answers.",
+       p:["Components solve small problems. Patterns solve the common big ones, like multi-step forms, empty states and errors, with guidance written in plain language. Synced Figma and Sketch kits meant what designers placed matched what engineering had built."]},
+      {media:[["m-bc-pattern","Patterns: forms with inline validation","full"]]},
+      {k:"(Foundations)", h:"A palette that can be bold and sensitive.",
+       p:["Foundations cover type, color, elevation, grid and icons. Inter carries everything, and the palette leans on Morgan Stanley blues with a few brighter accents, each with its value and where it belongs.",
+          "The color, typography, components and patterns pages were designed for this case study to complete the story, using the same components and illustrations as the original direction."]},
+      {tokens:[["Light Blue","#187aba"],["Medium Blue","#005c90"],["Dark Blue","#002b51"],["Seafoam","#6fc8cb"],["Teal","#62e1e6"],["Pale Blue","#b9e8fe"],["Jade","#006600"],["Lilac","#675882"],["Action Blue","#0069b5"]], cap:"The Beacon palette"},
+      {media:[["m-bc-color","Foundations: color","full"]]},
+      {media:[["m-bc-type","Foundations: typography","full"]]},
+    ]},
+
+  {id:"dickies", n:"006", client:"Dickies.com",co:"Dickies", short:"Dickies.com", disc:"E-Commerce", tint:"#4E3426",
+    role:"UI &amp; visual design lead", platform:"Shopify · Responsive web", cover:"m-dk-home",
+    scope:"Home, category, product, Skate, Scrubs, Stories and team pages on Shopify",
+    stats:[["100+","Countries, one storefront system for workwear, skate and scrubs"],["7","Page types redesigned on shared parts"],["1","Design language from home to checkout"]],
+    lead:"I led UI and visual design for the storefront, working with the Dickies brand team, merchandising and partner developers",
+    team:"With VF Corporation, the Dickies brand team and partner agencies",
+    tagline:"A storefront for people who actually wear the clothes to work.",
+    hero:["m-dk-home","Home, desktop and mobile"],
+    story:[
+      {k:"(The Brief)", h:"A site as hardworking as the people who shop it.",
+       p:["Dickies has made workwear since 1922. Its customers are welders, ranchers, skaters and chefs who are hard on their clothes and have no patience for a fussy website.",
+          "Working with VF Corporation and the Dickies brand team, we redesigned the site as part of a wider brand refresh with a new identity and a custom typeface drawn from the logo. I led UI and visual design, carrying that refresh into a responsive store that balances grit with utility."]},
+      {k:"(Shopping)", h:"Product in front of people, sooner.",
+       p:["Research and an audit of the old site showed the problems quickly: oversized modules, products buried below the fold, and navigation that made people work for the basics. Category pages now open on product, product pages lead with fit and color, and the cart keeps the wishlist in reach."]},
+      {media:[["m-dk-plp","Men’s Pants, a category landing page","full"]]},
+      {media:[["m-dk-pdp","Product page for the Original 874® Work Pant","full"]]},
+      {media:[["m-dk-cart","The cart, with the wishlist in reach","full"]]},
+      {k:"(Mobile-First)", h:"Swipe to shop.",
+       p:["Most customers shop on their phones, so we designed for the phone first. Shoppable carousels fit more product on a small screen without endless scrolling, and tighter modules let the typeface and the photography carry the brand."]},
+      {media:[["s-b-dk-mobile","Home, category, product, cart and Skateboarding on mobile","full"]]},
+      {k:"(Categories)", h:"New lines, same modules.",
+       p:["Best Sellers opened up to every category, the navigation got simpler, and the same modules stretched to Skateboarding, Scrubs and Dickies for Business without new templates."]},
+      {media:[["m-dk-skate","Skateboarding, with products and the team","full"]]},
+      {media:[["m-dk-scrubs","Scrubs, a new category on the same modules","full"]]},
+      {media:[["m-dk-biz","Dickies for Business","full"]]},
+      {k:"(Stories)", h:"Real people in the clothes.",
+       p:["Dickies has stories worth telling, from racing builds to its skate team. Editorial and team pages run on the same Figma system as the store, so the team can publish a story as fast as a sale.",
+          "The result is a faster, mobile-first storefront built to take a beating, just like the clothes."]},
+      {media:[["m-dk-stories","Stories, Still in the Race","full"]]},
+      {media:[["m-dk-team","Skate team member, Christian Henry","full"]]},
+    ]},
+
+  {id:"dickies-brand", n:"007", client:"Dickies Brand Guidelines",co:"Dickies", short:"Dickies Brand", disc:"Brand System", tint:"#8A5418",
+    role:"Brand designer", platform:"Guidelines site · Retail · Digital", cover:"s-dbg-hero",
+    scope:"Logo, color, typography, photography and real examples in one browsable guide",
+    stats:[["100+","Countries working from one guide instead of scattered decks"],["3","Channels aligned: brand, retail and digital"],["1","Source of truth, so campaigns start on-brand instead of being fixed in review"]],
+    lead:"I designed the guide and the system behind it, turning scattered brand rules into one source of truth for brand, retail and digital",
+    team:"With VF Corporation and the Dickies brand team",
+    tagline:"A brand guide built like the clothes: tough, practical and impossible to misread.",
+    hero:["s-dbg-hero","The guide at a glance: logo, color, type and rules"],
+    story:[
+      {k:"(The Brief)", h:"One source of truth for every Dickies team.",
+       p:["Dickies shows up everywhere: its own site, wholesale partners, stores, campaigns and collaborations. Without a shared guide, every team was interpreting the brand on its own.",
+          "We built the guidelines as a browsable site covering logo, color, typography, photography and real examples, so anyone could find an answer in a few clicks."]},
+      {k:"(Logos)", h:"One mark, five ways to use it.",
+       p:["The full-color logo leads. The wordmark and banner step in when space or context calls for something simpler, and lock-ups extend the system to Skateboarding, Flex, Temp-iQ and Medical. Clear space, minimum sizes and a page of misuse examples keep the mark consistent at any size."]},
+      {media:[["s-dbg-logo","Full-color logo, wordmark, banner, lock-ups, clear space and misuse","full"]]},
+      {k:"(Color)", h:"Khaki, charcoal and blood red.",
+       p:["The palette comes straight from the workwear. Khakis and charcoal do most of the work, and blood red is saved for accents. Every color ships with HEX, RGB, PMS and CMYK values, a hierarchy chart for how much of each to use, and approved combinations that pass contrast."]},
+      {media:[["s-dbg-color","Primary colors, hierarchy, combinations and contrast, and color do’s and don’ts","full"]]},
+      {k:"(Typography)", h:"A workhorse and a show horse.",
+       p:["IBM Plex handles everyday reading across languages and screens. Big Text, a custom display face drawn from the logo, is saved for the moments that need to land, like “Get to Work.”"]},
+      {media:[["s-dbg-type","IBM Plex for everyday reading, Big Text for the moments that land","full"]]},
+      {k:"(Photography)", h:"Imagery with real texture.",
+       p:["Photography principles push for real people, real work and real wear: images that make you feel something, shot with grit instead of gloss. Perspectives, from wide to macro, show teams how to tell a whole story in a single post or a carousel."]},
+      {media:[["s-dbg-photo","Photography principles, Make Us Feel and perspectives","full"]]},
+      {k:"(The Rules)", h:"Every section ends with do’s and don’ts.",
+       p:["Rules teams can check their own work against, with real examples instead of abstract warnings: color pairings, display type over imagery and the kinds of photos that do and don’t feel like Dickies."]},
+      {media:[["s-dbg-dos","Do’s and don’ts for color, typography and photography","full"]]},
+      {k:"(In Use)", h:"The system, out in the world.",
+       p:["From store windows to hang tags, shipping boxes and drawcord tips, the guide shows the brand where people actually meet it. Teams across brand, retail and digital now work from one guide, and campaigns start on-brand instead of getting fixed in review."]},
+      {media:[["s-dbg-action","The logo in retail, on apparel, on packaging and in product details","full"]]},
+    ]},
+
+  {id:"canvas", n:"008", client:"Canvas Design System",co:"VF Corporation", short:"Canvas", disc:"Design System", tint:"#55552B",
+    role:"Design system lead", platform:"Figma · Open source", cover:"s-cv-hero",
+    scope:"70+ components and a token layer shared by The North Face, Dickies, Vans and Timberland",
+    stats:[["70+","Components, each documented with its own page"],["60+","Design tokens for color, type and borders"],["4","VF brands building from one system instead of four"]],
+    lead:"I led the system’s design, from tokens to components, and worked directly with each VF brand team adopting it",
+    team:"With the VF Corporation digital and design system teams",
+    tagline:"One system, built from scratch in Figma, that every VF brand can make its own.",
+    hero:["s-cv-hero","Canvas: the shared components and tokens behind every VF brand"],
+    story:[
+      {k:"(The Brief)", h:"One foundation for brands that look nothing alike.",
+       p:["Canvas is the open-source design system behind VF Corporation’s digital experiences, shared by brands like The North Face, Dickies, Vans and Timberland. Those brands don’t look or sound alike, and the system had to serve all of them.",
+          "So the question was never what Canvas should look like. It was how little a brand should have to change to make it their own."]},
+      {k:"(How It Starts)", h:"Tokens first. Screens second.",
+       p:["We built Canvas from scratch in Figma, starting from tokens rather than screens. Brand tokens hold the few values a brand owns: color, typeface, corner radius. Semantic tokens name each job, like a primary button background or a muted label. Components only ever read the semantic layer.",
+          "A brand edits the first layer and leaves the rest alone. Everything downstream updates on its own."]},
+      {media:[["s-cv2-tokens","Three layers: brand tokens, semantic tokens, components","full"]]},
+      {media:[["s-cv2-ramps","Brand ramps are customizable. Neutrals, status and social stay fixed.","full"]]},
+      {k:"(Foundations)", h:"One token, two sizes.",
+       p:["Type works the same way. Each style is a token for family, size, line height, letter spacing and weight, with a desktop and a mobile value, so Display 1 drops from 80 to 40 on a phone without anyone redrawing a screen. Brands swap the family and keep the scale.",
+          "Buttons, inputs, filters, ratings, navigation and loaders sit on top: seventy-plus components, each with its own documentation page and copy-paste stickers."]},
+      {media:[["l-cv-4","Type scale, desktop to mobile","full"]]},
+      {media:[["l-cv-5","Button types and states","full"]]},
+      {media:[["s-b-cv-buttons","Button stickers: every type and state, plus payment and floating action buttons","full"]]},
+      {k:"(How It Scales)", h:"Swap the tokens. Keep the components.",
+       p:["Canvas isn’t a website. It’s the building blocks every VF brand shares. On the left is the unbranded product card: slots for a logo and imagery, default tokens, no brand. On the right, The North Face fills it in with their logo, their photography and their tokens: near-black #262527 for actions, 4px corners and title-case calls to action. Not one component was redrawn.",
+          "That is the whole point of the system. Designers at The North Face and Dickies start from the same tested parts, and each brand still looks like itself."]},
+      {media:[["s-cv2-brands","The unbranded Canvas component, and The North Face built on it","full"]]},
+      {media:[["l-cv-6","Canvas, themed for The North Face: the product page on desktop and mobile","full"]]},
+    ]},
+
+  {id:"smartwool", n:"009", client:"Smartwool.com",co:"Smartwool", short:"Smartwool.com", disc:"E-Commerce", tint:"#245656",
+    role:"UX &amp; visual designer", platform:"Responsive web", cover:"m-sw-home",
+    scope:"Site architecture, home, activity, collection, category and product pages",
+    stats:[["5","Page templates rebuilt around how people shop"],["1","Site architecture organized by activity, not product code"],["2","Breakpoints designed for every page"]],
+    lead:"I owned UX and visual design, from site architecture to final pages, with Smartwool’s digital and brand leads",
+    team:"With VF Corporation and the Smartwool digital and brand teams",
+    tagline:"Too much great gear and no obvious way in. We redesigned the front door.",
+    hero:["m-sw-home","Home, desktop and mobile"],
+    story:[
+      {k:"(The Brief)", h:"A site that welcomes the overwhelmed.",
+       p:["Working with VF Corporation and the Smartwool team, we took on the homepage. Smartwool makes great merino gear, and a lot of it. Socks alone come in dozens of cushion levels, heights and activities, and shoppers were landing on the site without knowing where to start.",
+          "So we started over, from the structure up, backed by analytics, heuristic reviews and testing against competitors."]},
+      {k:"(Directions)", h:"Two ways in, tested against each other.",
+       p:["We explored more than one front door: a warm, campaign-led home built around the FP Movement collaboration, and a seasonal direction built around Cold Days Are Coming. Both led with the brand promise, and both put product within a scroll."]},
+      {media:[["m-sw-v2","An earlier direction, Cold Days Are Coming","full"]]},
+      {k:"(Architecture)", h:"A site map built on how people actually shop.",
+       p:["People shop by what they are about to do, so activities became a front door: run, hike and bike, each with a clear path to men’s and women’s gear. Best sellers, collections and seasonal modules sit underneath, and category names were rewritten in plain language."]},
+      {media:[["m-sw-act","Shop by activity","full"]]},
+      {media:[["m-sw-prod","Best sellers and what’s new","full"]]},
+      {media:[["m-sw-coll","Shop collections","full"]]},
+      {k:"(Discovery)", h:"A home for the stories the old site hid.",
+       p:["Some of Smartwool’s best stories lived only in social campaigns. Campaign modules and product carousels gave collections like Plant-Based Dyes a place on the site, and a reason to explore."]},
+      {media:[["m-sw-plant","Plant-Based Dyes, a campaign with a home","full"]]},
+      {media:[["m-sw-gear","Seasonal campaign module","full"]]},
+      {k:"(On Mobile)", h:"Everyone can find their way.",
+       p:["On a phone, every module stacks into a clear path: activity, product, story, collection. The new homepage helps every customer, from first-time sock buyer to thru-hiker, find their way quickly, with the brand’s Go Far. Feel Good. promise front and center."]},
+      {media:[["s-b-sw-mobile","Home, activities, what’s new, Plant-Based Dyes and collections on mobile","full"]]},
+    ]},
+
+];
+const ROWS = [
+  ["Jun 2026 — Present","GetWyz","Senior Designer","Richmond, VA · Hybrid · Product and visual design across the platform"],
+  ["Feb 2026 — Jun 2026","PayPal","Senior UX Designer","Contract · Remote · PayPal and Venmo consumer and merchant experiences, motion and prototyping"],
+  ["Nov 2025 — Mar 2026","Left Field Labs","Senior Designer","Freelance · Los Angeles · Remote · Art direction and design for Google I/O 2026"],
+  ["Dec 2024 — Nov 2025","Grow","Senior Designer","Contract · Norfolk, VA · Product design and design systems for Capital One enterprise tools and the Rock &amp; Roll Hall of Fame"],
+  ["Oct 2023 — Dec 2024","Shockoe","Design Team Lead","Mobile by Design · Remote · Responsive web and native mobile apps"],
+  ["Jun 2022 — Oct 2023","VF Corporation","Senior Designer","Contract · Remote · Design systems and redesigns for Dickies, The North Face, Vans and Timberland"],
+  ["Oct 2021 — Jun 2022","Shockoe","Senior Product Designer","Contract · Remote · PGA Tour app and the Haskell design system"],
+  ["Mar 2020 — Oct 2021","Pow","Senior Designer","Portland, OR · Remote · Features and design system work for Morgan Stanley’s Beacon"],
+  ["Jan 2019 — Mar 2020","Money.com","Visual Designer","San Juan, PR · UX and product design for consumer financial tools"],
+  ["Jan 2018 — Dec 2018","CarMax","Visual Designer","Contract · Richmond, VA · Responsive product and lifecycle design"],
+  ["Nov 2016 — Jan 2018","Capital One","Associate Visual Designer","Richmond, VA · Patterns and components for the Gravity design system"],
+  ["Jun 2012 — Nov 2016","Dominion Enterprises","Product Designer","Norfolk, VA · Web and native apps for Homes.com"],
+];
+const EDU = [["2006 — 2010","Old Dominion University","Bachelor of Fine Arts"],["2016","University of Richmond","Full Stack Bootcamp"],["2019","Future London Academy","UX Design Week"]];
+const rowHTML = r=>{ const m=r[3].match(/^(Contract|Freelance) · /); const tag=m?` <span class="tag mono">${m[1]}</span>`:""; const d=m?r[3].slice(m[0].length):r[3];
+  return `<div class="grid r-row"><span class="when mono mute">${r[0]}</span><span class="co">${r[1]}</span><span class="role">${r[2]}${tag}</span><span class="desc">${d}</span></div>`; };
+const layout = [""];
+
+const ph = (p, i, label, ar) => `<div class="ph" style="--tint:${p.tint};--ar:${ar||p.ar}">
+  <span class="ph-n mono">${p.n}.${String(i).padStart(2,"0")}</span>
+  ${i===0?`<span class="ph-mark">${p.short}</span>`:""}
+  <span class="ph-l mono">${label}</span></div>`;
+
+const img = (k, alt, eager) => { const d=IMG[k]||[1600,900]; const lock=/^(l|m)-/.test(k); return (lock?'<span class="shot-wrap">':'')+`<img class="shot" src="/work/${k}.webp?v=11091620" alt="${alt}" width="${d[0]}" height="${d[1]}" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async">`+(lock?'</span>':''); };
+const USE_COVERS = false; // flip to true once every project has a matching-resolution cover
+const thumb = (p, small) => `<div class="ph ph-th" style="--tint:${p.tint};--ar:3/2"><img src="/work/th-${p.id}${small?"-s":""}.webp?v=11091620" alt="" width="${small?600:1500}" height="${small?400:1000}" ${small?"":'loading="lazy"'} decoding="async"><span class="ph-n mono">${p.n}.00</span>${p.award?`<span class="ph-aw mono">${p.award}</span>`:""}<span class="ph-mark">${p.short}</span></div>`;
+const cover = (p, label) => thumb(p);
+const coverOld = (p, label) => (USE_COVERS && p.cover)
+  ? `<div class="ph ph-img" style="--ar:3/2">${img(p.cover, p.short.replace(/&amp;/g,"&")+" project cover")}</div>`
+  : ph(p,0,label,"3/2");
+
+// Default view: grid on phones, index on desktop. A visitor's own choice is remembered per device size.
+const modeKey = () => "cd-view-" + (matchMedia("(max-width:760px)").matches ? "m" : "d");
+let mode = "grid";
+try{ mode = localStorage.getItem(modeKey()) || mode }catch(e){}
+
+function home(){
+  const cards = P.map((p,i)=>`<a class="card ${layout[i%layout.length]}" href="/${p.id}/">
+      ${cover(p,"")}
+      <div class="cap"><span class="mono mute">N°${p.n}</span><span class="cap-t">${p.co}</span><span class="mono mute r">${p.disc}</span></div>
+    </a>`).join("");
+  const list = P.map(p=>`<li><a href="/${p.id}/"><span class="n mono mute">N°${p.n}</span><span class="t">${p.client}</span><span class="d mono">${p.disc}</span><span class="y mono mute">${p.draft?"In progress":"Case study"} →</span></a></li>`).join("");
+  return `<div class="view">
+    <section class="hero">
+      <h1 class="statement">Lead product designer behind design systems and digital products for global brands. <span class="mute">14 years taking the work from first idea to shipped.</span></h1>
+      <div class="grid">
+        <p class="lede lede-sm mono mute">(Index) — Selected work, 2021–2026</p>
+        <dl class="facts mono">
+          <dt>Practice</dt><dd>Product Design · Art Direction</dd>
+          <dt>Focus</dt><dd>Design Systems · Apps · E-Commerce</dd>
+          <dt>Tenure</dt><dd>14 Years · Senior &amp; Lead Roles</dd>
+          <dt>Status</dt><dd><i class="live" aria-hidden="true"></i>Open to select work</dd>
+        </dl>
+      </div>
+    </section>
+    <section>
+      <div class="sec-head"><div class="grid mono">
+        <span class="l">(Selected Work)</span><span class="m mute">N°001 — N°${P.at(-1).n}</span>
+        <span class="r"><span class="toggle" role="group" aria-label="View"><button data-mode="grid" aria-pressed="${mode==="grid"}">Grid</button><button data-mode="index" aria-pressed="${mode==="index"}">Index</button></span></span>
+      </div></div>
+      <div id="work-grid" class="work" ${mode==="index"?"hidden":""}>${cards}</div>
+      <ul id="work-index" class="index" ${mode==="grid"?"hidden":""}>${list}</ul>
+    </section>
+    <section class="about"><div class="grid">
+      <span class="k mono mute">(Intro)</span>
+      <p class="v">Senior and lead product designer with 14 years in fintech and financial services, enterprise tools, e-commerce and sports media. I build design systems and component libraries, design iOS, Android and responsive web products, and take the work from first concept to shipped, across agency and in-house teams.</p>
+      <div class="clients mono"><span class="mute">Work —</span>${["Capital One","Google","Morgan Stanley","PGA Tour","PayPal","The North Face","Dickies","Smartwool","Rock Hall"].map(c=>`<span>${c}</span>`).join("")}</div>
+      <div class="clients mono"><span class="mute">Industries —</span>${["Fintech &amp; financial services","Payments","Enterprise &amp; B2B tools","E-commerce &amp; retail","Sports &amp; media","Consumer tech"].map(c=>`<span>${c}</span>`).join("")}</div>
+    </div></section>
+    <section>
+      <div class="sec-head"><div class="grid mono"><span class="l">(Experience)</span><span class="m mute">Years / Company / Role / Scope</span><span class="r"><a href="/resume/">Full resume →</a></span></div></div>
+      ${ROWS.slice(0,5).map(rowHTML).join("")}
+    </section>
+  </div>`;
+}
+
+function project(p){
+  if(!p.draft) return projectReal(p);
+  const idx = P.indexOf(p), nx = P[(idx+1)%P.length];
+  const ask = p.ask || "The brief, in one line. Pulled from the Figma file and your notes.";
+  const body = p.body || ["Context paragraph: who the client is, what was broken or missing, and where you came in.","Process paragraph: the decisions that shaped the work. Each image block below pairs with a beat of this story."];
+  const mods = p.modules || ["Hero","Key Screen","Flow","Detail","Detail","System"];
+  return `<div class="view">
+    <section class="p-hero">
+      <a class="p-back mono" href="/#work">← Index</a>
+      <div class="mono mute" style="margin-bottom:var(--s3)">N°${p.n} ${p.draft?'· <span class="draft">Copy pending</span>':""}</div>
+      <h1 class="p-title">${p.client}<span class="c">.</span></h1>
+      <div class="grid p-meta mono">
+        <div><span class="mute">Work</span><span>${p.client}</span></div>
+        <div><span class="mute">Discipline</span><span>${p.disc}</span></div>
+        <div><span class="mute">Role</span><span>Senior Product Designer</span></div>
+        <div><span class="mute">Platform</span><span>${p.platform||"—"}</span></div>
+      </div>
+    </section>
+    <div class="grid p-media"><figure class="m-full">${ph(p,0,"Hero · Full bleed · 16:9","16/9")}<figcaption class="mono mute"><span>${mods[0]}</span><span>01</span></figcaption></figure></div>
+    <section class="grid p-block">
+      <span class="k mono mute">(Overview)</span>
+      <h2 class="h">${p.tagline||"A one-line thesis for the project goes here."}</h2>
+    </section>
+    <section class="grid p-block">
+      <span class="k mono mute">(The Ask)</span>
+      <h3 class="h" style="grid-column:4/9;font-size:clamp(20px,2vw,30px);letter-spacing:-.025em">${ask}</h3>
+      <div class="b">${body.map(t=>`<p>${t}</p>`).join("")}</div>
+    </section>
+    <div class="grid p-media">
+      <figure class="m-l">${ph(p,2,"Module · 4:5","4/5")}<figcaption class="mono mute"><span>${mods[1]}</span><span>02</span></figcaption></figure>
+      <figure class="m-r">${ph(p,3,"Module · 4:5","4/5")}<figcaption class="mono mute"><span>${mods[2]}</span><span>03</span></figcaption></figure>
+    </div>
+    <section class="grid p-block">
+      <span class="k mono mute">(Process)</span>
+      <div class="b" style="grid-column:4/10"><p>Story beat two. Talk through a decision, a constraint, or a test that changed direction, then let the next image prove it.</p></div>
+    </section>
+    <div class="grid p-media">
+      <figure class="m-off">${ph(p,4,"Detail · 3:2","3/2")}<figcaption class="mono mute"><span>${mods[3]}</span><span>04</span></figcaption></figure>
+      <figure class="m-full">${ph(p,5,"Flow · Full bleed · 21:9","21/9")}<figcaption class="mono mute"><span>${mods[4]||"Flow"}</span><span>05</span></figcaption></figure>
+    </div>
+    <section class="grid stats mono">
+      <div class="stat"><b>—</b><span class="mute">Outcome metric 01</span></div>
+      <div class="stat"><b>—</b><span class="mute">Outcome metric 02</span></div>
+      <div class="stat"><b>—</b><span class="mute">Outcome metric 03</span></div>
+    </section>
+    <a class="next" href="/${nx.id}/"><span class="mono mute">Next — N°${nx.n}</span><span class="t">${nx.client} →</span></a>
+  </div>`;
+}
+
+function projectReal(p){
+  const idx = P.indexOf(p), nx = P[(idx+1)%P.length];
+  const alt = t => p.short.replace(/&amp;/g,"&")+" — "+t;
+  let n = 0;
+  const fig = (it) => { n++; const cls = it[2]==="half"?"m-half":it[2]==="off"?"m-off":"m-full";
+    const media = it[0] ? img(it[0], alt(it[1]), n===1) : `<div class="ph slot" style="--tint:${p.tint};--ar:${it[2]==="full"?"16/9":it[2]==="half"?"4/3":"3/2"}"><span class="ph-l mono">Image · ${it[1]}</span></div>`;
+    return `<figure class="${cls}">${media}<figcaption class="mono mute"><span>${it[1]}</span><span>${String(n).padStart(2,"0")}</span></figcaption></figure>`; };
+  const BPW={desktop:"100%",tablet:"58%",mobile:"30%"}, BPPX={desktop:"1440",tablet:"768",mobile:"390"};
+  const bp = b => { n++; const ks=Object.keys(b.bp); const first=ks[0];
+    return `<div class="grid p-media"><div class="spec" data-bpview><div class="spec-head mono"><span class="mute">(Breakpoints) — <span class="bp-w">${BPPX[first]}px</span></span>
+      <span class="seg" role="group" aria-label="Breakpoint">${ks.map(k=>`<button data-bp="${k}" aria-pressed="${k===first}">${k}</button>`).join("")}</span></div>
+      <div class="bp-stage"><div class="bp-frame" style="width:${BPW[first]}">${ks.map(k=>{const d=IMG[b.bp[k]]||[1600,1000];return `<img src="/work/${b.bp[k]}.webp?v=11091620" alt="${alt(b.cap+" — "+k)}" width="${d[0]}" height="${d[1]}" loading="lazy" decoding="async" data-k="${k}" class="${k===first?"on":""}">`}).join("")}</div></div>
+      <div class="spec-cap mono mute"><span>${b.cap}</span><span>${String(n).padStart(2,"0")}</span></div></div></div>`; };
+  const tok = b => { return `<div class="grid p-media"><div class="spec"><div class="spec-head mono"><span class="mute">(Tokens) — click to copy</span><span class="mute">${b.tokens.length} values</span></div>
+      <div class="tok mono">${b.tokens.map(t=>`<button data-copy="${t[1]}" style="--c:${t[1]}" aria-label="Copy ${t[0]} ${t[1]}"><i></i><span><b>${t[0]}</b><em>${t[1].toUpperCase()}</em></span></button>`).join("")}</div>
+      <div class="spec-cap mono mute"><span>${b.cap}</span><span>Live</span></div></div></div>`; };
+  const heroFig = fig([p.hero[0],p.hero[1],"full"]);
+  const blocks = p.story.map(b => b.bp ? bp(b) : b.tokens ? tok(b) : b.media
+    ? `<div class="grid p-media">${b.media.map(fig).join("")}</div>`
+    : `<section class="grid p-block"><span class="k mono mute">${b.k}</span><h3 class="h h-sub">${b.h}</h3><div class="b">${b.p.map(t=>`<p>${t}</p>`).join("")}</div></section>`).join("");
+  return `<div class="view">
+    <section class="p-hero">
+      <a class="p-back mono" href="/#work">← Index</a>
+      <div class="mono mute" style="margin-bottom:var(--s2)">N°${p.n}</div>
+      <h1 class="p-title">${p.client}<span class="c">.</span></h1>
+      <div class="grid p-meta mono">
+        <div><span class="mute">Client</span><span>${p.co}</span></div>
+        <div><span class="mute">Type</span><span>${p.disc}</span></div>
+        <div><span class="mute">Platform</span><span>${p.platform}</span></div>
+      </div>
+    </section>
+    <div class="grid p-media">${heroFig}</div>
+    <section class="grid p-block">
+      <span class="k mono mute">(Overview)</span>
+      <h2 class="h">${p.tagline}</h2>
+    </section>
+    <section class="grid glance mono${p.awardLong?" g3":""}">
+      <div><span class="mute">Role</span><span>${p.role}</span></div>
+      <div><span class="mute">Team</span><span>${p.lead||p.team}</span></div>
+      ${p.awardLong?`<div><span class="mute">Recognition</span><span>${p.awardLong}</span></div>`:""}
+    </section>
+    ${p.stats?`<section class="grid stats mono">${p.stats.map(x=>`<div class="stat"><b>${x[0].replace("★",'<span class="star">★</span>')}</b><span class="mute">${x[1]}</span></div>`).join("")}</section>`:""}
+    ${blocks}
+    <a class="next" href="/${nx.id}/"><span class="mono mute">Next — N°${nx.n}</span><span class="t">${nx.client} →</span></a>
+  </div>`;
+}
+
+function resume(){
+  const rows = ROWS;
+  return `<div class="view">
+    <section class="hero">
+      <h1 class="statement">Senior &amp; Lead Product Designer. <span class="mute">14 years building scalable web and app experiences for enterprise and global brands.</span></h1>
+      <div class="grid">
+        <p class="lede lede-sm mono mute">(Resume) — Experience &amp; capabilities</p>
+        <dl class="facts mono">
+          <dt>Based</dt><dd>Richmond, VA</dd>
+          <dt>Email</dt><dd>hi@coreydixon.design</dd>
+          <dt>Profile</dt><dd><a href="https://linkedin.com/in/corey-dixon" target="_blank" rel="noopener">LinkedIn ↗</a></dd>
+          <dt>Experience</dt><dd>14 years · Since 2012</dd>
+          <dt>CV</dt><dd><a class="dl" href="/Corey-Dixon-CV-2026.pdf" download>Download PDF ↓</a></dd>
+        </dl>
+      </div>
+    </section>
+    <section>
+      <div class="sec-head"><div class="grid mono"><span class="l">(Experience)</span><span class="m mute">Years / Company / Role / Scope</span><span class="r mute">2012 — Present</span></div></div>
+      ${rows.map(rowHTML).join("")}
+    </section>
+    <section>
+      <div class="sec-head"><div class="grid mono"><span class="l">(Education)</span><span class="m mute">Years / School / Program</span><span class="r"><a class="dl" href="/Corey-Dixon-CV-2026.pdf" download>CV (PDF) ↓</a></span></div></div>
+      ${EDU.map(e=>`<div class="grid r-row"><span class="when mono mute">${e[0]}</span><span class="co">${e[1]}</span><span class="role">${e[2]}</span></div>`).join("")}
+    </section>
+    <section>
+      <div class="sec-head"><div class="grid mono"><span class="l">(Capabilities)</span></div></div>
+      <div class="grid skills">
+        <div><span class="mono mute">Product</span><span>Mobile apps (iOS &amp; Android)<br>Responsive web<br>Enterprise &amp; B2B tools<br>Consumer platforms</span></div>
+        <div><span class="mono mute">Systems</span><span>Design systems<br>Component libraries<br>Design tokens<br>Accessibility (WCAG AA)</span></div>
+        <div><span class="mono mute">Industries</span><span>Fintech &amp; financial services<br>Payments<br>E-commerce &amp; retail<br>Sports &amp; media</span></div>
+        <div><span class="mono mute">Craft</span><span>Art direction<br>Interaction &amp; motion<br>Prototyping<br>UX research</span></div>
+        <div><span class="mono mute">AI &amp; tools</span><span>Figma<br>AI-assisted workflows<br>Vibe-coded prototypes<br>HTML, CSS &amp; JavaScript</span></div>
+      </div>
+    </section>
+  </div>`;
+}
+
+const app = document.getElementById("app");
+let homeY=0, onHome=false, goTop=false;
+try{ history.scrollRestoration="manual" }catch(e){}
+// Each case study has its own URL (/rock-hall/) so a shared link previews that project. Links navigate in place with the History API.
+const KEYS = ()=>P.map(p=>p.id).concat(["resume"]);
+function key(){ const p=location.pathname.replace(/^\/+|\/+$/g,"");
+  if(p && KEYS().includes(p)) return p;
+  const h=location.hash.slice(1);
+  if(!p && KEYS().includes(h)){ history.replaceState(null,"","/"+h+"/"); return h; } // old #project links
+  return (!p && h==="work") ? "work" : "home"; }
+document.addEventListener("click",e=>{ const a=e.target.closest("a[href^='/']"); if(!a||a.hasAttribute("download")||a.target||e.metaKey||e.ctrlKey||e.shiftKey||e.button) return;
+  const url=new URL(a.href, location.href); if(/\.[a-z0-9]+$/i.test(url.pathname)) return;
+  e.preventDefault(); if(typeof setMenu==="function") setMenu(false);
+  const cur=key(), target=url.pathname.replace(/^\/+|\/+$/g,"") || (url.hash==="#work"?"work":"home");
+  const onHomeNow = cur==="home"||cur==="work";
+  if(onHomeNow && (target==="home"||target==="work")){
+    const t=target==="work"?document.querySelector(".sec-head"):null;
+    history.replaceState(null,"",url.pathname+url.hash);
+    scrollTo({top:t?t.getBoundingClientRect().top+scrollY-70:0,behavior:"smooth"}); return; }
+  if(target==="home") goTop=true;
+  history.pushState(null,"",url.pathname+url.hash); route(); },true);
+addEventListener("popstate", route);
+function route(){
+  if(onHome) homeY=scrollY;
+  if(location.hash==="#contact" && app.firstElementChild){ document.getElementById("contact").scrollIntoView({behavior:"smooth"}); setNav("contact"); return; }
+  let h = key();
+  const toWork = h==="work"; if(toWork) h="home";
+  if(h==="contact"){ document.getElementById("contact").scrollIntoView({behavior:"smooth"}); setNav("contact"); return; }
+  const p = P.find(x=>x.id===h);
+  app.innerHTML = p ? project(p) : h==="resume" ? resume() : home();
+  document.title = p ? `${p.client.replace(/&amp;/g,"&")} · ${p.disc} — Corey Dixon©` : h==="resume" ? "Resume — Corey Dixon©, Senior & Lead Product Designer" : "Corey Dixon© — Senior & Lead Product Designer";
+  setNav(p ? "home" : h==="resume" ? "resume" : "home");
+  const wasHome=onHome; onHome = (h==="home");
+  if(onHome && toWork){ const t=document.querySelector(".sec-head"); scrollTo(0, t ? t.getBoundingClientRect().top+scrollY-70 : 0); }
+  else if(onHome && !goTop && !wasHome && homeY>0){ const y=homeY; scrollTo(0,y); requestAnimationFrame(()=>scrollTo(0,y)); setTimeout(()=>scrollTo(0,y),120); }
+  else window.scrollTo(0,0);
+  goTop=false;
+}
+function setNav(k){ document.querySelectorAll("[data-nav]").forEach(a=>a.toggleAttribute("aria-current", a.dataset.nav===k) && a.setAttribute("aria-current","page")) }
+app.addEventListener("click", e=>{
+  const bpb = e.target.closest("[data-bp]");
+  if(bpb){ const v=bpb.closest("[data-bpview]"), k=bpb.dataset.bp, W={desktop:"100%",tablet:"58%",mobile:"30%"}, PX={desktop:"1440",tablet:"768",mobile:"390"};
+    v.querySelector(".bp-frame").style.width=W[k]; v.querySelector(".bp-w").textContent=PX[k]+"px";
+    v.querySelectorAll(".bp-frame img").forEach(i=>i.classList.toggle("on",i.dataset.k===k));
+    v.querySelectorAll("[data-bp]").forEach(x=>x.setAttribute("aria-pressed",x===bpb)); return; }
+  const cp = e.target.closest("[data-copy]");
+  if(cp){ const em=cp.querySelector("em"), t=cp.dataset.copy; try{navigator.clipboard.writeText(t).then(()=>{em.textContent="Copied";setTimeout(()=>em.textContent=t.toUpperCase(),1200)})}catch(err){} return; }
+  const b = e.target.closest("[data-mode]"); if(!b) return;
+  mode = b.dataset.mode; try{localStorage.setItem(modeKey(),mode)}catch(e){}
+  document.getElementById("work-grid").hidden = mode!=="grid";
+  document.getElementById("work-index").hidden = mode!=="index";
+  document.querySelectorAll("[data-mode]").forEach(x=>x.setAttribute("aria-pressed", x.dataset.mode===mode));
+});
+const menu=document.getElementById("menu"), burger=document.getElementById("burger");
+function setMenu(open){ menu.classList.toggle("open",open); menu.setAttribute("aria-hidden",!open); menu.inert=!open;
+  burger.setAttribute("aria-expanded",open); burger.setAttribute("aria-label",open?"Close menu":"Open menu");
+  document.body.style.overflow=open?"hidden":""; }
+burger.addEventListener("click",()=>setMenu(!menu.classList.contains("open")));
+menu.addEventListener("click",e=>{ if(e.target.closest("a")) setMenu(false) });
+addEventListener("keydown",e=>{ if(e.key==="Escape") setMenu(false) });
+matchMedia("(min-width:761px)").addEventListener("change",e=>{ if(e.matches) setMenu(false) });
+addEventListener("hashchange",()=>{ if(menu.classList.contains("open")) setMenu(false) });
+document.getElementById("copy").addEventListener("click", e=>{
+  const b=e.currentTarget, t=document.getElementById("email").textContent;
+  const done=()=>{b.textContent="Copied";b.classList.add("done");setTimeout(()=>{b.textContent="Copy email";b.classList.remove("done")},1800)};
+  const fallback=()=>{const r=document.createRange();r.selectNodeContents(document.getElementById("email"));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="Press ⌘C"};
+  try{ navigator.clipboard.writeText(t).then(done,fallback) }catch(err){ fallback() }
+});
+// Splash (home only, once per session, skipped for reduced motion)
+(function(){
+  const sp=document.getElementById("splash"); let seen=false;
+  try{ seen=sessionStorage.getItem("cd-intro")==="1" }catch(e){}
+  const onHome=key()==="home";
+  if(seen||!onHome||matchMedia("(prefers-reduced-motion: reduce)").matches){ sp.remove(); return; }
+  try{ sessionStorage.setItem("cd-intro","1") }catch(e){}
+  sp.hidden=false; document.body.classList.add("intro"); document.body.style.overflow="hidden"; scrollTo(0,0);
+  let done=false, locked=true, timers=[];
+  let lastInput=0;
+  const block=e=>{ if(locked){ e.preventDefault(); lastInput=performance.now(); finish(); } };
+  const keys=e=>{ if(locked && [" ","ArrowDown","ArrowUp","PageDown","PageUp","Home","End"].includes(e.key)){ e.preventDefault(); } if(locked) finish(); };
+  addEventListener("wheel",block,{passive:false}); addEventListener("touchmove",block,{passive:false});
+  addEventListener("touchstart",()=>finish(),{passive:true}); addEventListener("keydown",keys);
+  const unlock=()=>{ locked=false; removeEventListener("wheel",block); removeEventListener("touchmove",block); removeEventListener("keydown",keys); };
+  const finish=()=>{ if(done) return; done=true; timers.forEach(clearTimeout);
+    sp.classList.add("part"); setTimeout(()=>sp.classList.add("lift"),380);
+    setTimeout(()=>{ scrollTo(0,0); document.body.classList.remove("intro"); document.body.style.overflow=""; scrollTo(0,0); },700);
+    // Release scrolling only once the gesture that dismissed the intro has fully stopped (no input for 220ms).
+    const tryUnlock=()=>{ if(performance.now()-lastInput>220) unlock(); else setTimeout(tryUnlock,80); };
+    setTimeout(tryUnlock,760);
+    setTimeout(()=>sp.remove(),1300); };
+  timers.push(setTimeout(finish,750));
+  sp.addEventListener("click",finish);
+})();
+
+// Cursor + project peek
+(function(){
+  if(!matchMedia("(hover:hover) and (pointer:fine)").matches||matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const cur=document.getElementById("cur"), ring=document.getElementById("cur-ring"), peek=document.getElementById("peek"); let sc=1, st=1;
+  let mx=innerWidth/2,my=innerHeight/2,cx=mx,cy=my,px=mx,py=my,peekId=null;
+  addEventListener("mousemove",e=>{mx=e.clientX;my=e.clientY;cur.classList.remove("off");ring.classList.remove("off")});
+  document.addEventListener("mouseleave",()=>{cur.classList.add("off");ring.classList.add("off")});
+  document.addEventListener("mouseover",e=>{
+    const t=e.target.closest("a,button");
+    st=(t && !t.closest(".modes"))?1.25:1;
+    const row=e.target.closest(".index a");
+    const id=row?row.getAttribute("href").replace(/\//g,""):null;
+    if(id!==peekId){ peekId=id; const p=id&&P.find(x=>x.id===id);
+      if(p){ peek.innerHTML=thumb(p,true); peek.classList.add("on") } else peek.classList.remove("on"); }
+  });
+  (function tick(){ cx+=(mx-cx)*.2; cy+=(my-cy)*.2; px+=(mx-px)*.12; py+=(my-py)*.12;
+    sc+=(st-sc)*.18; const tf=`translate3d(${cx}px,${cy}px,0) scale(${sc})`; cur.style.transform=tf; ring.style.transform=tf;
+    peek.style.transform=`translate3d(${px+32}px,${py-90}px,0)`;
+    requestAnimationFrame(tick) })();
+  const unpeek=()=>{peekId=null;peek.classList.remove("on")}; addEventListener("hashchange",unpeek); addEventListener("popstate",unpeek); document.addEventListener("click",e=>{ if(e.target.closest(".index a")) unpeek() });
+})();
+
+addEventListener("hashchange", route); route();
+// Warm the list-view previews (about 150KB total) once the page is idle, so hovering shows them instantly.
+(function(){ const go=()=>P.forEach(p=>{ const i=new Image(); i.src=`work/th-${p.id}-s.webp?v=11091620`; i.decode&&i.decode().catch(()=>{}); });
+  if(matchMedia("(hover:hover) and (pointer:fine)").matches){ ("requestIdleCallback" in window) ? requestIdleCallback(go,{timeout:2500}) : setTimeout(go,1200); } })();
+addEventListener("pageshow",e=>{ if(!e.persisted && key()==="home" && !location.hash) scrollTo(0,0) });
+addEventListener("load",()=>{ if(key()==="home" && !location.hash && scrollY<4) scrollTo(0,0) });
+const words=["design systems","mobile apps","storefronts","brand systems","digital products"]; let wi=0;
+if(!matchMedia("(prefers-reduced-motion: reduce)").matches) setInterval(()=>{wi=(wi+1)%words.length;document.getElementById("rot").textContent=words[wi]},2200);
+</script>
+
+</body>
+</html>
