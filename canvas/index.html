@@ -246,7 +246,7 @@ figcaption{display:flex;justify-content:space-between;gap:16px}
 .r-row .role{grid-column:6/9}.r-row .desc{grid-column:9/13;color:var(--mute);max-width:52ch}
 @media (max-width:860px){.r-row .when{grid-column:1/-1}.r-row .co{grid-column:1/-1}.r-row .role{grid-column:1/-1}.r-row .desc{grid-column:1/-1}}
 .skills{padding-block:var(--s3);gap:var(--s3) var(--col-gap)}
-.skills{grid-template-columns:repeat(5,minmax(0,1fr))}
+.skills{grid-template-columns:repeat(6,minmax(0,1fr))}
 .skills div{display:flex;flex-direction:column;gap:var(--s1);min-width:0}
 @media (max-width:860px){.skills{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
@@ -390,7 +390,7 @@ header.top{transition:transform .7s cubic-bezier(.2,.7,.2,1),background-color .3
     <div class="mono mute" style="grid-column:1/-1">(Contact)</div>
     <p class="ticker">I design <span id="rot">design systems</span>.</p>
     <div class="big"><a href="mailto:hi@coreydixon.design">Get in touch<span class="c">.</span></a></div>
-    <div class="open mono"><span class="mute">Open to work in —</span><span>Product Design</span><span>Design Systems</span><span>Fintech</span><span>E-Commerce</span><span>Motion</span></div>
+    <div class="open mono"><span class="mute">Open to work in —</span><span>Product Design</span><span>Design Systems</span><span>Fintech</span><span>Mobile Apps</span><span>E-Commerce</span></div>
     <div class="col mono"><span class="mute">Email</span><span id="email">hi@coreydixon.design</span><button type="button" class="copy mono" id="copy">Copy email</button></div>
     <div class="col mono"><span class="mute">Elsewhere</span><a href="https://linkedin.com/in/corey-dixon" target="_blank" rel="noopener">LinkedIn ↗</a><a class="dl" href="/Corey-Dixon-CV-2026.pdf" download>CV (PDF) ↓</a></div>
     <div class="col mono"><span class="mute">Based</span><span>Richmond, VA</span></div>
@@ -485,7 +485,7 @@ const P = [
     story:[
       {k:"(The Brief)", h:"A digital evolution, built on one foundation.",
        p:["The PGA Tour was reimagining its digital experience: every shot live, every hole in 3D, and stories that follow the players fans care about. Ambitions that big need a system underneath, or every new feature turns into a one-off.",
-          "Haskell is that system. I helped define its foundations and components and carried them into the product, so the vision work and the shipping app spoke the same language."]},
+          "Haskell is that system. I led its foundations and components and carried them into the product, so the vision work and the shipping app spoke the same language."]},
       {k:"(Principles)", h:"Fan focused. Immersive.",
        p:["Every decision traced back to two principles: put the players fans follow front and center, and bring them directly into the competition with live scores, short video and the course itself."]},
       {media:[["s-b-hk-principles","Principles: Fan Focused and Immersive","full"]]},
@@ -700,18 +700,18 @@ const P = [
 
 ];
 const ROWS = [
-  ["Jun 2026 — Present","GetWyz","Senior Designer","Richmond, VA · Hybrid · Product and visual design across the platform"],
-  ["Feb 2026 — Jun 2026","PayPal","Senior UX Designer","Contract · Remote · PayPal and Venmo consumer and merchant experiences, motion and prototyping"],
-  ["Nov 2025 — Mar 2026","Left Field Labs","Senior Designer","Freelance · Los Angeles · Remote · Art direction and design for Google I/O 2026"],
-  ["Dec 2024 — Nov 2025","Grow","Senior Designer","Contract · Norfolk, VA · Product design and design systems for Capital One enterprise tools and the Rock &amp; Roll Hall of Fame"],
-  ["Oct 2023 — Dec 2024","Shockoe","Design Team Lead","Mobile by Design · Remote · Responsive web and native mobile apps"],
-  ["Jun 2022 — Oct 2023","VF Corporation","Senior Designer","Contract · Remote · Design systems and redesigns for Dickies, The North Face, Vans and Timberland"],
-  ["Oct 2021 — Jun 2022","Shockoe","Senior Product Designer","Contract · Remote · PGA Tour app and the Haskell design system"],
-  ["Mar 2020 — Oct 2021","Pow","Senior Designer","Portland, OR · Remote · Led design of Morgan Stanley’s Beacon design system and documentation site"],
-  ["Jan 2019 — Mar 2020","Money.com","Visual Designer","San Juan, PR · UX and product design for consumer financial tools"],
-  ["Jan 2018 — Dec 2018","CarMax","Visual Designer","Contract · Richmond, VA · Responsive product and lifecycle design"],
-  ["Nov 2016 — Jan 2018","Capital One","Associate Visual Designer","Richmond, VA · Patterns and components for the Gravity design system"],
-  ["Jun 2012 — Nov 2016","Dominion Enterprises","Product Designer","Norfolk, VA · Web and native apps for Homes.com"],
+  ["Jun 2026 — Present","GetWyz","Senior Designer","Richmond, VA · Hybrid · Leading product and visual design across the GetWyz platform, from early concepts through shipped features, working day to day with product and engineering."],
+  ["Feb 2026 — Jun 2026","PayPal","Senior UX Designer","Contract · Remote · Led end-to-end product design across PayPal and Venmo consumer and merchant experiences, using motion design and prototyping to craft scalable, high-impact product storytelling."],
+  ["Nov 2025 — Mar 2026","Left Field Labs","Senior Designer","Freelance · Los Angeles · Remote · Led art direction and design for the Google I/O 2026 pre-launch experience: experimental games that gradually unlocked the official conference date."],
+  ["Dec 2024 — Nov 2025","Grow","Senior Designer","Contract · Norfolk, VA · Led end-to-end product design and design systems for Capital One enterprise tools, and design for the Rock &amp; Roll Hall of Fame’s digital experience, partnering closely with product and engineering."],
+  ["Oct 2023 — Dec 2024","Shockoe","Design Team Lead","Mobile by Design · Remote · Led design for responsive web and native mobile applications, owning concept, execution and cross-functional collaboration."],
+  ["Jun 2022 — Oct 2023","VF Corporation","Senior Designer","Contract · Remote · Led design system work and digital redesigns for Dickies, The North Face, Vans and Timberland, supporting a unified VF global ecosystem."],
+  ["Oct 2021 — Jun 2022","Shockoe","Senior Product Designer","Contract · Remote · Led design of the PGA Tour app and its Haskell design system, across responsive web and native mobile."],
+  ["Mar 2020 — Oct 2021","Pow","Senior Designer","Portland, OR · Remote · Led design of Morgan Stanley’s Beacon design system and its documentation site, adopted firm-wide across financial services products."],
+  ["Jan 2019 — Mar 2020","Money.com","Visual Designer","San Juan, PR · Led UX and product design for consumer financial tools, from discovery through delivery."],
+  ["Jan 2018 — Dec 2018","CarMax","Visual Designer","Contract · Richmond, VA · Delivered responsive product and lifecycle design within a large enterprise environment."],
+  ["Nov 2016 — Jan 2018","Capital One","Associate Visual Designer","Richmond, VA · Crafted foundational patterns and components for the Gravity design system, supporting web and app experiences still in use across Capital One products today."],
+  ["Jun 2012 — Nov 2016","Dominion Enterprises","Product Designer","Norfolk, VA · Designed and delivered responsive web and native app experiences for Homes.com, supporting large-scale consumer real estate platforms."],
 ];
 const EDU = [["2006 — 2010","Old Dominion University","Bachelor of Fine Arts"],["2016","University of Richmond","Full Stack Bootcamp"],["2019","Future London Academy","UX Design Week"]];
 const rowHTML = r=>{ const m=r[3].match(/^(Contract|Freelance) · /); const tag=m?` <span class="tag mono">${m[1]}</span>`:""; const d=m?r[3].slice(m[0].length):r[3];
@@ -876,7 +876,7 @@ function resume(){
   const rows = ROWS;
   return `<div class="view">
     <section class="hero">
-      <h1 class="statement">Senior &amp; Lead Product Designer. <span class="mute">14 years building scalable web and app experiences for enterprise and global brands.</span></h1>
+      <h1 class="statement">Senior &amp; Lead Product Designer. <span class="mute">14 years designing design systems, mobile apps and web products for fintech, enterprise, e-commerce and sports brands.</span></h1>
       <div class="grid">
         <p class="lede lede-sm mono mute">(Resume) — Experience &amp; capabilities</p>
         <dl class="facts mono">
@@ -903,7 +903,8 @@ function resume(){
         <div><span class="mono mute">Systems</span><span>Design systems<br>Component libraries<br>Design tokens<br>Accessibility (WCAG AA)</span></div>
         <div><span class="mono mute">Industries</span><span>Fintech &amp; financial services<br>Payments<br>E-commerce &amp; retail<br>Sports &amp; media</span></div>
         <div><span class="mono mute">Craft</span><span>Art direction<br>Interaction &amp; motion<br>Prototyping<br>UX research</span></div>
-        <div><span class="mono mute">AI &amp; tools</span><span>Figma<br>AI-assisted workflows<br>Vibe-coded prototypes<br>HTML, CSS &amp; JavaScript</span></div>
+        <div><span class="mono mute">Tools</span><span>Figma<br>Adobe Creative Cloud<br>ProtoPie<br>Framer<br>Jitter<br>Spline</span></div>
+        <div><span class="mono mute">AI &amp; code</span><span>AI-assisted workflows<br>AI prototyping (vibe coding)<br>HTML, CSS &amp; JavaScript</span></div>
       </div>
     </section>
   </div>`;
