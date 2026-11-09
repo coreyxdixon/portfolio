@@ -228,6 +228,7 @@ footer .col span{overflow-wrap:anywhere}
 figure{margin:0;display:flex;flex-direction:column;gap:var(--s1);min-width:0}
 figcaption{display:flex;justify-content:space-between;gap:16px}
 .stats{padding-top:var(--s4);row-gap:var(--s3)}
+.stat b .star{display:inline-block;font-size:.52em;line-height:1;vertical-align:.32em;margin-left:.08em}
 .stats .stat span{max-width:32ch;line-height:1.5}
 .stat{grid-column:span 4;border-top:1px solid var(--ink);padding-top:var(--s2);display:flex;flex-direction:column;gap:var(--s1)}
 .stat b{font-family:var(--sans);font-size:clamp(40px,5vw,80px);font-weight:500;letter-spacing:-.05em;line-height:1}
@@ -421,8 +422,8 @@ const P = [
        p:["I led art direction and design. We treated Google’s palette as folded, bent and layered cards with light moving across them, so each bundle had its own personality and still read instantly as Google.",
           "Type stayed calm and huge so the play could be loud. “Let’s play” did most of the talking."]},
       {media:[["m-io-complete","Bundle complete, the payoff moment","full"]]},
-      {k:"(Motion System)", h:"One motion vocabulary for designers, animators and engineers.",
-       p:["With many games in flight at once, motion could drift fast. I wrote it down as a system: shared easing curves, timing tiers for micro, transition and hero moments, and rules for how cards enter, stack and celebrate a win.",
+      {k:"(Visual System)", h:"One visual language across every game.",
+       p:["With many games in flight at once, the look could drift fast. I set the art direction as a system: the layered-card language, color and type rules, and how every win, badge and progress state looks, so each bundle felt new and still read as one experience.",
           "We prototyped in the browser with engineering from the start, so what got approved in review is what shipped."]},
       {media:[["m-io-progress","Community progress. Every play fills the bar","full"]]},
       {k:"(The Reveal)", h:"Everyone played. Everyone unlocked it.",
@@ -657,7 +658,7 @@ const P = [
 const ROWS = [
   ["Jun 2026 — Present","GetWyz","Senior Designer","Richmond, VA · Hybrid · Product and visual design across the platform"],
   ["Feb 2026 — Jun 2026","PayPal","Senior UX Designer","Contract · Remote · PayPal and Venmo consumer and merchant experiences, motion and prototyping"],
-  ["Nov 2025 — Mar 2026","Left Field Labs","Senior Designer","Freelance · Los Angeles · Remote · Motion and art direction for Google I/O 2026"],
+  ["Nov 2025 — Mar 2026","Left Field Labs","Senior Designer","Freelance · Los Angeles · Remote · Art direction and design for Google I/O 2026"],
   ["Dec 2024 — Nov 2025","Grow","Senior Designer","Contract · Norfolk, VA · Product design and design systems for Capital One enterprise tools and the Rock &amp; Roll Hall of Fame"],
   ["Oct 2023 — Dec 2024","Shockoe","Design Team Lead","Mobile by Design · Remote · Responsive web and native mobile apps"],
   ["Jun 2022 — Oct 2023","VF Corporation","Senior Designer","Contract · Remote · Design systems and redesigns for Dickies, The North Face, Vans and Timberland"],
@@ -819,7 +820,7 @@ function projectReal(p){
       <div><span class="mute">Role</span><span>${p.role}</span></div>
       <div><span class="mute">Team</span><span>${p.lead||p.team}</span></div>
     </section>
-    ${p.stats?`<section class="grid stats mono">${p.stats.map(x=>`<div class="stat"><b>${x[0]}</b><span class="mute">${x[1]}</span></div>`).join("")}</section>`:""}
+    ${p.stats?`<section class="grid stats mono">${p.stats.map(x=>`<div class="stat"><b>${x[0].replace("★",'<span class="star">★</span>')}</b><span class="mute">${x[1]}</span></div>`).join("")}</section>`:""}
     ${blocks}
     <a class="next" href="#${nx.id}"><span class="mono mute">Next — N°${nx.n}</span><span class="t">${nx.client} →</span></a>
   </div>`;
