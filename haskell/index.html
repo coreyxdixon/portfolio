@@ -68,6 +68,8 @@ hr{border:0;border-top:1px solid var(--rule);margin:0}
 
 /* Header */
 header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);padding-block:var(--s2);border-bottom:1px solid var(--rule)}
+/* The header sits inside the page gutters; paint its background out to both screen edges so full-bleed media never shows beside it. */
+header.top{box-shadow:0 0 0 100vmax var(--paper);clip-path:inset(0 -100vmax)}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--paper)}
 header.top .grid{align-items:start}
 .brand{grid-column:1/4;font-weight:500;font-size:20px;line-height:1;letter-spacing:-.02em;justify-self:start;align-self:center;display:inline-flex;align-items:center;min-height:44px;margin-block:-8px}
