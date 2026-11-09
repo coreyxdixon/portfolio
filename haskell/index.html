@@ -1027,7 +1027,7 @@ document.getElementById("copy").addEventListener("click", e=>{
 
 addEventListener("hashchange", route); route();
 // Warm the list-view previews (about 150KB total) once the page is idle, so hovering shows them instantly.
-(function(){ const go=()=>P.forEach(p=>{ const i=new Image(); i.src=`work/th-${p.id}-s.webp?v=11091620`; i.decode&&i.decode().catch(()=>{}); });
+(function(){ const go=()=>P.forEach(p=>{ const i=new Image(); i.src=`/work/th-${p.id}-s.webp?v=11091620`; i.decode&&i.decode().catch(()=>{}); });
   if(matchMedia("(hover:hover) and (pointer:fine)").matches){ ("requestIdleCallback" in window) ? requestIdleCallback(go,{timeout:2500}) : setTimeout(go,1200); } })();
 addEventListener("pageshow",e=>{ if(!e.persisted && key()==="home" && !location.hash) scrollTo(0,0) });
 addEventListener("load",()=>{ if(key()==="home" && !location.hash && scrollY<4) scrollTo(0,0) });
