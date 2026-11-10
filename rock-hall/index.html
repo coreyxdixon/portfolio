@@ -178,6 +178,15 @@ html{overflow-anchor:none}
 .cap{display:grid;grid-template-columns:52px 1fr auto;gap:16px;align-items:baseline;border-top:1px solid var(--rule);padding-top:var(--s2)}
 .cap-t{font-weight:500;font-size:clamp(17px,1.5vw,22px);letter-spacing:-.02em;transition:color .2s}
 .work>.card{grid-column:span 6}
+/* Closing tile: fills the odd slot in the grid with an invitation instead of a gap. */
+.card-cta .cta-tile{background:var(--tile)!important;border:1px solid var(--rule);display:flex;flex-direction:column;justify-content:space-between;padding:var(--s3)}
+.card-cta .cta-tile::before{display:none}
+.card-cta .ph-n{color:var(--mute)!important}
+.cta-h{font-size:clamp(32px,8.6cqi,76px);line-height:.95;letter-spacing:-.05em;font-weight:500;color:var(--ink)}
+.cta-k,.cta-l{color:var(--mute)}.card-cta:hover .cta-l{color:var(--ink)}
+.card-cta:hover .cta-tile{border-color:var(--hover)}
+@media (max-width:760px){.cap{row-gap:4px}.cap .r{display:block!important;grid-column:2}}
+
 @media (max-width:760px){.work>.card{grid-column:1/-1!important}.cap{grid-template-columns:40px 1fr}.cap .r{display:none}}
 
 /* Index list */
@@ -392,7 +401,7 @@ header.top{transition:transform .7s cubic-bezier(.2,.7,.2,1),background-color .3
     <div class="mono mute" style="grid-column:1/-1">(Contact)</div>
     <p class="ticker">I design <span id="rot">design systems</span>.</p>
     <div class="big"><a href="mailto:hi@coreydixon.design">Get in touch<span class="c">.</span></a></div>
-    <div class="open mono"><span class="mute">Open to work in —</span><span>Product Design</span><span>Design Systems</span><span>Fintech</span><span>Mobile Apps</span><span>E-Commerce</span></div>
+    <div class="open mono"><span class="mute">Open to work in —</span><span>Product Design</span><span>Design Systems</span><span>Fintech</span><span>Mobile Apps</span><span>E&#8209;Commerce</span></div>
     <div class="col mono"><span class="mute">Email</span><span id="email">hi@coreydixon.design</span><button type="button" class="copy mono" id="copy">Copy email</button></div>
     <div class="col mono"><span class="mute">Elsewhere</span><a href="https://linkedin.com/in/corey-dixon" target="_blank" rel="noopener">LinkedIn ↗</a><a class="dl" href="/Corey-Dixon-CV-2026.pdf" download>CV (PDF) ↓</a></div>
     <div class="col mono"><span class="mute">Based</span><span>Richmond, VA</span></div>
@@ -741,9 +750,13 @@ try{ mode = localStorage.getItem(modeKey()) || mode }catch(e){}
 function home(){
   const cards = P.map((p,i)=>`<a class="card ${layout[i%layout.length]}" href="/${p.id}/">
       ${cover(p,"")}
-      <div class="cap"><span class="mono mute">N°${p.n}</span><span class="cap-t">${p.co}</span><span class="mono mute r">${p.disc}</span></div>
-    </a>`).join("");
-  const list = P.map(p=>`<li><a href="/${p.id}/"><span class="n mono mute">N°${p.n}</span><span class="t">${p.client}</span><span class="d mono">${p.disc}</span><span class="y mono mute">${p.draft?"In progress":"Case study"} →</span></a></li>`).join("");
+      <div class="cap"><span class="mono mute">N°${p.n}</span><span class="cap-t">${p.co}</span><span class="mono mute r">${p.disc.replace("-","&#8209;")}</span></div>
+    </a>`).join("") + (P.length%2 ? `<a class="card card-cta" href="#contact">
+      <div class="ph cta-tile" style="--ar:3/2"><span class="ph-n mono">${String(P.length+1).padStart(3,"0")}.00</span>
+        <span class="cta-k mono">(Next)</span><span class="cta-h">Your product<br>could be next.</span><span class="cta-l mono">Get in touch →</span></div>
+      <div class="cap"><span class="mono mute">N°${String(P.length+1).padStart(3,"0")}</span><span class="cap-t">Open to select work</span><span class="mono mute r">Let’s talk</span></div>
+    </a>` : "");
+  const list = P.map(p=>`<li><a href="/${p.id}/"><span class="n mono mute">N°${p.n}</span><span class="t">${p.client}</span><span class="d mono">${p.disc.replace("-","&#8209;")}</span><span class="y mono mute">${p.draft?"In progress":"Case study"} →</span></a></li>`).join("");
   return `<div class="view">
     <section class="hero">
       <h1 class="statement">Lead product designer behind design systems and digital products for global brands. <span class="mute">14 years taking the work from first idea to shipped.</span></h1>
@@ -751,7 +764,7 @@ function home(){
         <p class="lede lede-sm mono mute">(Index) — Selected work, 2021–2026</p>
         <dl class="facts mono">
           <dt>Practice</dt><dd>Product Design · Art Direction</dd>
-          <dt>Focus</dt><dd>Design Systems · Fintech · Apps · E-Commerce</dd>
+          <dt>Focus</dt><dd>Design Systems · Fintech · Apps · E&#8209;Commerce</dd>
           <dt>Tenure</dt><dd>14 Years · Senior &amp; Lead Roles</dd>
           <dt>Status</dt><dd><i class="live" aria-hidden="true"></i>Open to select work</dd>
         </dl>
@@ -767,9 +780,9 @@ function home(){
     </section>
     <section class="about"><div class="grid">
       <span class="k mono mute">(Intro)</span>
-      <p class="v">Senior and lead product designer with 14 years in fintech and financial services, enterprise tools, e-commerce and sports media. I build design systems and component libraries, design iOS, Android and responsive web products, and take the work from first concept to shipped, across agency and in-house teams.</p>
+      <p class="v">Senior and lead product designer with 14 years in fintech and financial services, enterprise tools, e&#8209;commerce and sports media. I build design systems and component libraries, design iOS, Android and responsive web products, and take the work from first concept to shipped, across agency and in-house teams.</p>
       <div class="clients mono"><span class="mute">Work —</span>${["Capital One","Google","Morgan Stanley","PGA Tour","PayPal","The North Face","Dickies","Smartwool","Rock Hall"].map(c=>`<span>${c}</span>`).join("")}</div>
-      <div class="clients mono"><span class="mute">Industries —</span>${["Fintech &amp; financial services","Payments","Enterprise &amp; B2B tools","E-commerce &amp; retail","Sports &amp; media","Consumer tech"].map(c=>`<span>${c}</span>`).join("")}</div>
+      <div class="clients mono"><span class="mute">Industries —</span>${["Fintech &amp; financial services","Payments","Enterprise &amp; B2B tools","E&#8209;commerce &amp; retail","Sports &amp; media","Consumer tech"].map(c=>`<span>${c}</span>`).join("")}</div>
     </div></section>
     <section>
       <div class="sec-head"><div class="grid mono"><span class="l">(Experience)</span><span class="m mute">Years / Company / Role / Scope</span><span class="r"><a href="/resume/">Full resume →</a></span></div></div>
@@ -854,7 +867,7 @@ function projectReal(p){
       <h1 class="p-title">${p.client}<span class="c">.</span></h1>
       <div class="grid p-meta mono">
         <div><span class="mute">Client</span><span>${p.co}</span></div>
-        <div><span class="mute">Type</span><span>${p.disc}</span></div>
+        <div><span class="mute">Type</span><span>${p.disc.replace("-","&#8209;")}</span></div>
         <div><span class="mute">Platform</span><span>${p.platform}</span></div>
       </div>
     </section>
@@ -878,7 +891,7 @@ function resume(){
   const rows = ROWS;
   return `<div class="view">
     <section class="hero">
-      <h1 class="statement">Senior &amp; Lead Product Designer. <span class="mute">14 years designing design systems, mobile apps and web products for fintech, enterprise, e-commerce and sports brands.</span></h1>
+      <h1 class="statement">Senior &amp; Lead Product Designer. <span class="mute">14 years designing design systems, mobile apps and web products for fintech, enterprise, e&#8209;commerce and sports brands.</span></h1>
       <div class="grid">
         <p class="lede lede-sm mono mute">(Resume) — Experience &amp; capabilities</p>
         <dl class="facts mono">
@@ -903,7 +916,7 @@ function resume(){
       <div class="grid skills">
         <div><span class="mono mute">Product</span><span>Mobile apps (iOS &amp; Android)<br>Responsive web<br>Enterprise &amp; B2B tools<br>Consumer platforms</span></div>
         <div><span class="mono mute">Systems</span><span>Design systems<br>Component libraries<br>Design tokens<br>Accessibility (WCAG AA)</span></div>
-        <div><span class="mono mute">Industries</span><span>Fintech &amp; financial services<br>Payments<br>E-commerce &amp; retail<br>Sports &amp; media</span></div>
+        <div><span class="mono mute">Industries</span><span>Fintech &amp; financial services<br>Payments<br>E&#8209;commerce &amp; retail<br>Sports &amp; media</span></div>
         <div><span class="mono mute">Craft</span><span>Art direction<br>Interaction &amp; motion<br>Prototyping<br>UX research</span></div>
         <div><span class="mono mute">Tools</span><span>Figma<br>Adobe Creative Cloud<br>ProtoPie<br>Framer<br>Jitter<br>Spline</span></div>
         <div><span class="mono mute">AI &amp; code</span><span>AI-assisted workflows<br>AI prototyping (vibe coding)<br>HTML, CSS &amp; JavaScript</span></div>
