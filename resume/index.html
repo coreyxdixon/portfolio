@@ -416,7 +416,7 @@ function setMode(m){ if(m==="light") root.setAttribute("data-mode","light"); els
 let saved="dark"; try{saved=localStorage.getItem("cd-theme")||"dark"}catch(e){}
 setMode(saved);
 document.querySelector(".modes").addEventListener("click",e=>{const b=e.target.closest("[data-set]"); if(b) setMode(b.dataset.set)});
-const IMG = {"l-cv-4":[3200,2000],"l-cv-5":[3200,2000],"l-cv-6":[3200,2000],"l-hk-1":[3200,2000],"l-hk-2":[3200,2000],"l-hk-3":[3200,2000],"l-hk-4":[3200,2000],"l-hk-5":[3200,2000],"l-hk-6":[3200,2000],"l-hk-7":[3200,2000],"l-rh-collage":[3200,2000],"l-rh-essay":[3200,2000],"l-rh-feature":[3200,2000],"l-rh-timeline":[3200,2000],"l-rh2-influence":[3200,2000],"l-rh2-poster":[3200,2000],"l-rh2-sound":[3200,2000],"l-rh3-art":[3200,2000],"l-rh3-back":[3200,2000],"l-rh3-quote":[3200,2000],"l-rhx-hero-stones":[3200,2000],"m-bc-color":[3200,2000],"m-bc-comps":[3200,2000],"m-bc-gallery":[3200,2000],"m-bc-home":[3200,2000],"m-bc-pattern":[3200,2000],"m-bc-start":[3200,2000],"m-bc-type":[3200,2000],"m-dk-biz":[3200,2000],"m-dk-cart":[3200,2000],"m-dk-home":[3200,2000],"m-dk-pdp":[3200,2000],"m-dk-plp":[3200,2000],"m-dk-scrubs":[3200,2000],"m-dk-skate":[3200,2000],"m-dk-stories":[3200,2000],"m-dk-team":[3200,2000],"m-io-color":[3200,2000],"m-io-complete":[3200,2000],"m-io-motion":[3200,2000],"m-io-play":[3200,2000],"m-io-progress":[3200,2000],"m-io-remix":[3200,2000],"m-io-reveal":[3200,2000],"m-io-sense":[3200,2000],"m-io-share":[3200,2000],"m-io-sound":[3200,2000],"m-io-unlock":[3200,2000],"m-pga2-feed":[3200,2000],"m-pga2-hero":[3200,2000],"m-pga2-hole":[3200,2000],"m-pga2-live":[3200,2000],"m-pga2-onboard":[3200,2000],"m-pga2-story":[3200,2000],"m-sw-act":[3200,2000],"m-sw-coll":[3200,2000],"m-sw-gear":[3200,2000],"m-sw-home":[3200,2000],"m-sw-plant":[3200,2000],"m-sw-prod":[3200,2000],"m-sw-v2":[3200,2000],"s-b-cv-buttons":[3200,2000],"s-b-dk-mobile":[3200,2000],"s-b-hk-art":[3200,2000],"s-b-hk-found":[3200,2000],"s-b-hk-principles":[3200,2000],"s-b-hk-specs":[3200,2000],"s-b-hk-themes":[3200,2000],"s-b-io-direction":[3200,2000],"s-b-io-mobile":[3200,2000],"s-b-rh-system":[3200,2000],"s-b-sw-mobile":[3200,2000],"s-cv-hero":[3200,2000],"s-cv2-brands":[3200,2000],"s-cv2-ramps":[3200,2000],"s-cv2-tokens":[3200,2000],"s-dbg-action":[3200,2000],"s-dbg-color":[3200,2000],"s-dbg-dos":[3200,2000],"s-dbg-hero":[3200,2000],"s-dbg-logo":[3200,2000],"s-dbg-photo":[3200,2000],"s-dbg-type":[3200,2000],"s-hk-p-fan":[3200,2000],"s-hk-vision-wall":[3200,2000]};
+const IMG = {"l-cv-4":[3200,2000],"l-cv-5":[3200,2000],"l-cv-6":[3200,2000],"l-hk-1-v2":[3200,2000],"l-hk-2":[3200,2000],"l-hk-3":[3200,2000],"l-hk-4":[3200,2000],"l-hk-5":[3200,2000],"l-hk-6":[3200,2000],"l-hk-7":[3200,2000],"l-rh-collage":[3200,2000],"l-rh-essay":[3200,2000],"l-rh-feature":[3200,2000],"l-rh-timeline":[3200,2000],"l-rh2-influence":[3200,2000],"l-rh2-poster":[3200,2000],"l-rh2-sound":[3200,2000],"l-rh3-art":[3200,2000],"l-rh3-back":[3200,2000],"l-rh3-quote":[3200,2000],"l-rhx-hero-stones":[3200,2000],"m-bc-color":[3200,2000],"m-bc-comps":[3200,2000],"m-bc-gallery":[3200,2000],"m-bc-home":[3200,2000],"m-bc-pattern":[3200,2000],"m-bc-start":[3200,2000],"m-bc-type":[3200,2000],"m-dk-biz":[3200,2000],"m-dk-cart":[3200,2000],"m-dk-home":[3200,2000],"m-dk-pdp":[3200,2000],"m-dk-plp":[3200,2000],"m-dk-scrubs":[3200,2000],"m-dk-skate":[3200,2000],"m-dk-stories":[3200,2000],"m-dk-team":[3200,2000],"m-io-color":[3200,2000],"m-io-complete":[3200,2000],"m-io-motion":[3200,2000],"m-io-play":[3200,2000],"m-io-progress":[3200,2000],"m-io-remix":[3200,2000],"m-io-reveal":[3200,2000],"m-io-sense":[3200,2000],"m-io-share":[3200,2000],"m-io-sound":[3200,2000],"m-io-unlock":[3200,2000],"m-pga2-feed":[3200,2000],"m-pga2-hero-v2":[3200,2000],"m-pga2-hole":[3200,2000],"m-pga2-live":[3200,2000],"m-pga2-onboard-v2":[3200,2000],"m-pga2-story":[3200,2000],"m-sw-act":[3200,2000],"m-sw-coll":[3200,2000],"m-sw-gear":[3200,2000],"m-sw-home":[3200,2000],"m-sw-plant":[3200,2000],"m-sw-prod":[3200,2000],"m-sw-v2":[3200,2000],"s-b-cv-buttons":[3200,2000],"s-b-dk-mobile":[3200,2000],"s-b-hk-art":[3200,2000],"s-b-hk-found":[3200,2000],"s-b-hk-principles":[3200,2000],"s-b-hk-specs":[3200,2000],"s-b-hk-themes":[3200,2000],"s-b-io-direction":[3200,2000],"s-b-io-mobile":[3200,2000],"s-b-rh-system":[3200,2000],"s-b-sw-mobile":[3200,2000],"s-cv-hero":[3200,2000],"s-cv2-brands":[3200,2000],"s-cv2-ramps":[3200,2000],"s-cv2-tokens":[3200,2000],"s-dbg-action":[3200,2000],"s-dbg-color":[3200,2000],"s-dbg-dos":[3200,2000],"s-dbg-hero":[3200,2000],"s-dbg-logo":[3200,2000],"s-dbg-photo":[3200,2000],"s-dbg-type":[3200,2000],"s-hk-p-fan":[3200,2000],"s-hk-vision-wall":[3200,2000]};
 const P = [
   {id:"google-io", n:"001", client:"Google I/O 2026",co:"Google", short:"Google I/O", disc:"Web Experience", tint:"#A23E1D",
     role:"Art director &amp; designer", platform:"Responsive web", cover:"m-io-play",
@@ -456,20 +456,20 @@ const P = [
     ]},
 
   {id:"pga-tour", n:"002", client:"PGA Tour App",co:"PGA Tour", short:"PGA Tour App", disc:"Mobile App", tint:"#1C2B4A",
-    role:"Design lead", platform:"iOS · Android", cover:"m-pga2-hero",
+    role:"Design lead", platform:"iOS · Android", cover:"m-pga2-hero-v2",
     scope:"YourTOUR, live leaderboards, TOURCast shot tracking, scorecards and Watch, on iOS and Android",
     stats:[["0","Taps to your favorite golfers: YourTOUR leads the home feed"],["9","Product areas redesigned, from onboarding to Watch"],["4.5★","App Store rating for the app, across 45K+ reviews"]],
     lead:"I led design on the app at Shockoe. I owned the visual direction and the UI end to end, and drove it with the Tour’s product, brand and engineering teams",
     team:"With Shockoe and the PGA Tour brand and product teams",
     tagline:"Fans follow players, not tournaments. We rebuilt the PGA Tour app around that.",
-    hero:["m-pga2-hero","YourTOUR, the live leaderboard and hole detail"],
+    hero:["m-pga2-hero-v2","YourTOUR, the live leaderboard and hole detail"],
     story:[
       {k:"(The Brief)", h:"A powerful app that made fans do all the work.",
        p:["At Shockoe, we partnered with the PGA Tour on its flagship app. It had scores, stats, video and news, organized the way the Tour thinks about golf: by event and by round. Fans think about golf by player. Checking on your favorite golfer took several taps and a lot of scrolling.",
           "The brief was onboarding, personalization and a simpler core experience, with more of the Tour’s energy in the product."]},
       {k:"(Onboarding)", h:"Pick your players first. Everything else follows.",
        p:["Favorites moved to the very start. Pick your tours and your players, and those choices shape the home feed, the alerts and what surfaces during a live round. That became YourTOUR, a feed that leads with the story of the day for the players you care about."]},
-      {media:[["m-pga2-onboard","Choose your tours, set the scene, keep your favorites","full"]]},
+      {media:[["m-pga2-onboard-v2","Choose your tours, set the scene, keep your favorites","full"]]},
       {media:[["s-hk-p-fan","Fan focused: the players you follow, front and center","full"]]},
       {k:"(Live Golf)", h:"Shot-level data, readable at a glance.",
        p:["Golf produces a huge amount of data. We kept what a fan actually checks, laid over the course itself: the leaderboard, the group on the tee, par, yardage and scoring on every hole, and TourCast tracing every shot."]},
@@ -486,13 +486,13 @@ const P = [
     ]},
 
   {id:"haskell", n:"003", client:"Haskell Design System",co:"PGA Tour", short:"Haskell", disc:"Design System", tint:"#2F4A35",
-    role:"Design system lead", platform:"iOS · Android · Web · Figma", cover:"l-hk-1",
+    role:"Design system lead", platform:"iOS · Android · Web · Figma", cover:"l-hk-1-v2",
     scope:"Tokens, type, color, icons, motion and specs shared across iOS, Android and web",
     stats:[["11","Foundation sets, from type and color to motion and art direction"],["3","Platforms, iOS, Android and web, from one source of truth"],["4.5:1","Minimum contrast, built into every Tour theme"]],
     lead:"I led the Haskell system at Shockoe, building it alongside the app and owning the foundations and specs that Tour engineers and partners shipped from",
     team:"With Shockoe and the PGA Tour digital, brand and engineering teams",
     tagline:"Every shot, every hole, every screen. One system underneath it all.",
-    hero:["l-hk-1","Foundations, and YourTOUR built on them"],
+    hero:["l-hk-1-v2","Foundations, and YourTOUR built on them"],
     story:[
       {k:"(The Brief)", h:"A digital evolution, built on one foundation.",
        p:["The PGA Tour was reimagining its digital experience: every shot live, every hole in 3D, and stories that follow the players fans care about. Ambitions that big need a system underneath, or every new feature turns into a one-off.",
