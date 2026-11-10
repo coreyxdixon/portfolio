@@ -701,9 +701,9 @@ const ph = (p, i, label, ar) => `<div class="ph" style="--tint:${p.tint};--ar:${
   ${i===0?`<span class="ph-mark">${p.short}</span>`:""}
   <span class="ph-l mono">${label}</span></div>`;
 
-const img = (k, alt, eager) => { const d=IMG[k]||[1600,900]; const lock=/^(l|m)-/.test(k); return (lock?'<span class="shot-wrap">':'')+`<img class="shot" src="/work/${k}.webp?v=11091620" alt="${alt}" width="${d[0]}" height="${d[1]}" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async">`+(lock?'</span>':''); };
+const img = (k, alt, eager) => { const d=IMG[k]||[1600,900]; const lock=/^(l|m)-/.test(k); return (lock?'<span class="shot-wrap">':'')+`<img class="shot" src="/work/${k}.webp?v=11101340" alt="${alt}" width="${d[0]}" height="${d[1]}" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async">`+(lock?'</span>':''); };
 const USE_COVERS = false; // flip to true once every project has a matching-resolution cover
-const thumb = (p, small) => `<div class="ph ph-th" style="--tint:${p.tint};--ar:3/2"><img src="/work/th-${p.id}${small?"-s":""}.webp?v=11091620" alt="" width="${small?600:1500}" height="${small?400:1000}" ${small?"":'loading="lazy"'} decoding="async"><span class="ph-n mono">${p.n}.00</span>${p.award?`<span class="ph-aw mono">${p.award}</span>`:""}<span class="ph-mark">${p.short}</span></div>`;
+const thumb = (p, small) => `<div class="ph ph-th" style="--tint:${p.tint};--ar:3/2"><img src="/work/th-${p.id}${small?"-s":""}.webp?v=11101340" alt="" width="${small?600:1500}" height="${small?400:1000}" ${small?"":'loading="lazy"'} decoding="async"><span class="ph-n mono">${p.n}.00</span>${p.award?`<span class="ph-aw mono">${p.award}</span>`:""}<span class="ph-mark">${p.short}</span></div>`;
 const cover = (p, label) => thumb(p);
 const coverOld = (p, label) => (USE_COVERS && p.cover)
   ? `<div class="ph ph-img" style="--ar:3/2">${img(p.cover, p.short.replace(/&amp;/g,"&")+" project cover")}</div>`
@@ -818,7 +818,7 @@ function projectReal(p){
   const bp = b => { n++; const ks=Object.keys(b.bp); const first=ks[0];
     return `<div class="grid p-media"><div class="spec" data-bpview><div class="spec-head mono"><span class="mute">(Breakpoints) — <span class="bp-w">${BPPX[first]}px</span></span>
       <span class="seg" role="group" aria-label="Breakpoint">${ks.map(k=>`<button data-bp="${k}" aria-pressed="${k===first}">${k}</button>`).join("")}</span></div>
-      <div class="bp-stage"><div class="bp-frame" style="width:${BPW[first]}">${ks.map(k=>{const d=IMG[b.bp[k]]||[1600,1000];return `<img src="/work/${b.bp[k]}.webp?v=11091620" alt="${alt(b.cap+" — "+k)}" width="${d[0]}" height="${d[1]}" loading="lazy" decoding="async" data-k="${k}" class="${k===first?"on":""}">`}).join("")}</div></div>
+      <div class="bp-stage"><div class="bp-frame" style="width:${BPW[first]}">${ks.map(k=>{const d=IMG[b.bp[k]]||[1600,1000];return `<img src="/work/${b.bp[k]}.webp?v=11101340" alt="${alt(b.cap+" — "+k)}" width="${d[0]}" height="${d[1]}" loading="lazy" decoding="async" data-k="${k}" class="${k===first?"on":""}">`}).join("")}</div></div>
       <div class="spec-cap mono mute"><span>${b.cap}</span><span>${String(n).padStart(2,"0")}</span></div></div></div>`; };
   const tok = b => { return `<div class="grid p-media"><div class="spec"><div class="spec-head mono"><span class="mute">(Tokens) — click to copy</span><span class="mute">${b.tokens.length} values</span></div>
       <div class="tok mono">${b.tokens.map(t=>`<button data-copy="${t[1]}" style="--c:${t[1]}" aria-label="Copy ${t[0]} ${t[1]}"><i></i><span><b>${t[0]}</b><em>${t[1].toUpperCase()}</em></span></button>`).join("")}</div>
@@ -1010,7 +1010,7 @@ document.getElementById("copy").addEventListener("click", e=>{
 
 addEventListener("hashchange", route); route();
 // Warm the list-view previews (about 150KB total) once the page is idle, so hovering shows them instantly.
-(function(){ const go=()=>P.forEach(p=>{ const i=new Image(); i.src=`/work/th-${p.id}-s.webp?v=11091620`; i.decode&&i.decode().catch(()=>{}); });
+(function(){ const go=()=>P.forEach(p=>{ const i=new Image(); i.src=`/work/th-${p.id}-s.webp?v=11101340`; i.decode&&i.decode().catch(()=>{}); });
   if(matchMedia("(hover:hover) and (pointer:fine)").matches){ ("requestIdleCallback" in window) ? requestIdleCallback(go,{timeout:2500}) : setTimeout(go,1200); } })();
 addEventListener("pageshow",e=>{ if(!e.persisted && key()==="home" && !location.hash) scrollTo(0,0) });
 addEventListener("load",()=>{ if(key()==="home" && !location.hash && scrollY<4) scrollTo(0,0) });
