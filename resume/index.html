@@ -312,7 +312,6 @@ header.top{transition:transform .7s cubic-bezier(.2,.7,.2,1),background-color .3
 .h-sub{grid-column:4/11!important;font-size:clamp(20px,2vw,30px)!important;letter-spacing:-.025em!important}
 @media (max-width:860px){.h-sub{grid-column:1/-1!important}}
 .shot-wrap{display:block;overflow:hidden;background:#000}
-.vstage{position:relative;display:flex;align-items:center;justify-content:center;aspect-ratio:16/10;background:#000;overflow:hidden}.vframe{display:block;width:86%;border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.14);box-shadow:0 30px 80px rgba(0,0,0,.6)}.vframe video{display:block;width:100%;height:auto;background:#000}.vtag{position:absolute;left:20px;bottom:16px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.6)}@media (max-width:760px){.p-media figure>.vstage{margin-inline:-16px;width:calc(100% + 32px)}.vframe{width:92%;border-radius:8px}.vtag{left:16px;bottom:10px;font-size:10px}}@media (prefers-reduced-motion:reduce){.vtag::after{content:" · paused"}}
 @media (max-width:760px){.shot-wrap .shot{transform:scale(1.2)}.p-media figure>.shot-wrap{margin-inline:-16px;width:calc(100% + 32px)}}
 @media (max-width:760px){.p-media figure>.shot,.p-media .spec{margin-inline:-16px;width:calc(100% + 32px);max-width:none}.p-media figcaption{padding-top:8px}}
 .glance{padding-top:var(--s4);row-gap:var(--s3)}
@@ -442,12 +441,10 @@ const P = [
       {k:"(Direction)", h:"Google’s brand, treated like a physical material.",
        p:["I led art direction and design. We treated Google’s palette as folded, bent and layered cards with light moving across them, so each bundle had its own personality and still read instantly as Google. Finish a bundle and its card flips, folds and resolves into the Gemini spark.",
           "Type stayed calm and huge so the play could be loud. “Let’s play” did most of the talking."]},
-      {media:[["v-io-splash","Make. Build. Unlock. The splash, live: the icons fold, bend and settle before you press start","full"]]},
       {media:[["m-io-complete","Bundle complete: the card resolves into the Gemini spark","full"]]},
       {media:[["s-b-io-direction","The layered-card language: the bundle shelf, a card mid-flip and the Gemini spark","full"]]},
       {k:"(The Games)", h:"One visual language across every game.",
        p:["With many games in flight at once, the look could drift fast. I set the art direction as a system: the card language, color and type rules, and how every win, badge and progress state looks, so Emoji Code, Sketch Race, Sound in Motion and Color Sense each felt new and still read as one experience."]},
-      {media:[["v-io-carousel","Browsing the builds. Cards swing in 3D and the focused one comes forward","full"]]},
       {media:[["m-io-sound","Emoji Code","full"]]},
       {media:[["m-io-color","Sketch Race","full"]]},
       {media:[["m-io-motion","Sound in Motion","full"]]},
@@ -458,7 +455,6 @@ const P = [
       {k:"(The Reveal)", h:"Everyone played. Everyone unlocked it.",
        p:["Every play anywhere filled one shared bar. When it filled, the date became a build of its own: May 19–20, rendered in the same layered cards, ready to explore and share."]},
       {media:[["m-io-progress","Community progress. Every play fills the bar","full"]]},
-      {media:[["v-io-date-reveal","The reveal, live: the bar fills, the spark lands and the date builds itself","full"]]},
       {media:[["m-io-reveal","The date reveal, May 19–20","full"]]},
       {k:"(The Payoff)", h:"Something to show for it.",
        p:["Players who finished every bundle got badges to post, a hidden remix to unlock and an invitation to make a build their own. Daily reviews with Left Field Labs and weekly check-ins with Google kept every bundle on brand and on schedule through launch."]},
@@ -544,7 +540,6 @@ const P = [
        p:["With Grow, we partnered with the Rock &amp; Roll Hall of Fame on its digital experience. The museum is full of guitars, stage clothes, posters and records. Online, the site was mostly tickets, hours and a list of names.",
           "Our idea was to treat every inductee page like a gallery. I worked on art direction, UX and UI, and led visual direction on the inductee pages, where the objects, the music and the story come together. Here is one inductee, the Rolling Stones, followed down the page."]},
       {process:[["Archive", "Went through the Hall’s archive of photography, objects and recordings for each inductee."], ["Systemize", "Turned the Hall’s fonts and palette into tokens and a component library."], ["Modules", "Designed nine inductee modules, desktop and mobile, in a fixed storytelling order."], ["Scale", "Built 50 inductee pages and the wider site from the same library."]]},
-      {media:[["v-rh-stones-inductee","The Rolling Stones page, scrolled top to bottom: hero, induction, artifacts, impact and influence","full"]]},
       {k:"(Artifacts)", h:"Every object tells part of the story.",
        p:["For each of the 50 inductee pages I designed, I went through the Hall’s archive to choose the photography and the objects that tell that artist’s story. First comes an object from the collection, lit like it sits behind glass, with the story beside it, a button to view it in 3D and footage below. A black Les Paul, a concert poster: the same module carries any object, and the layout bends to fit it."]},
       {media:[["l-rh3-art","From the museum: a black Les Paul you can turn over in 3D","full"]]},
@@ -562,10 +557,6 @@ const P = [
        p:["Influence maps connect each inductee to the artists who shaped them and the ones they shaped, and a timeline walks through the career, so every page leads somewhere else in the Hall."]},
       {media:[["l-rh2-influence","Their influence: who they learned from, and who learned from them","full"]]},
       {media:[["l-rh-timeline","Career milestones, from Ed Sullivan to the Tour of the Americas","full"]]},
-      {k:"(Stories)", h:"The same parts, telling longer stories.",
-       p:["Sonic Connections stretches the library into long-form editorial. “Sorry Ms. Jackson” follows one OutKast song back through the records it borrowed from, with sleeves that spin as you scroll and pink record labels that carry each track’s credits. RRTV does the same for video: the logo turns, and the first scroll grows a row of thumbnails into a full-bleed carousel of performances and speeches."]},
-      {media:[["v-rh-sorry-ms-jackson","Sonic Connections: “Sorry Ms. Jackson,” a hip-hop symphony, scrolled live","full"]]},
-      {media:[["v-rh-rrtv","RRTV: the turning logo, then one scroll grows the thumbnails into a full carousel","full"]]},
       {k:"(The System)", h:"One library runs all of it.",
        p:["The same component library carries the whole site, from inductee heroes and feature blocks to class listings, ticketing and the live induction broadcast."]},
       {media:[["l-rh-feature","A feature block from the library: honoring the Class of 2025","full"]]},
@@ -760,7 +751,6 @@ const ph = (p, i, label, ar) => `<div class="ph" style="--tint:${p.tint};--ar:${
   ${i===0?`<span class="ph-mark">${p.short}</span>`:""}
   <span class="ph-l mono">${label}</span></div>`;
 
-const vid = (k, alt) => `<span class="vstage"><span class="vframe"><video class="mv" src="/work/${k}.mp4?v=11232008" poster="/work/${k}.jpg?v=11232008" muted loop playsinline preload="none" aria-label="${alt}"></video></span><span class="vtag mono">● Live capture</span></span>`;
 const img = (k, alt, eager) => { const d=IMG[k]||[1600,900]; const lock=/^(l|m)-/.test(k); return (lock?'<span class="shot-wrap">':'')+`<img class="shot" src="/work/${k}.webp?v=11101340" alt="${alt}" width="${d[0]}" height="${d[1]}" ${eager?'fetchpriority="high"':'loading="lazy"'} decoding="async">`+(lock?'</span>':''); };
 const USE_COVERS = false; // flip to true once every project has a matching-resolution cover
 const thumb = (p, small) => `<div class="ph ph-th" style="--tint:${p.tint};--ar:3/2"><img src="/work/th-${p.id}${small?"-s":""}.webp?v=11101340" alt="" width="${small?600:1500}" height="${small?400:1000}" ${small?"":'loading="lazy"'} decoding="async"><span class="ph-n mono">${p.n}.00</span>${p.award?`<span class="ph-aw mono">${p.award}</span>`:""}<span class="ph-mark">${p.short}</span></div>`;
@@ -872,7 +862,7 @@ function projectReal(p){
   const alt = t => p.short.replace(/&amp;/g,"&")+" — "+t;
   let n = 0;
   const fig = (it) => { n++; const cls = it[2]==="half"?"m-half":it[2]==="off"?"m-off":"m-full";
-    const media = it[0] && it[0].startsWith("v-") ? vid(it[0].slice(2), alt(it[1])) : it[0] ? img(it[0], alt(it[1]), n===1) : `<div class="ph slot" style="--tint:${p.tint};--ar:${it[2]==="full"?"16/9":it[2]==="half"?"4/3":"3/2"}"><span class="ph-l mono">Image · ${it[1]}</span></div>`;
+    const media = it[0] ? img(it[0], alt(it[1]), n===1) : `<div class="ph slot" style="--tint:${p.tint};--ar:${it[2]==="full"?"16/9":it[2]==="half"?"4/3":"3/2"}"><span class="ph-l mono">Image · ${it[1]}</span></div>`;
     return `<figure class="${cls}">${media}<figcaption class="mono mute"><span>${it[1]}</span><span>${String(n).padStart(2,"0")}</span></figcaption></figure>`; };
   const BPW={desktop:"100%",tablet:"58%",mobile:"30%"}, BPPX={desktop:"1440",tablet:"768",mobile:"390"};
   const bp = b => { n++; const ks=Object.keys(b.bp); const first=ks[0];
@@ -991,17 +981,6 @@ function route(){
   else if(onHome && !goTop && !wasHome && homeY>0){ const y=homeY; scrollTo(0,y); requestAnimationFrame(()=>scrollTo(0,y)); setTimeout(()=>scrollTo(0,y),120); }
   else window.scrollTo(0,0);
   goTop=false;
-  armVideos();
-}
-const RM = matchMedia("(prefers-reduced-motion: reduce)");
-let vio;
-function armVideos(){
-  if(vio) vio.disconnect();
-  const vs=[...app.querySelectorAll("video.mv")]; if(!vs.length) return;
-  if(RM.matches){ vs.forEach(v=>{v.preload="metadata"; v.controls=true}); return; }
-  vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;
-    if(e.isIntersecting){ if(v.preload==="none") v.preload="auto"; const pr=v.play(); if(pr) pr.catch(()=>{}); } else v.pause(); }),{rootMargin:"200px 0px",threshold:.15});
-  vs.forEach(v=>vio.observe(v));
 }
 function setNav(k){ document.querySelectorAll("[data-nav]").forEach(a=>a.toggleAttribute("aria-current", a.dataset.nav===k) && a.setAttribute("aria-current","page")) }
 app.addEventListener("click", e=>{
