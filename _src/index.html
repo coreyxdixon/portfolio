@@ -218,7 +218,7 @@ figcaption{display:flex;justify-content:space-between;gap:16px}
 @media (max-width:520px){.proc{grid-template-columns:1fr}}
 
 .stat b .star{display:inline-block;font-size:.52em;line-height:1;vertical-align:.32em;margin-left:.08em}
-.stats .stat span{max-width:32ch;line-height:1.5}
+.stats .stat span{max-width:32ch;line-height:1.5}.stat .kpi{font-style:normal;font-size:11px;letter-spacing:.04em;text-transform:uppercase;line-height:1.5;max-width:36ch;padding-top:var(--s1);border-top:1px dashed var(--rule,rgba(128,128,128,.35));color:var(--ink)}
 .stat{grid-column:span 4;border-top:1px solid var(--ink);padding-top:var(--s2);display:flex;flex-direction:column;gap:var(--s1)}
 .stat b{font-family:var(--sans);font-size:clamp(40px,5vw,80px);font-weight:500;letter-spacing:-.05em;line-height:1}
 @media (max-width:760px){.stat{grid-column:1/-1}.stat b{font-size:48px}.stats{row-gap:var(--s3)}}
@@ -394,8 +394,8 @@ const P = [
   {id:"google-io", n:"001", client:"Google I/O 2026",co:"Google", short:"Google I/O", disc:"Web Experience", tint:"#A23E1D",
     role:"Art director &amp; designer", platform:"Responsive web", cover:"m-io-play",
     scope:"25 playable builds that unlocked the I/O 2026 date, on desktop and mobile",
-    statsLabel:"(Results)", takeaway:"Our takeaway: a date people earn together travels further than a date they’re handed.",
-    stats:[["Day 1","The community unlocked the I/O date the day it launched"],["5","Gemini-powered game bundles in one visual language"],["5,000+","I/O attendees, plus a worldwide livestream audience"]],
+    statsLabel:"(Impact)", takeaway:"Our takeaway: a date people earn together travels further than a date they’re handed.",
+    stats:[["Day 1","The community unlocked the I/O date the day it launched.","Target: plays per visitor and time to unlock"],["Earned","Badges, a hidden unlock and remixes turned players into the promoters.","Target: shares and AI Studio remixes per player"],["1 look","25 builds across five bundles read as one Google experience.","Target: builds approved in the first brand review"]],
     lead:"I led art direction and design for the experience, partnering with Google’s I/O team and Left Field Labs’ developers on every game",
     team:"With Left Field Labs and the Google I/O team",
     tagline:"Google could have just announced the date. Instead, we built a game the whole community had to play to unlock it.",
@@ -433,8 +433,8 @@ const P = [
   {id:"pga-tour", n:"002", client:"PGA Tour App",co:"PGA Tour", short:"PGA Tour App", disc:"Mobile App", tint:"#1C2B4A",
     role:"Design lead", platform:"iOS · Android", cover:"m-pga2-hero-v6",
     scope:"YourTOUR, live leaderboards, TOURCast shot tracking, scorecards and Watch, on iOS and Android",
-    statsLabel:"(Results)", takeaway:"Our takeaway: organize the app around the players fans follow, and everything else gets simpler.",
-    stats:[["0","Taps to your favorite golfers: YourTOUR leads the home feed"],["9","Product areas redesigned, from onboarding to Watch"],["4.5★","App Store rating for the app, across 45K+ reviews"]],
+    statsLabel:"(Impact)", takeaway:"Our takeaway: organize the app around the players fans follow, and everything else gets simpler.",
+    stats:[["0 taps","YourTOUR puts the golfers you follow at the top of home.","Target: time to favorite-player content"],["Personal","Onboarding asks who you follow before anything else.","Target: new fans following a player in their first session, and return visits"],["4.5★","App Store rating across 45K+ reviews.","Target: hold the rating through the redesign"]],
     lead:"I led design on the app at Shockoe. I owned the visual direction and the UI end to end, and drove it with the Tour’s product, brand and engineering teams",
     team:"With Shockoe and the PGA Tour brand and product teams",
     tagline:"Fans follow players, not tournaments. We rebuilt the PGA Tour app around that.",
@@ -465,8 +465,8 @@ const P = [
   {id:"haskell", n:"003", client:"Haskell Design System",co:"PGA Tour", short:"Haskell", disc:"Design System", tint:"#2F4A35",
     role:"Design system lead", platform:"iOS · Android · Web · Figma", cover:"s-hk3-hero",
     scope:"Tokens, type, color, icons, motion and specs shared across iOS, Android and web",
-    statsLabel:"(The system)", takeaway:"Our takeaway: name tokens for their job, and a big event can get its own look without forking the system.",
-    stats:[["11","Foundation sets, from type and color to motion and art direction"],["3","Platforms, iOS, Android and web, from one source of truth"],["4.5:1","Minimum contrast, built into every Tour theme"]],
+    statsLabel:"(Impact)", takeaway:"Our takeaway: name tokens for their job, and a big event can get its own look without forking the system.",
+    stats:[["1 source","iOS, Android and web build from one set of tokens.","Target: fewer cross-platform UI bugs in QA"],["Themes","Tournaments like The Players restyle without new components.","Target: time to launch an event look"],["4.5:1","Minimum contrast built into every theme.","Target: accessibility issues caught in design, not after release"]],
     lead:"I led the Haskell system at Shockoe, building it alongside the app and owning the foundations and specs that Tour engineers and partners shipped from",
     team:"With Shockoe and the PGA Tour digital, brand and engineering teams",
     tagline:"Every shot, every hole, every screen. One system underneath it all.",
@@ -496,8 +496,8 @@ const P = [
   {id:"rock-hall", award:"Webby Nominee ×2", awardLong:"Webby Awards 2026 Nominee in Music and Cultural Institutions", n:"004", client:"Rock &amp; Roll Hall of Fame",co:"Rock &amp; Roll Hall of Fame", short:"Rock Hall", disc:"Web Experience", tint:"#7D1E22",
     role:"Art direction &amp; UX lead", platform:"Responsive web", cover:"l-rhx-hero-stones",
     scope:"Inductee pages, artifact and archive modules, and one component library behind the whole site",
-    statsLabel:"(Results)", takeaway:"Our takeaway: one ordered set of modules let 50 pages feel individually curated without 50 separate designs.",
-    stats:[["50","Inductee pages I designed, each curated from the Hall’s archive of photography and artifacts"],["9","Inductee page modules I designed: hero, artifact, sound, photos, backstage, quote, essay, influence and timeline"],["514K+","Annual museum visitors, now with the museum online for everyone else"]],
+    statsLabel:"(Impact)", takeaway:"Our takeaway: one ordered set of modules let 50 pages feel individually curated without 50 separate designs.",
+    stats:[["2×","Webby Awards 2026 Nominee in Music and in Cultural Institutions.",""],["Explore","Every inductee page leads to the next through influence maps and timelines.","Target: pages per visit and time on inductee pages"],["Scale","New inductees ship from the library with no new design.","Target: time to publish a new inductee page"]],
     lead:"I designed 50 inductee pages, from digging through the Hall’s archive to curating the photography and artifacts, and collaborated on the design of the wider site, with Grow and the Hall",
     team:"With Grow and the Rock &amp; Roll Hall of Fame team",
     tagline:"Most people will never make it to Cleveland. So we brought the museum to them.",
@@ -533,8 +533,8 @@ const P = [
   {id:"fledge", n:"005", client:"Fledge© Rebrand",co:"GetWyz", short:"Fledge", disc:"Brand System", tint:"#2C4A1E",
     role:"Brand &amp; design system lead", platform:"Brand book · Figma · iOS &amp; web", cover:"s-fl-hero",
     scope:"A new mark, a 69-page brand book and the system behind GetWyz ads, web and product, day and night",
-    statsLabel:"(By the numbers)", takeaway:"Our takeaway: a rebrand doesn’t have to start over. Keep what people trust, then build what teams were missing.",
-    stats:[["69","Pages in the Fledge brand book, from voice and logo to day and night product"],["24","AA-checked color pairings for ads, every one pulled from the Core DS"],["3","Color registers, Primary, Earth and Light, so one voice can speak at three volumes"]],
+    statsLabel:"(Impact)", takeaway:"Our takeaway: a rebrand doesn’t have to start over. Keep what people trust, then build what teams were missing.",
+    stats:[["Instant","Every team shipped on brand from launch: ads, social, web and the app moved to Fledge at once.","Target: off-brand work caught in review"],["1:1","Parity across every touchpoint: the same lockup, color and Wyz from a LinkedIn post to the iOS app, all linked to the Core DS.","Target: design-to-build mismatches"],["Self‑serve","Marketing builds ads from the ad builder without waiting on design.","Target: time from brief to live ad"]],
     lead:"I led the rebrand end to end: the new mark, the Fledge brand book, the ad system and the design system behind GetWyz web and product",
     team:"With the GetWyz team",
     tagline:"GetWyz didn’t need a new bird. It needed the feathers to fly.",
@@ -620,8 +620,8 @@ const P = [
   {id:"dickies", n:"007", client:"Dickies.com",co:"Dickies", short:"Dickies.com", disc:"E-Commerce", tint:"#4E3426",
     role:"UI &amp; visual design lead", platform:"Shopify · Responsive web", cover:"m-dk-home",
     scope:"Home, category, product, Skate, Scrubs, Stories and team pages on Shopify",
-    statsLabel:"(Results)", takeaway:"Our takeaway: shared modules let new lines like Scrubs launch without new templates.",
-    stats:[["100+","Countries, one storefront system for workwear, skate and scrubs"],["7","Page types redesigned on shared parts"],["1","Design language from home to checkout"]],
+    statsLabel:"(Impact)", takeaway:"Our takeaway: shared modules let new lines like Scrubs launch without new templates.",
+    stats:[["Mobile","Product reaches shoppers sooner on the phone.","Target: mobile add-to-cart and conversion"],["Reuse","Scrubs and Skate launched on shared modules, not new templates.","Target: time to launch a new line"],["1 look","One design language from home to checkout.","Target: checkout drop-off"]],
     lead:"I led UI and visual design for the storefront, working with the Dickies brand team, merchandising and partner developers",
     team:"With VF Corporation, the Dickies brand team and partner agencies",
     tagline:"A storefront for people who actually wear the clothes to work.",
@@ -688,8 +688,8 @@ const P = [
   {id:"canvas", n:"009", client:"Canvas Design System",co:"VF Corporation", short:"Canvas", disc:"Design System", tint:"#55552B",
     role:"Design system lead", platform:"Figma · Open source", cover:"s-cv-hero",
     scope:"70+ components and a token layer shared by The North Face, Dickies, Vans and Timberland",
-    statsLabel:"(Results)", takeaway:"Our takeaway: when a brand only edits the first token layer, it can look like itself without redrawing a single component.",
-    stats:[["70+","Components, each documented with its own page"],["60+","Design tokens for color, type and borders"],["4","VF brands building from one system instead of four"]],
+    statsLabel:"(Impact)", takeaway:"Our takeaway: when a brand only edits the first token layer, it can look like itself without redrawing a single component.",
+    stats:[["4 → 1","Dickies, Vans, Timberland and The North Face build from one system.","Target: duplicate components retired"],["Re‑skin","A brand edits one token layer and looks like itself.","Target: time to theme a new brand"],["Shared","Teams ship features from shared parts instead of per brand.","Target: engineering time per feature"]],
     lead:"I led the system’s design, from tokens to components, and worked directly with each VF brand team adopting it",
     team:"With the VF Corporation digital and design system teams",
     tagline:"One system, built from scratch in Figma, that every VF brand can make its own.",
@@ -720,8 +720,8 @@ const P = [
   {id:"smartwool", n:"010", client:"Smartwool.com",co:"Smartwool", short:"Smartwool.com", disc:"E-Commerce", tint:"#245656",
     role:"UX &amp; visual designer", platform:"Responsive web", cover:"m-sw-home",
     scope:"Site architecture, home, activity, collection, category and product pages",
-    statsLabel:"(Results)", takeaway:"Our takeaway: people shop by what they’re about to do, so the front door should lead with activity.",
-    stats:[["5","Page templates rebuilt around how people shop"],["1","Site architecture organized by activity, not product code"],["2","Breakpoints designed for every page"]],
+    statsLabel:"(Impact)", takeaway:"Our takeaway: people shop by what they’re about to do, so the front door should lead with activity.",
+    stats:[["Activity","Shop by run, hike and bike, the way people actually shop.","Target: category click-through from home"],["Stories","Campaigns finally have a home on the site.","Target: campaign-to-product click-through"],["Mobile","Every page designed at two breakpoints.","Target: mobile conversion"]],
     lead:"I owned UX and visual design, from site architecture to final pages, with Smartwool’s digital and brand leads",
     team:"With VF Corporation and the Smartwool digital and brand teams",
     tagline:"Too much great gear and no obvious way in. We redesigned the front door.",
@@ -923,7 +923,7 @@ function projectReal(p){
     </section>
     ${blocks}
     ${p.stats?`<section class="grid p-block"><span class="k mono mute">${p.statsLabel||"(Results)"}</span><h3 class="h h-sub">${p.takeaway||""}</h3></section>
-    <section class="grid stats mono">${p.stats.map(x=>`<div class="stat"><b>${x[0].replace("★",'<span class="star">★</span>')}</b><span class="mute">${x[1]}</span></div>`).join("")}</section>`:""}
+    <section class="grid stats mono">${p.stats.map(x=>`<div class="stat"><b>${x[0].replace("★",'<span class="star">★</span>')}</b><span class="mute">${x[1]}</span>${x[2]?`<em class="kpi mono">${x[2]}</em>`:""}</div>`).join("")}</section>`:""}
     <a class="next" href="/${nx.id}/"><span class="mono mute">Next — N°${nx.n}</span><span class="t">${nx.client} →</span></a>
   </div>`;
 }
